@@ -1,13 +1,11 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h1>BIT PAGES LOGO</h1>
+<hr style="width: 100%; height: 1em; background: #fff; margin: 0 auto;">
 
-
-  <%= devise_error_messages! %>
-
-  <% if resource_name == :user %>
-    <%= render "edit_user" %>
-  <% elsif resource_name == :merchant %>
-    <%= render "edit_merchant" %>
-  <% end %>
+<% if resource_name == :user %>
+  <%= render "edit_user" %>
+<% elsif resource_name == :merchant %>
+  <%= render "edit_merchant" %>
+<% end %>
 
 <h3>Cancel my account</h3>
 

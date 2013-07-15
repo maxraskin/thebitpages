@@ -1,4 +1,13 @@
 <div id="merchant-edit-profile">
+  
+  <h2>Create your Merchant Page</h2>
+  <p>Before you start using The Big Pages, please complete your merchant profile</p>
+
+  <div class="profile-photo">
+    <h2><%= current_merchant.bname %></h2>
+    <p>Carrierwave here</p>
+  </div>
+
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
     <%= devise_error_messages! %>
     
@@ -31,3 +40,4 @@
     </div>
   <% end %>
 </div>
+

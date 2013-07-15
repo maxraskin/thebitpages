@@ -1,4 +1,12 @@
 <div id="individual-edit-profile">
+
+  <h2>Create your profile</h2>
+  <p>Before youstart using The Bit Pages, please complete your profile</p>
+
+  <div class="profile-photo">
+    <h2><%= current_user.name %></h2>
+    <p>Carrierwave here</p>
+  </div>
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
     <%= devise_error_messages! %>
     
