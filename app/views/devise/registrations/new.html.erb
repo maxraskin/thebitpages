@@ -1,9 +1,15 @@
 <h1>BIT PAGES LOGO</h1>
 <!-- div.user-sign-up -->
 <h2>Create a free account</h2>
-<p>to connect with other Bitcoiners and discover merchants who will accept your Bitcoins</p>
-<!-- CHANGE to merchant sign-up with devise -->
-<%= link_to "Sign up as a merchant instead", new_user_registration_path %>
+
+
+<% if resource_name == :user %>
+  <p>to connect with other Bitcoiners and discover merchants who will accept your Bitcoins</p>
+  <%= link_to "sign up as a merchant instead", new_merchant_registration_path %>
+<% elsif resource_name == :merchant %>
+  <p>to claim your merchant page and let Bitcoin users discover you</p>
+  <%= link_to "sign up as an individual instead", new_user_registration_path %>
+<% end %>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
