@@ -21,14 +21,21 @@
 
 <!-- User registration and login buttons below -->
       <div class="span3 merchant-sign-up-button">
-        <div style="background: orange;">Claim your page BUTTON</div>
+        <div style="background: orange;">
+          <%= link_to("Merchants Sign Up", new_user_registration_path) %>
+        </div>
       </div>
+        <!-- Change Devise User Account type! -->
       <div class="span3 individual-sign-up-button">
-        <div style="background: orange;">Sign Up BUTTON</div>
+        <div style="background: orange;">
+          <%= link_to("Individuals Sign Up", new_user_registration_path) %>
+        </div>
       </div>
       <div class="span6 sign-in-button">
-        <p>Already a member?</p>
-        <div style="background: gray;">Sign In</div>
+        <div style="background: gray;">
+          <p>Already a member?</p>
+          <%= link_to("Sign In", user_session_path) %>
+        </div>
     </div>
 
     </div>
