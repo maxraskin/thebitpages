@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130715223624) do
+ActiveRecord::Schema.define(:version => 20130715230146) do
 
   create_table "merchants", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -30,6 +30,17 @@ ActiveRecord::Schema.define(:version => 20130715223624) do
     t.string   "bname"
     t.string   "avatar"
     t.text     "bio"
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "state"
+    t.boolean  "online_business"
+    t.string   "bitcoin_address"
+    t.string   "company_website"
+    t.string   "phone"
+    t.string   "company_affiliation"
+    t.string   "industry"
+    t.string   "twitter"
+    t.integer  "zip_code"
   end
 
   add_index "merchants", ["email"], :name => "index_merchants_on_email", :unique => true
@@ -51,6 +62,13 @@ ActiveRecord::Schema.define(:version => 20130715223624) do
     t.string   "name"
     t.string   "avatar"
     t.text     "bio"
+    t.integer  "zip_code"
+    t.string   "bitcoin_address"
+    t.string   "twitter"
+    t.string   "phone"
+    t.string   "company_affiliation"
+    t.string   "industry"
+    t.string   "job_title"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
