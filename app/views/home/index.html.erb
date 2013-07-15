@@ -1,6 +1,8 @@
 <div class="row" style="border: 1px solid black; padding: 20px;" >
 
+<!-- !!!!!!!! -->
 <!-- Left box -->
+<!-- !!!!!!!! -->
   <div class="span6" style="border: 1px solid red;">
     <div class="row">
       <div class="span6 logo">Bit Pages Logo</div>
@@ -18,13 +20,13 @@
       </div>
 
 <!-- User registration and login buttons below -->
-      <div class="span3">
+      <div class="span3 merchant-sign-up-button">
         <div style="background: orange;">Claim your page BUTTON</div>
       </div>
-      <div class="span3">
+      <div class="span3 individual-sign-up-button">
         <div style="background: orange;">Sign Up BUTTON</div>
       </div>
-      <div class="span6 sign-in">
+      <div class="span6 sign-in-button">
         <p>Already a member?</p>
         <div style="background: gray;">Sign In</div>
     </div>
@@ -32,20 +34,49 @@
     </div>
   </div>
 
+
+<!-- !!!!!!!! -->
 <!-- Right box -->
+<!-- !!!!!!!! -->
   <div class="span6" style="border: 1px solid blue;">
     <div class="row">
-      <div class="span2">Level right-a</div>
-      <div class="span2">Level right-b</div>
-      <div class="span2">Level right-c</div>
+      <div class="span6">
+        <h3>Discover Bitcoin merchants</h3>
+      </div>
+
+<!-- FORMS HERE FOR SEARCH (Generate rails form here) -->
+      <!-- Rails form here -->
+      <div class="span6" style="border: 1px solid black;">
+        <!-- add mag-glass image here  -->
+        <input type="text" placeholder="Search by Category"></input>
+      </div>
+      <div class="span6" style="border: 1px solid black;">
+        <!-- add google-maps marker here -->
+        <input type="text" placeholder="Zip Code narrow down"></input>
+      </div>
+      <div class="span6 search-button">
+        <div style="background: gray;">Search</div>
+      </div>
+
+    </div>
+
+    <!-- !!!!!!! -->
+    <!-- Add Google map here -->
+    <!-- !!!!!!! -->
+    <h4>Google map here</h4>
+    <div class="google-map">
+      
     </div>
   </div>  
 </div>
 
 
+<!-- !!!!!!!! -->
 <!-- !!! ADD MERCHANT STORE VIEW: Merchants recently listed; generate view with rails/jquery -->
+<!-- !!!!!!!! -->
 <div class="row merchants-list">
   <div class="span12">
+  <!-- Fillers for now; fix later with frontend js-->
     <h3>Merchants recently listed on Bit Pages</h3>
     <div class="row">
       <div class="span4 merchant">
@@ -65,7 +96,6 @@
       </div>
     </div>
   </div>
-  <!-- Fillers for now; fix later with frontend js-->
  
 
 </div>
