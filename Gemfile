@@ -9,6 +9,7 @@ gem 'carrierwave'
 gem 'nokogiri', '~> 1.5.0'
 gem 'fog', "~> 1.3.1"
 gem 'rmagick', '2.13.2'
+gem "twitter-bootstrap-rails"
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
