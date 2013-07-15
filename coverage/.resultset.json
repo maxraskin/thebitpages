@@ -14,6 +14,19 @@
         null,
         null
       ],
+      "/Users/AndrewMacAir/MF-projects/Bit_Pages_Project_Folder/bitpages/app/models/merchant.rb": [
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null
+      ],
       "/Users/AndrewMacAir/MF-projects/Bit_Pages_Project_Folder/bitpages/app/controllers/application_controller.rb": [
         1,
         1,
@@ -32,8 +45,21 @@
         1,
         null,
         null
+      ],
+      "/Users/AndrewMacAir/MF-projects/Bit_Pages_Project_Folder/bitpages/app/models/view.rb": [
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null
       ]
     },
-    "timestamp": 1373910190
+    "timestamp": 1373918458
   }
 }

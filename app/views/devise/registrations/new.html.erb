@@ -2,7 +2,7 @@
 <!-- div.user-sign-up -->
 <h2>Create a free account</h2>
 
-
+<!-- Logic for devise user type -->
 <% if resource_name == :user %>
   <p>to connect with other Bitcoiners and discover merchants who will accept your Bitcoins</p>
   <%= link_to "sign up as a merchant instead", new_merchant_registration_path %>
@@ -14,16 +14,36 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :placeholder => "Email", :autofocus => true %></div>
+  <div>
+    <% if resource_name == :merchant %>
+      <%= f.label :bname %><br />
+      <%= f.text_field :bname, :placeholder => "Business Name", :autofocus => true %>
+    <% end %>
+  </div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password, :placeholder => "Password" %></div>
+  <div>
+    <%= f.label :name %><br />
+    <%= f.text_field :name, :placeholder => "Full Name", :autofocus => true %>
+  </div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %></div>
+  <div>
+    <%= f.label :email %><br />
+    <%= f.email_field :email, :placeholder => "Email" %>
+  </div>
 
-  <div><%= f.submit "Sign up" %></div>
+  <div>
+    <%= f.label :password %><br />
+    <%= f.password_field :password, :placeholder => "Password" %>
+  </div>
+
+  <div>
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %>
+  </div>
+
+  <div>
+    <%= f.submit "Sign up" %>
+  </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
