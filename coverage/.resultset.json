@@ -1,0 +1,29 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/AndrewMacAir/MF-projects/Bit_Pages_Project_Folder/bitpages/app/models/user.rb": [
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/Users/AndrewMacAir/MF-projects/Bit_Pages_Project_Folder/bitpages/app/controllers/application_controller.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/AndrewMacAir/MF-projects/Bit_Pages_Project_Folder/bitpages/app/helpers/application_helper.rb": [
+        1,
+        null
+      ]
+    },
+    "timestamp": 1373908279
+  }
+}
