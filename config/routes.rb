@@ -1,11 +1,5 @@
 Bitpages::Application.routes.draw do
 
-  get "users/index"
-
-  get "users/show"
-
-  get "users/update"
-
   authenticated :user do
     root :to => "dashboard#index"
   end
@@ -19,9 +13,10 @@ Bitpages::Application.routes.draw do
   devise_for :users
 
   resources :profile
-
   resources :merchants
   resources :users
+
+  match '/map', :to => "dashboard#map"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

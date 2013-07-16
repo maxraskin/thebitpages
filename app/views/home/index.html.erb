@@ -71,7 +71,7 @@
     <!-- Add Google map here -->
     <!-- !!!!!!! -->
     <h4>Google map here</h4>
-    <div class="google-map">
+    <div class="google-map-box" id="merchant-google-map">
       
     </div>
   </div>  
@@ -86,25 +86,17 @@
   <!-- Fillers for now; fix later with frontend js-->
     <h3>Merchants recently listed on Bit Pages</h3>
     <div class="row">
-      <div class="span4 merchant">
-        <h5>Merchant name A</h5>
-        <p>Category</p>
-        <p>Address A</p>
-      </div>
-      <div class="span4 merchant">
-        <h5>Merchant name B</h5>
-        <p>Category</p>
-        <p>Address B</p>
-      </div>
-      <div class="span4 merchant">
-        <h5>Merchant name C</h5>
-        <p>Category</p>
-        <p>Address C</p>
-      </div>
+      
+      <% @recent_merchants.each do |merchant| %>
+        <div class="span4 merchant">
+          <h5><%= merchant.bname %></h5>
+          <p><%= merchant.industry %></p>
+          <p><%= merchant.street_address %></p>
+          <p><%= merchant.city %>, <%= merchant.state %> <%= merchant.zip_code %></p>
+        </div>
+      <% end %>
     </div>
   </div>
- 
-
 </div>
 
-
+<script>window.onload = loadScript;</script>

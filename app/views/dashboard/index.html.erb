@@ -3,53 +3,20 @@
 <hr style="width: 100%; height: 1em; background: #fff; margin: 0 auto;">
 
 <div class="row">
-
+  
   <div class="span3">
-    <div class="row">
-      <div class="span3">
-        <h4>Name</h4>
-      </div>
-
-      <div class="span3">
-        <h4>edit profile</h4>
-      </div>
-
-      <div class="span3">
-        <h4>view profile</h4>
-      </div>
-
-      <div class="span3">
-        <h4>Inbox</h4>
-      </div>
-
-      <div class="span3">
-        <h4>My network</h4>
-      </div>
-
-      <div class="span3">
-        <h4>Bitcoin address</h4>
-      </div>
-
-      <div class="span3">
-        <p>New York, NY</p>
-        <p>Twitter @johndoe</p> <br />
-        <p>phone</p> <br />
-        <p>Company</p> <br />
-        <p>Category?(news and media)</p> <br />
-        <p>job title</p>
-      </div>
-    </div>  
+    <%= render "leftside_profile" %>
   </div>
 
   <div class="span9">
     <div class="row">
-      <div class="span9">
+      <div class="span9 search">
         <h4>Discover Bitcoin Merchants</h4>
-        <input type="text" placeholder="Search by category (e.g. restaurants, shopping, games)"><br />
-        <input type="text" placeholder="Include your zip code to narrow results to your area"> <br />
-
-        <button>Search</button> <br />
-        <button>Map of Merchants Near Me</button>
+          <%= form_tag map_path, :method => 'post' do %>
+            <%= text_field_tag :category, "Search by category (e.g. restaurants, shopping, games)" %> <br />
+            <%= text_field_tag :zip_code, "Include your zip code to narrow results to your area" %>
+            <%= button_tag "Search", :name => nil, :class => "btn btn-primary" %>
+          <% end %>
       </div>
     </div>
     

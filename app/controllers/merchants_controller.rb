@@ -7,6 +7,11 @@ class MerchantsController < ApplicationController
     gon.merchant = @merchant
   end
 
+  def profile
+    @merchant = current_merchant
+    gon.merchant = @merchant
+  end
+
   def update
   end
 end
