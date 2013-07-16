@@ -1,9 +1,12 @@
 Bitpages::Application.routes.draw do
 
-  root to: "dashboard#index", constraints: lambda { |r| r.env["warden"].authenticate? }
+  authenticated :user, :merchant do
+    root :to => "main#dashboard"
+  end
+
   root :to => "home#index"
-  devise_for :users
   devise_for :merchants
+  devise_for :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
