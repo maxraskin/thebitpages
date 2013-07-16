@@ -42,4 +42,4 @@ function loadScript() {
 //   marker.setMap(map);
 // }
 
-window.onload = loadScript;
+// window.onload = loadScript;
