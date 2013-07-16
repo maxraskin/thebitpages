@@ -1,42 +1,45 @@
 <div class="row">
-  <div class="span3">
+  <div class="span5">
     <div class="row">
-      <div class="span3">
-        <h4>Name</h4>
+      <div class="span5">
+        <p>(Verified Status*****)</p>
+        <h4><%= current_merchant.bname %></h4>
+        <%= image_tag(current_merchant.avatar.url) %>
+        <p>Bitcoin Address: (SCAN!)</p>
+        <img src="" alt="">
       </div>
 
-      <div class="span3">
-        <h4>edit profile</h4>
+      <div class="span5">
+        <p><%= current_merchant.industry %></p>
       </div>
 
-      <div class="span3">
-        <h4>view profile</h4>
-      </div>
-
-      <div class="span3">
-        <h4>Inbox</h4>
-      </div>
-
-      <div class="span3">
-        <h4>My network</h4>
-      </div>
-
-      <div class="span3">
-        <h4>Bitcoin address</h4>
-      </div>
-
-      <div class="span3">
-        <p>New York, NY</p>
-        <p>Twitter @johndoe</p> <br />
-        <p>phone</p> <br />
-        <p>Company</p> <br />
-        <p>Category?(news and media)</p> <br />
-        <p>job title</p>
+      <div class="span5">
+        <p><%= current_merchant.street_address %></p>
+        <p><%= current_merchant.city %>, <%= current_merchant.state %> <%= current_merchant.zip_code %></p>
+        <p><%= current_merchant.company_website %></p>
+        <p><%= current_merchant.twitter %></p>
+        <p><%= current_merchant.phone %></p>
+        <p>VIEW MAP LINK HERE???</p>
       </div>
     </div>  
   </div>
 
-  <div class="span9">
-    span8
+  <div class="span7">
+    <div class="row">
+      <div class="span3">
+        <button>Add to network</button>
+      </div>
+
+      <div class="span3 offset1">
+        <button>Send a message</button>
+      </div>
+    </div>
+
+    <p><%= current_merchant.bio %></p>
+
+    <!-- Google Maps -->
+    <div id="merchant-google-map">
+      
+    </div>
   </div>
 </div>
