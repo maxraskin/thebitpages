@@ -21,17 +21,17 @@ end
 
 
 Given(/^I am logged in as a merchant user$/) do
-  visit('/users/sign_up')
+  visit('/merchants/sign_up')
 
   name = "merchant1"
   email = "merchant1@email.com"
   password = "password"
   password_confirmation = "password"
 
-  fill_in "user_name", :with => name
-  fill_in "user_email", :with => email
-  fill_in "user_password", :with => password
-  fill_in "user_password_confirmation", :with => password_confirmation
+  fill_in "merchant_name", :with => name
+  fill_in "merchant_email", :with => email
+  fill_in "merchant_password", :with => password
+  fill_in "merchant_password_confirmation", :with => password_confirmation
 
   click_button "Create Account"
 end

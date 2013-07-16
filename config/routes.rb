@@ -1,7 +1,11 @@
 Bitpages::Application.routes.draw do
 
-  authenticated :user, :merchant do
-    root :to => "main#dashboard"
+  authenticated :user do
+    root :to => "dashboard#index"
+  end
+
+  authenticated :merchant do
+    root :to => "dashboard#index"
   end
 
   root :to => "home#index"
