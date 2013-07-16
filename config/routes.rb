@@ -1,6 +1,6 @@
 Bitpages::Application.routes.draw do
 
-
+  root to: "dashboard#index", constraints: lambda { |r| r.env["warden"].authenticate? }
   root :to => "home#index"
   devise_for :users
   devise_for :merchants
