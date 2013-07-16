@@ -5,7 +5,7 @@ class DashboardController < ApplicationController
       @recent_merchants = Merchant.last(4).reverse
       @new_members = User.last(3).reverse
     elsif current_merchant.present?
-
+      gon.merchant = current_merchant
     end
   end
 end
