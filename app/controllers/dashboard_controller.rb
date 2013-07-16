@@ -5,6 +5,7 @@ class DashboardController < ApplicationController
   end
 
   def map
+    # get "nearby merchants" here (use GeoKit/PostGIS)
     gon.category = @category = params[:category]
     gon.zip_code = @zip_code = params[:zip_code]
   end

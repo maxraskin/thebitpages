@@ -48,23 +48,13 @@
   <div class="span6" style="border: 1px solid blue;">
     <div class="row">
       <div class="span6">
-        <h3>Discover Bitcoin merchants</h3>
+        <h4>Discover Bitcoin Merchants</h4>
+        <%= form_tag map_path, :method => 'post' do %>
+          <%= text_field_tag :category, "Search by category (e.g. restaurants, shopping, games)" %> <br />
+          <%= text_field_tag :zip_code, "Include your zip code to narrow results to your area" %>
+          <%= button_tag "Search", :name => nil, :class => "btn btn-primary" %>
+        <% end %>
       </div>
-
-<!-- FORMS HERE FOR SEARCH (Generate rails form here) -->
-      <!-- Rails form here -->
-      <div class="span6" style="border: 1px solid black;">
-        <!-- add mag-glass image here  -->
-        <input type="text" placeholder="Search by Category"></input>
-      </div>
-      <div class="span6" style="border: 1px solid black;">
-        <!-- add google-maps marker here -->
-        <input type="text" placeholder="Zip Code narrow down"></input>
-      </div>
-      <div class="span6 search-button">
-        <div style="background: gray;">Search</div>
-      </div>
-
     </div>
 
     <!-- !!!!!!! -->
