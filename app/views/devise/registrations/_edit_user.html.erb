@@ -3,10 +3,13 @@
   <h2>Create your profile</h2>
   <p>Before you start using The Bit Pages, please complete your profile</p>
 
-  
+    
       <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true }) do |f| %>
       <%= devise_error_messages! %>
-      
+        <h2> <%= current_user.name %> </h2>
+
+        
+
         <div>
           <% if current_user.avatar.url.present? %>
             <%= image_tag(current_user.avatar.url) %>
@@ -25,17 +28,51 @@
 
         <div>
           <%= f.label :zip_code %>
-          <%= f.number_field %>
+          <%= f.number_field :zip_code %>
+        </div>
+
+        <div>
+          <%= f.label :bitcoin_address %>
+          <%= f.text_field :bitcoin_address%>
+        </div>
+
+        <div>
+          <%= f.label :twitter %>
+          <%= f.text_field :twitter%>
+        </div>
+
+        <div>
+          <%= f.label :phone %>
+          <%= f.telephone_field :phone%>
+        </div>
+
+        <div>
+          <%= f.label :company_affiliation %>
+          <%= f.text_field :company_affiliation%>
         </div>
         
         <div>
-          <%= f.label :email %><br />
-          <%= f.email_field :email, :autofocus => true %>
+          <%= f.label :industry %>
+          <%= f.text_field :industry%>
+        </div>
+
+        <div>
+          <%= f.label :job_title %>
+          <%= f.text_field :job_title%>
+        </div>
+
+        <div>
+          <%= f.text_area :bio, :placeholder => "Bio / notes about your Bitcoin involvement and who you are looking to connect with in the community (optional)", :size => "10x10" %>
         </div>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
+
+        <div>
+          <%= f.label :email %><br />
+          <%= f.email_field :email, :autofocus => true %>
+        </div>
 
         <div>
           <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
@@ -52,9 +89,7 @@
           <%= f.password_field :current_password %>
         </div>
 
-        <div>
-          <%= f.text_area :bio, :placeholder => "Bio / notes about your Bitcoin involvement and who you are looking to connect with in the community (optional)", :size => "10x10" %>
-        </div>
+        
 
         <div>
           <%= f.submit "Save Profile" %>
