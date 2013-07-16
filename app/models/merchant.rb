@@ -17,8 +17,6 @@ class Merchant < ActiveRecord::Base
                    :lng_column_name => :longitude
 
   def geocode_method
-    # "#{self.location} #{destination.name}"
-    
     "#{self.street_address} #{self.city} #{self.state} #{self.zip_code}"
   end
 end

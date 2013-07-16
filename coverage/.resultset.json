@@ -1,24 +1,91 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/AndrewMacAir/MF-projects/Bit_Pages_Project_Folder/bitpages/app/models/merchant.rb": [
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        14,
+        null,
+        null
+      ],
+      "/Users/AndrewMacAir/MF-projects/Bit_Pages_Project_Folder/bitpages/app/uploaders/avatar_uploader.rb": [
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "/Users/AndrewMacAir/MF-projects/Bit_Pages_Project_Folder/bitpages/app/models/user.rb": [
         1,
         null,
         null,
         null,
         1,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null
-      ],
-      "/Users/AndrewMacAir/MF-projects/Bit_Pages_Project_Folder/bitpages/app/models/merchant.rb": [
-        1,
-        null,
-        null,
-        null,
         1,
         null,
         null,
@@ -36,12 +103,90 @@
         1,
         null
       ],
+      "/Users/AndrewMacAir/MF-projects/Bit_Pages_Project_Folder/bitpages/app/helpers/dashboard_helper.rb": [
+        1,
+        null
+      ],
       "/Users/AndrewMacAir/MF-projects/Bit_Pages_Project_Folder/bitpages/app/helpers/home_helper.rb": [
         1,
         null
       ],
+      "/Users/AndrewMacAir/MF-projects/Bit_Pages_Project_Folder/bitpages/app/helpers/merchants_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/AndrewMacAir/MF-projects/Bit_Pages_Project_Folder/bitpages/app/helpers/profile_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/AndrewMacAir/MF-projects/Bit_Pages_Project_Folder/bitpages/app/helpers/users_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/AndrewMacAir/MF-projects/Bit_Pages_Project_Folder/bitpages/app/controllers/dashboard_controller.rb": [
+        1,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null
+      ],
       "/Users/AndrewMacAir/MF-projects/Bit_Pages_Project_Folder/bitpages/app/controllers/home_controller.rb": [
         1,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null
+      ],
+      "/Users/AndrewMacAir/MF-projects/Bit_Pages_Project_Folder/bitpages/app/controllers/merchants_controller.rb": [
+        1,
+        1,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/Users/AndrewMacAir/MF-projects/Bit_Pages_Project_Folder/bitpages/app/controllers/profile_controller.rb": [
+        1,
+        1,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/AndrewMacAir/MF-projects/Bit_Pages_Project_Folder/bitpages/app/controllers/users_controller.rb": [
+        1,
+        1,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
         1,
         null,
         null
@@ -60,6 +205,6 @@
         null
       ]
     },
-    "timestamp": 1373918458
+    "timestamp": 1374013728
   }
 }
