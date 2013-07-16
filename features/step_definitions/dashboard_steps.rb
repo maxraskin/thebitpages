@@ -17,6 +17,11 @@ end
 Then(/^I should see the individual account user dashboard when I visit the homepage$/) do
   visit('/')
   expect(page).to have_content("individual dashboard")
+  expect(page).to have_content("edit profile")
+  expect(page).to have_content("view profile")
+  expect(page).to have_content("Inbox")
+  expect(page).to have_content("My network")
+  expect(page).to have_content("Bitcoin address")
 end
 
 

@@ -1,0 +1,83 @@
+<div class="row">
+
+  <div class="span3">
+    <div class="row">
+      <div class="span3">
+        <h4>Name</h4>
+      </div>
+
+      <div class="span3">
+        <h4>edit profile</h4>
+      </div>
+
+      <div class="span3">
+        <h4>view profile</h4>
+      </div>
+
+      <div class="span3">
+        <h4>Inbox</h4>
+      </div>
+
+      <div class="span3">
+        <h4>My network</h4>
+      </div>
+
+      <div class="span3">
+        <h4>Bitcoin address</h4>
+      </div>
+
+      <div class="span3">
+        <p>New York, NY</p>
+        <p>Twitter @johndoe</p> <br />
+        <p>phone</p> <br />
+        <p>Company</p> <br />
+        <p>Category?(news and media)</p> <br />
+        <p>job title</p>
+      </div>
+    </div>  
+  </div>
+
+  <div class="span9">
+    <div class="row">
+      <div class="span9">
+        <h4>Discover Bitcoin Merchants</h4>
+        <input type="text" placeholder="Search by category (e.g. restaurants, shopping, games)"><br />
+        <input type="text" placeholder="Include your zip code to narrow results to your area"> <br />
+
+        <button>Search</button> <br />
+        <button>Map of Merchants Near Me</button>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="span6">
+        <div class="row">
+          <h4>Recent Bitcoin merchants listed on The Bit Pages</h4>
+          <div class="span6">
+            <% @recent_merchants.each do |merchant| %>
+            <!-- Add Image here -->
+              <h4><%= merchant.bname %></h4> <br />
+              <p><%= merchant.industry %></p>
+              <p><%= merchant.street_address %></p> <br />
+              <p><%= merchant.city %>, <%= merchant.state %> <%= merchant.zip_code %></p>
+              </p> <br />
+            <% end %>
+          </div>
+        </div>
+      </div>
+    
+      <div class="span3">
+        <div class="row">
+          <h4>New Bit Pages Members</h4>
+          <% @new_members.each do |member| %>
+            <!-- Add Image here -->
+            <h3><%= member.name %></h3> <br />
+            <!-- Mockup shows city and state; but account creation only asks for (optional) zip code -->
+            <p>Zip Code: <%= member.zip_code %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
