@@ -1,0 +1,34 @@
+<div class="row" id="leftside-profile">
+  <div class="span3">
+    <h4><%= current_user.name %></h4>
+  </div>
+
+  <div class="span3">
+    <%= button_to "edit profile", edit_user_registration_path, :method => :get, :class => "btn profile-btn" %>
+  </div>
+
+  <div class="span3">
+    <%= button_to "view profile", user_path(current_user) , :method => :get, :class => "btn profile-btn" %>
+  </div>
+
+  <div class="span3">
+    <%= button_to "Inbox", "#", :method => :get, :class => "btn profile-btn"  %>
+  </div>
+
+  <div class="span3">
+    <%= button_to "My network", "#", :method => :get, :class => "btn profile-btn" %>
+  </div>
+
+  <div class="span3">
+    <h4>Bitcoin address</h4>
+  </div>
+
+  <div class="span3">
+    <p>New York, NY</p>
+    <p>Twitter @johndoe</p> 
+    <p>phone</p> 
+    <p>Company</p> 
+    <p>Category?(news and media)</p> 
+    <p>job title</p>
+  </div>
+</div>  
