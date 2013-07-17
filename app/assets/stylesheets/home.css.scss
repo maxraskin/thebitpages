@@ -36,11 +36,20 @@ footer {
   text-align:center;
 }
 
-#right-box input {
-  width: 80%;
+#right-box {
+  input {
+    width: 80%;
+  }
+
+  h4 {
+    text-align: left;
+    margin-left: 44px;
+  }
 }
 
-#right-box h4 {
-  text-align: left;
-  margin-left: 44px;
+.recent-merchants, .recent-merchants-dashboard, .recent-users-dashboard {
+  img {
+    height: 80px;
+    width: 80px;
+  }
 }

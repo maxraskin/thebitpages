@@ -2,7 +2,7 @@
 
 class AvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
-  process :resize_to_fit => [233, 800]
+  process :resize_to_fill => [150, 150]
 
   # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
   # include Sprockets::Helpers::RailsHelper
