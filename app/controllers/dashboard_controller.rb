@@ -5,12 +5,13 @@ class DashboardController < ApplicationController
   end
 
   def map
-    gon.category = params[:category]
-    gon.zip_code = params[:zip_code]
+    gon.category = @category = params[:category]
+    gon.zip_code = @zip_code = params[:zip_code]
 
-    gon.merchant_array = merchant_array = Merchant.within(10, :origin => @zip_code)
+    gon.merchant_array = @merchant_array = Merchant.within(5, :origin => @zip_code)
 
-    gon.merchant = merchant_array.first
+    center = rand(@merchant_array.length)
+    gon.merchant = @merchant_array[center]
 
   end
 end
