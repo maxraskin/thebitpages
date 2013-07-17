@@ -26,11 +26,13 @@
 
         <div class="row">
           <% @merchant_array.each do |merchant| %>
-            <div class="span3" style="border: 1px solid black">
-              <b><%= merchant.bname %></b> <br />
-              <%= merchant.industry %> <br />
-              <%= merchant.street_address %> <br />
-              <%= merchant.city %>, <%= merchant.state %> <%= merchant.zip_code %>
+            <div class="span4" style="border: 1px solid black">
+                <b><%= merchant.bname %></b> <br />
+                <%= merchant.industry %> <br />  
+              
+                <%= merchant.street_address %> <br />
+                <%= merchant.city %>, <%= merchant.state %> <%= merchant.zip_code %>
+
             </div>
           <% end %>    
         </div>
