@@ -14,27 +14,27 @@
       <img src="./assets/0.7.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2013-07-16T18:28:48-04:00">2013-07-16T18:28:48-04:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2013-07-17T11:12:57-04:00">2013-07-17T11:12:57-04:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">73.77%</span></span>
+    (<span class="covered_percent"><span class="red">70.31%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.93
+         0.92
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>16</b> files in total.
-    <b>61</b> relevant lines. 
+    <b>64</b> relevant lines. 
     <span class="green"><b>45</b> lines covered</span> and
-    <span class="red"><b>16</b> lines missed </span>
+    <span class="red"><b>19</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -62,12 +62,12 @@
       
       <tr>
         <td class="strong"><a href="#bfd2920543ee389f82e0cc0b9005c851f1e59fea" class="src_link" title="app/controllers/dashboard_controller.rb">app/controllers/dashboard_controller.rb</a></td>
-        <td class="red strong">42.86 %</td>
-        <td>13</td>
-        <td>7</td>
+        <td class="red strong">30.0 %</td>
+        <td>18</td>
+        <td>10</td>
         <td>3</td>
-        <td>4</td>
-        <td>0.4</td>
+        <td>7</td>
+        <td>0.3</td>
       </tr>
       
       <tr>
@@ -219,20 +219,20 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="red">54.55%</span></span>
+    (<span class="covered_percent"><span class="red">50.0%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.6
+         0.58
        </span>
     </span> hits/line)
   </h2>
   <a name="Controllers"></a>
   <div>
     <b>6</b> files in total.
-    <b>33</b> relevant lines. 
+    <b>36</b> relevant lines. 
     <span class="green"><b>18</b> lines covered</span> and
-    <span class="red"><b>15</b> lines missed </span>
+    <span class="red"><b>18</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -260,12 +260,12 @@
       
       <tr>
         <td class="strong"><a href="#bfd2920543ee389f82e0cc0b9005c851f1e59fea" class="src_link" title="app/controllers/dashboard_controller.rb">app/controllers/dashboard_controller.rb</a></td>
-        <td class="red strong">42.86 %</td>
-        <td>13</td>
-        <td>7</td>
+        <td class="red strong">30.0 %</td>
+        <td>18</td>
+        <td>10</td>
         <td>3</td>
-        <td>4</td>
-        <td>0.4</td>
+        <td>7</td>
+        <td>0.3</td>
       </tr>
       
       <tr>
@@ -684,11 +684,11 @@
         <div class="source_table" id="bfd2920543ee389f82e0cc0b9005c851f1e59fea">
   <div class="header">
     <h3>app/controllers/dashboard_controller.rb</h3>
-    <h4><span class="red">42.86 %</span> covered</h4>
+    <h4><span class="red">30.0 %</span> covered</h4>
     <div>
-      <b>7</b> relevant lines. 
+      <b>10</b> relevant lines. 
       <span class="green"><b>3</b> lines covered</span> and
-      <span class="red"><b>4</b> lines missed.</span>
+      <span class="red"><b>7</b> lines missed.</span>
     </div>
   </div>
   
@@ -758,16 +758,46 @@
         <li class="never" data-hits="" data-linenumber="11">
           
           
-          <code class="ruby">    </code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="12">
+        <li class="missed" data-hits="0" data-linenumber="12">
+          
+          
+          <code class="ruby">    gon.merchant_array = @merchant_array = Merchant.within(1, :origin =&gt; @zip_code)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="14">
+          
+          
+          <code class="ruby">    gon.merchant = @merchant_array.first</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="16">
+          
+          
+          <code class="ruby">    binding.pry</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="17">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="13">
+        <li class="never" data-hits="" data-linenumber="18">
           
           
           <code class="ruby">end</code>

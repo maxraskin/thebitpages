@@ -49,10 +49,11 @@ describe Merchant do
                                          @merchant4, @merchant5, @merchant6,
                                          @merchant7])
   end
-  
+
   it "should give me the correct array of Merchants, given a specified origin" do
     expect(Merchant.within(5, :origin => @merchant1)).to match_array([@merchant1, @merchant2, @merchant3,
                                          @merchant4, @merchant5, @merchant6])
+    
 
     expect(Merchant.within(1, :origin => @merchant7)).to match_array([@merchant7])
   end

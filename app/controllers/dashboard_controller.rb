@@ -5,9 +5,12 @@ class DashboardController < ApplicationController
   end
 
   def map
-    # get "nearby merchants" here (use GeoKit/PostGIS)
-    gon.category = @category = params[:category]
-    gon.zip_code = @zip_code = params[:zip_code]
-    
+    gon.category = params[:category]
+    gon.zip_code = params[:zip_code]
+
+    gon.merchant_array = merchant_array = Merchant.within(10, :origin => @zip_code)
+
+    gon.merchant = merchant_array.first
+
   end
 end
