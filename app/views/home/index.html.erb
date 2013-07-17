@@ -3,41 +3,45 @@
 <!-- !!!!!!!! -->
 <!-- Left box -->
 <!-- !!!!!!!! -->
-  <div class="span6" style="border: 1px solid red;">
+  <div class="span6">
     <div class="row">
-      <div class="span6 logo">Bit Pages Logo</div>
       <div class="span6">
-        <h4>Lorem ipsum dolor sit amet</h4>
+        <h2>BIT PAGES LOGO</h2>
+        <p>Bringing the Bitcoin world together for the first time</p>
+      </div>
+      <div class="span6">
       </div>
       <div class="span3">
-        <h3>Merchants</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, quae, ratione mollitia delectus hic illo harum neque rerum quo quisquam tempore quas id alias voluptas ex! Unde maxime architecto eos.</p>
+        <h3>MERCHANTS</h3>
+        <p>Do you accept Bitcoins as payment for goods / services? Claim your page today so that customers who want to buy with Bitcoins can find you!</p>
       </div>
 
       <div class="span3">
-        <h3>Individuals</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, fuga placeat provident aperiam soluta autem magni sapiente similique iste molestiae nemo itaque assumenda necessitatibus. Itaque aspernatur asperiores expedita fugiat excepturi.</p>
+        <h3>INDIVIDUALS</h3>
+        <p>Do you use Bitcoins and need help finding merchants that accept them? Sign up today to find out who accepts Bitcoins and to connect with other Bitcoin aficionados!</p>
       </div>
 
 <!-- User registration and login buttons below -->
-      <div class="span3 merchant-sign-up-button">
-        <div style="background: orange;">
-          <%= link_to("Merchants Sign Up", new_merchant_registration_path) %>
-        </div>
+      <div class="span3 sign-in-button">
+        <%= button_to "Claim Your Page", new_merchant_registration_path, :method => :get, :class => "btn btn-warning" %>
       </div>
         <!-- Change Devise User Account type! -->
-      <div class="span3 individual-sign-up-button">
-        <div style="background: orange;">
-          <%= link_to("Individuals Sign Up", new_user_registration_path) %>
-        </div>
+      <div class="span3 sign-in-button">
+        <%= button_to "Sign up", new_user_registration_path, :method => :get, :class => "btn btn-warning" %>
       </div>
-      <div class="span6 sign-in-button">
-        <div style="background: gray;">
-          <p>Already a member?</p>
-          <%= link_to("Sign In", user_session_path) %>
-        </div>
-    </div>
 
+      <div class="span6 offset2">
+        <p>Already a member?</p>
+      </div>
+
+      <div class="span6 offset2">
+        <%= button_to "Merchant Log In", merchant_session_path, :method => :get %>
+      </div>
+      
+      <div class="span6 offset2">
+        <%= button_to "Individual Log In", user_session_path, :method => :get %>
+      </div>
+        
     </div>
   </div>
 
@@ -45,14 +49,14 @@
 <!-- !!!!!!!! -->
 <!-- Right box -->
 <!-- !!!!!!!! -->
-  <div class="span6" style="border: 1px solid blue;">
+  <div class="span6">
     <div class="row">
-      <div class="span6">
+      <div class="span6" id="right-box" > 
         <h4>Discover Bitcoin Merchants</h4>
         <%= form_tag map_path, :method => 'post' do %>
           <%= text_field_tag :category, "Search by category (e.g. restaurants, shopping, games)" %> <br />
-          <%= text_field_tag :zip_code, "Include your zip code to narrow results to your area" %>
-          <%= button_tag "Search", :name => nil, :class => "btn btn-primary" %>
+          <%= text_field_tag :zip_code, "Include your zip code to narrow results to your area" %> <br />
+          <%= button_tag "Search", :name => nil, :class => "sign-in-button" %>
         <% end %>
       </div>
     </div>
@@ -60,13 +64,11 @@
     <!-- !!!!!!! -->
     <!-- Add Google map here -->
     <!-- !!!!!!! -->
-    <h4>Google map here</h4>
     <div class="google-map-box" id="merchant-google-map">
       
     </div>
   </div>  
 </div>
-
 
 <!-- !!!!!!!! -->
 <!-- !!! ADD MERCHANT STORE VIEW: Merchants recently listed; generate view with rails/jquery -->
@@ -79,6 +81,7 @@
       
       <% @recent_merchants.each do |merchant| %>
         <div class="span4 merchant">
+          <%= image_tag(current_merchant.avatar.url) if current_merchant.present? %>
           <h5><%= merchant.bname %></h5>
           <p><%= merchant.industry %></p>
           <p><%= merchant.street_address %></p>
@@ -89,4 +92,6 @@
   </div>
 </div>
 
-<script>window.onload = loadScript;</script>
+<script>
+  window.onload = loadScript;
+</script>

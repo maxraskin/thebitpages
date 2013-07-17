@@ -46,7 +46,6 @@ function addMarker(latitude, longitude, letter, title) {
 
 function populateMap() {
   _.each(gon.merchant_array, function(merchant) {
-    console.log(merchant);
     addMarker(merchant.latitude, merchant.longitude, merchant.bname);
   });
 }

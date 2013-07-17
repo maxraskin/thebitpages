@@ -5,7 +5,7 @@
         <p>(Verified Status*****)</p>
         <h4><%= @merchant.bname %></h4>
         <%= image_tag(@merchant.avatar.url) %>
-        <p>Bitcoin Address: (SCAN!)</p>
+        <p>Bitcoin Address: <%= @merchant.bitcoin_address %></p>
         <img src="" alt="">
       </div>
 
@@ -45,6 +45,7 @@
 
 <!-- Load Google Maps Below -->
 <script>
-  window.onload = loadScript;
+  $(window).load(function() {
+    loadScript();
+  })
 </script>
-
