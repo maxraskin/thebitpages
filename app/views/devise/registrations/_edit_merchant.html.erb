@@ -22,68 +22,45 @@
         <% end %>
       <% end %>
     </div>
+  
+    <div class="row">
+      <div class="span6" style:"width: 100%;">
+          <%= f.text_field :street_address, :placeholder => "Street Address" %>
 
-    <div>
-      <%= f.text_area :bio, :placeholder => "Bio / notes about your Bitcoin involvement and who you are looking to connect with in the community (optional)", :size => "10x10" %>
+          <%= f.text_field :city, :placeholder => "City" %>
+
+          <%= f.text_field :state, :placeholder => "State" %>
+
+          <%= f.text_field :zip_code, :placeholder => "Zip Code" %>
+
+          <%= f.check_box :online_business %>
+          <%= f.label :online_business, "This is an online business - no physical address" %>
+
+          <%= f.text_field :bitcoin_address, :placeholder => "Bitcoin address (optional)" %>
+
+          <%= f.text_field :company_website, :placeholder => "Company website (optional)" %>
+
+       
+          <%= f.telephone_field :phone, :placeholder => "Phone (optional)" %>
+
+          <%= f.text_field :company_affiliation, :placeholder => "Company affiliation (optional)"%>
+            
+          <%= f.text_field :industry, :placeholder => "Industry" %>
+
+          <%= f.text_field :twitter, :placeholder => "Twitter (optional)" %>
+      </div>
+      
+      <div class="span6">
+        <div>
+          <%= f.text_area :bio, :placeholder => "Bio / notes about your Bitcoin involvement and who you are looking to connect with in the community (optional)", :size => "10x10" %>
+        </div>
+      </div>
     </div>
 
-    <div>
-      <%= f.label :street_address %>
-      <%= f.text_field :street_address %>
-    </div>
+
+
 
     <div>
-      <%= f.label :city %>
-      <%= f.text_field :city %>
-    </div>
-
-    <div>
-      <%= f.label :state %>
-      <%= f.text_field :state %>
-    </div>
-
-    <div>
-      <%= f.label :zip_code %>
-      <%= f.number_field :zip_code %>
-    </div>
-
-    <div>
-      <%= f.label :online_business %>
-      <%= f.check_box :online_business %>
-    </div>
-
-    <div>
-      <%= f.label :bitcoin_address %>
-      <%= f.text_field :bitcoin_address %>
-    </div>
-
-    <div>
-      <%= f.label :company_website %>
-      <%= f.text_field :company_website %>
-    </div>
-
-    <div>
-      <%= f.label :phone %>
-      <%= f.telephone_field :phone %>
-    </div>
-
-    <div>
-      <%= f.label :company_affiliation %>
-      <%= f.text_field :company_affiliation%>
-    </div>
-        
-    <div>
-      <%= f.label :industry %>
-      <%= f.text_field :industry %>
-    </div>
-
-    <div>
-      <%= f.label :twitter %>
-      <%= f.text_field :twitter %>
-    </div>
-
-    <div>
-      <%= f.label :email %><br />
       <%= f.email_field :email, :autofocus => true %>
     </div>
 

@@ -1,22 +1,28 @@
-<h1>BIT PAGES LOGO</h1>
-<h2>Create a free account</h2>
+<div class="create-account-header text-center">
+  <h1>BIT PAGES LOGO</h1>
+</div>
 
-<% if resource_name == :user %>
-  <p>to connect with other Bitcoiners and discover merchants who will accept your Bitcoins</p>
-  <%= link_to "sign up as a merchant instead", new_merchant_registration_path %>
-<% elsif resource_name == :merchant %>
-  <p>to claim your merchant page and let Bitcoin users discover you</p>
-  <%= link_to "sign up as an individual instead", new_user_registration_path %>
-<% end %>
-
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>  
-  <% if resource_name == :merchant %>
-    <%= render 'merchant', :f => f %>
-  <% elsif resource_name == :user %>
-    <%= render 'user', :f => f %>
+<div class="text-center account-form">
+  <h2>Create a free account</h2>
+  <% if resource_name == :user %>
+    <p>to connect with other Bitcoiners and discover merchants who will accept your Bitcoins</p>
+    <%= link_to "sign up as a merchant instead", new_merchant_registration_path %>
+  <% elsif resource_name == :merchant %>
+    <p>to claim your merchant page and let Bitcoin users discover you</p>
+    <%= link_to "sign up as an individual instead", new_user_registration_path %>
   <% end %>
-  <p><%= f.submit "Create Account" %></p>
-<% end %>
 
-<%= render "devise/shared/links" %>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>  
+    <% if resource_name == :merchant %>
+      <%= render 'merchant', :f => f %>
+    <% elsif resource_name == :user %>
+      <%= render 'user', :f => f %>
+    <% end %>
+    <p><%= f.submit "Create Account" %></p>
+    <!-- render "devise/shared/links" -->
+  <% end %>
+
+</div>
+
+
