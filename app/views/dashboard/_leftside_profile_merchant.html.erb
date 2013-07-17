@@ -20,15 +20,14 @@
   </div>
 
   <div class="span3">
-    <h4>Bitcoin address</h4>
+    <p><%= current_merchant.bitcoin_address %></p>
   </div>
 
   <div class="span3">
-    <p>New York, NY</p>
-    <p>Twitter @johndoe</p> 
-    <p>phone</p> 
-    <p>Company</p> 
-    <p>Category?(news and media)</p> 
-    <p>job title</p>
+    <p><%= current_merchant.city %>, <%= current_merchant.state %> </p>
+    <p>Twitter: <%= current_merchant.twitter %></p> 
+    <p><%= current_merchant.phone %></p> 
+    <p><%= current_merchant.company_affiliation %></p> 
+    <p><%= current_merchant.industry %></p> 
   </div>
 </div>  
