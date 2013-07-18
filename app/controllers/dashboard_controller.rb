@@ -6,12 +6,17 @@ class DashboardController < ApplicationController
   end
 
   def map
-    gon.category = @category = params[:category]
-    gon.zip_code = @zip_code = params[:zip_code]
+    gon.industry = @industry = params[:category]
+    gon.zip_code = zip_code = params[:zip_code]
 
-    merchant_category_array = Merchant.where(:industry => params[:category])
+    if @industry.present?
+      merchant_industry_array =  Merchant.where("lower(industry) = ?", @industry.downcase)
+      @merchant_array = merchant_industry_array.within(8, :origin => zip_code)
+    else
+      @merchant_array = Merchant.within(8, :origin => zip_code)
+    end      
 
-    gon.merchant_array = @merchant_array = Merchant.within(5, :origin => @zip_code)
+    gon.merchant_array = @merchant_array
 
     center = rand(@merchant_array.length)
     gon.merchant = @merchant_array[center]

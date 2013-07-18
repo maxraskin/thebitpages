@@ -29,7 +29,6 @@
             <div class="span4" style="border: 1px solid black">
                 <b><%= merchant.bname %></b> <br />
                 <%= merchant.industry %> <br />  
-              
                 <%= merchant.street_address %> <br />
                 <%= merchant.city %>, <%= merchant.state %> <%= merchant.zip_code %>
 
@@ -40,7 +39,8 @@
 
       <div class="span4">
         <%= form_tag map_path, :method => 'post' do %>
-          <%= text_field_tag :zip_code, nil, :placeholder => "Include your zip code to narrow results to your area" %>
+          <%= text_field_tag :zip_code, nil, :placeholder => "Enter new zip code to update map" %>
+          <%= hidden_field_tag :category, @industry, :placeholder => "Search by category (e.g. restaurants, shopping, games)" %> <br />
           <%= button_tag "Search", :name => nil, :class => "btn btn-primary" %>
         <% end %>
       </div>
