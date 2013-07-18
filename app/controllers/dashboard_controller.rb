@@ -16,7 +16,6 @@ class DashboardController < ApplicationController
       @merchants = Merchant.within(10, :origin => zip_code)
     end
 
-    gon.merchants = @merchants      
 
     if params[:merchant_map]
       center = rand(@merchants.length)
@@ -26,6 +25,9 @@ class DashboardController < ApplicationController
       gon.merchants = @merchants
       render "search"
     end
+
+    gon.merchants = @merchants      
+    
   end
 
   def search

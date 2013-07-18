@@ -56,7 +56,7 @@
         <%= form_tag map_path, :method => 'post' do %>
           <%= text_field_tag :category, nil, :placeholder => "Search by category (e.g. restaurants, shopping, games)" %> <br />
           <%= text_field_tag :zip_code, nil, :placeholder => "Include your zip code to narrow results to your area" %> <br />
-          <%= button_tag "Search", :name => nil, :class => "sign-in-button" %>
+          <%= button_tag "Search", :name => "submit_search", :class => "sign-in-button btn btn-primary" %>
         <% end %>
       </div>
     </div>

@@ -12,8 +12,10 @@
   <div class="span3">
     <% if current_merchant.present? %>
       <%= render "leftside_profile_merchant" %>
+    <% elsif current_user.present? %>
+      <%= render "leftside_profile_user" %>m
     <% else %>
-      <%= render "leftside_profile_user" %>
+      <%= render "leftside_profile_unregistered" %>
     <% end %>
   </div>
 
