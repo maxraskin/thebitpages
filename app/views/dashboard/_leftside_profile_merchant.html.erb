@@ -4,6 +4,10 @@
   </div>
 
   <div class="span3">
+    <%= image_tag current_merchant.avatar.url %>
+  </div>
+
+  <div class="span3">
     <%= button_to "edit profile", edit_merchant_registration_path, :method => :get, :class => "btn profile-btn" %>
   </div>
 

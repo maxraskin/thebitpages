@@ -1,0 +1,32 @@
+<div class="span4 nearby-merchants">
+  <h4>Nearby Merchants</h4>
+  <% @merchants.each do |merchant| %>
+    <div class="each-merchant">
+      <div class="row">
+
+        <div class="span0 overlay">
+         <h5>(#)</h5>
+        </div>
+
+        <div class="span0 bname">
+          <h5><%= merchant.bname %></h5>
+          <p><%= merchant.industry %></p>
+        </div>
+
+        <div class="span0 address">
+          <p><%= merchant.street_address %></p>
+          <p><%= merchant.city %>, <%= merchant.state %> <%= merchant.zip_code %></p>
+        </div>
+
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+

@@ -9,11 +9,11 @@
 
 <div class="row">
 
-  <div class="span3">
+  <div class="span2 offset1">
     <% if current_merchant.present? %>
       <%= render "leftside_profile_merchant" %>
     <% elsif current_user.present? %>
-      <%= render "leftside_profile_user" %>m
+      <%= render "leftside_profile_user" %>
     <% else %>
       <%= render "leftside_profile_unregistered" %>
     <% end %>
@@ -30,18 +30,8 @@
       </div>
 
       <div class="span3">
-        <h4>Nearby Merchants</h4>
-
         <div class="row">
-          <% @merchants.each do |merchant| %>
-            <div class="span4" style="border: 1px solid black">
-                <b><%= merchant.bname %></b> <br />
-                <%= merchant.industry %> <br />  
-                <%= merchant.street_address %> <br />
-                <%= merchant.city %>, <%= merchant.state %> <%= merchant.zip_code %>
-
-            </div>
-          <% end %>    
+          <%= render "nearby_merchants" %>
         </div>
       </div>
 

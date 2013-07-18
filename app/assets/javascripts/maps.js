@@ -9,6 +9,7 @@ function initialize() {
 
   map = new google.maps.Map(document.getElementById("merchant-google-map"), mapOptions);
 
+
 }
 
 function loadScript(populateCheck) {
