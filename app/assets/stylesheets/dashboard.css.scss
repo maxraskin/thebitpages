@@ -7,3 +7,10 @@
   width: 100%;
   border: 1px solid black;
 }
+
+.recent-merchants, .recent-merchants-dashboard, .recent-users-dashboard {
+  img {
+    height: 80px;
+    width: 80px;
+  }
+}

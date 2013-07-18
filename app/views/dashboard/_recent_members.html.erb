@@ -4,7 +4,7 @@
       <h4>New Bit Pages Members</h4>
       <% @new_members.each do |member| %>
         <%= image_tag(member.avatar.url) if member.avatar.url.present? %>
-        <h3><%= member.name %></h3> <br />
+        <h4><%= member.name %></h4> <br />
         <!-- Mockup shows city and state; but account creation only asks for (optional) zip code -->
         <p>Zip Code: <%= member.zip_code %></p>
       <% end %>
