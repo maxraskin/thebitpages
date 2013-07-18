@@ -1,15 +1,9 @@
 <h1>Bit Pages Logo (dashboard)</h1>
-<% if flash[:notice] %>
-    <div class="notice">
-      <h3>Flash_Notice: </h3>
-      <%= flash[:notice] %>
-    </div>
-  <% end %>
 <hr style="width: 100%; height: 1em; background: #fff; margin: 0 auto;">
 
 <div class="row">
 
-  <div class="span2 offset1">
+  <div class="span2 offset1 profile">
     <% if current_merchant.present? %>
       <%= render "leftside_profile_merchant" %>
     <% elsif current_user.present? %>

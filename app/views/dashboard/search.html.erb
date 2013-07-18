@@ -3,7 +3,7 @@
 
 <div class="row">
   
-  <div class="span3">
+  <div class="span2 offset1 profile">
     <% if current_merchant.present? %>
       <%= render "leftside_profile_merchant" %>
     <% elsif current_user.present?%>
@@ -19,8 +19,8 @@
     
     <div class="row">
       <div class="span6">
+        <h4>Search Results for Merchants: </h4>
         <div class="row">
-          <h4>Search Results for Merchants: </h4>
           <%= render "merchant_list" %>
         </div>
       </div>

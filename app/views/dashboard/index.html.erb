@@ -2,10 +2,10 @@
 <hr style="width: 100%; height: 1em; background: #fff; margin: 0 auto;">
 
 <div class="row">
-  <div class="span2 offset1 leftside-profile">
+  <div class="span2 offset1 profile">
     <% if current_merchant.present? %>
       <%= render "leftside_profile_merchant" %>
-    <% elsif current_user.present %>
+    <% elsif current_user.present? %>
       <%= render "leftside_profile_user" %>
     <% else %>
       <%= render "leftside_profile_unregistered" %>
