@@ -18,8 +18,10 @@ class DashboardController < ApplicationController
 
 
     if params[:merchant_map]
-      center = rand(@merchants.length)
-      gon.merchant = @merchants[center] 
+      center = Geocoder::Calculations.geographic_center(@merchants)
+      # gon.merchant = Merchant.closest(:origin => center).first
+      gon.center = Geocoder::Calculations.geographic_center(@merchants)
+      # binding.pry
     elsif params[:submit_search]
       @new_members = User.last(3).reverse
       gon.merchants = @merchants
@@ -27,7 +29,7 @@ class DashboardController < ApplicationController
     end
 
     gon.merchants = @merchants      
-    
+
   end
 
   def search
