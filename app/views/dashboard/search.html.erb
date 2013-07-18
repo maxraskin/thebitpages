@@ -1,5 +1,4 @@
-
-<h1>Bit Pages Logo (dashboard)</h1>
+<h1>Bit Pages Logo (search results)</h1>
 <hr style="width: 100%; height: 1em; background: #fff; margin: 0 auto;">
 
 <div class="row">
@@ -28,9 +27,9 @@
     <div class="row">
       <div class="span6">
         <div class="row">
-          <h4>Recent Bitcoin merchants listed on The Bit Pages</h4>
+          <h4>Search Results for Merchants: </h4>
           <div class="span6 recent-merchants-dashboard" >
-            <% @recent_merchants.each do |merchant| %>
+            <% @merchants.each do |merchant| %>
               <%= image_tag(merchant.avatar.url) if merchant.avatar.url.present? %>
               <h4><%= merchant.bname %></h4> <br />
               <p><%= merchant.industry %></p>

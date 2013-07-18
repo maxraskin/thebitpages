@@ -17,6 +17,7 @@ Bitpages::Application.routes.draw do
   resources :users
 
   match '/map', :to => "dashboard#map"
+  match '/search', :to => "dashboard#search"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

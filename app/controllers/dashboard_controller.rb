@@ -2,7 +2,6 @@ class DashboardController < ApplicationController
   def index
     @recent_merchants = Merchant.last(4).reverse
     @new_members = User.last(3).reverse
-
   end
 
   def map
@@ -11,15 +10,24 @@ class DashboardController < ApplicationController
 
     if @industry.present?
       merchant_industry_array =  Merchant.where("lower(industry) = ?", @industry.downcase)
-      @merchant_array = merchant_industry_array.within(8, :origin => zip_code)
+
+      @merchants = merchant_industry_array.within(10, :origin => zip_code)
     else
-      @merchant_array = Merchant.within(8, :origin => zip_code)
-    end      
+      @merchants = Merchant.within(10, :origin => zip_code)
+    end
 
-    gon.merchant_array = @merchant_array
+    gon.merchants = @merchants      
 
-    center = rand(@merchant_array.length)
-    gon.merchant = @merchant_array[center]
+    if params[:merchant_map]
+      center = rand(@merchants.length)
+      gon.merchant = @merchants[center] 
+    elsif params[:submit_search]
+      @new_members = User.last(3).reverse
+      gon.merchants = @merchants
+      render "search"
+    end
+  end
 
+  def search
   end
 end
