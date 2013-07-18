@@ -39,8 +39,10 @@
       </div>
 
       <div class="span4">
-        <input type="text" id="new-zip-code" placeholder="Enter new zip code to update map">
-        <button id="new-zip-code-button">Update map</button>
+        <%= form_tag map_path, :method => 'post' do %>
+          <%= text_field_tag :zip_code, nil, :placeholder => "Include your zip code to narrow results to your area" %>
+          <%= button_tag "Search", :name => nil, :class => "btn btn-primary" %>
+        <% end %>
       </div>
     </div>
   </div>

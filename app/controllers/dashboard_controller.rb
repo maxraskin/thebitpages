@@ -9,6 +9,8 @@ class DashboardController < ApplicationController
     gon.category = @category = params[:category]
     gon.zip_code = @zip_code = params[:zip_code]
 
+    merchant_category_array = Merchant.where(:industry => params[:category])
+
     gon.merchant_array = @merchant_array = Merchant.within(5, :origin => @zip_code)
 
     center = rand(@merchant_array.length)
