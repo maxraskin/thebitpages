@@ -12,48 +12,18 @@
   </div>
 
   <div class="span9">
-    <div class="row">
-      <div class="span9 search">
-        <h4>Discover Bitcoin Merchants</h4>
-        <%= form_tag map_path, :method => 'post' do %>
-          <%= text_field_tag :category, nil, :placeholder => "Search by category (e.g. restaurants, shopping, games)" %> <br />
-          <%= text_field_tag :zip_code, nil, :placeholder => "Include your zip code to narrow results to your area" %> <br />
-          <%= button_tag "Search", :name => "submit_search", :class => "btn btn-primary" %>
-          <%= button_tag "Map of Merchants Near Me", :name => "merchant_map", :class => "btn btn-primary" %>
-        <% end %>
-      </div>
-    </div>
+
+    <%= render "discover_merchants" %>
     
     <div class="row">
       <div class="span6">
         <div class="row">
           <h4>Search Results for Merchants: </h4>
-          <div class="span6 recent-merchants-dashboard" >
-            <% @merchants.each do |merchant| %>
-              <%= image_tag(merchant.avatar.url) if merchant.avatar.url.present? %>
-              <h4><%= merchant.bname %></h4> <br />
-              <p><%= merchant.industry %></p>
-              <p><%= merchant.street_address %></p> <br />
-              <p><%= merchant.city %>, <%= merchant.state %> <%= merchant.zip_code %></p>
-              </p> <br />
-            <% end %>
-          </div>
+          <%= render "merchant_list" %>
         </div>
       </div>
     
-      <div class="span3">
-        <div class="row">
-          <div class="recent-users-dashboard">
-            <h4>New Bit Pages Members</h4>
-            <% @new_members.each do |member| %>
-              <%= image_tag(member.avatar.url) if member.avatar.url.present? %>
-              <h3><%= member.name %></h3> <br />
-              <!-- Mockup shows city and state; but account creation only asks for (optional) zip code -->
-              <p>Zip Code: <%= member.zip_code %></p>
-            <% end %>
-          </div>
-        </div>
-      </div>
+      <%= render "recent_members" %>
     </div>
   </div>
 
