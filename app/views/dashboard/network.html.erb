@@ -1,0 +1,9 @@
+<h2>Your MerchantFriends</h2>
+<ul>
+  <% @user.merchant_friendships.each do |merchant_friendship| %>
+  <li>
+    <%= merchant_friendship.merchant_friend.bname %>
+    (<%= link_to "remove friend", merchant_friendship, :method => :delete %>)
+  </li>
+  <% end %>  
+</ul>

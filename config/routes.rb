@@ -21,6 +21,7 @@ Bitpages::Application.routes.draw do
 
   match '/map', :to => "dashboard#map"
   match '/search', :to => "dashboard#search"
+  match '/network', :to => "dashboard#network"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

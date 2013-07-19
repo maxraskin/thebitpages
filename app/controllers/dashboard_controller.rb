@@ -32,6 +32,14 @@ class DashboardController < ApplicationController
 
   end
 
+  def network
+    if current_user.present?
+      @user = current_user
+    elsif current_merchant.present?
+      @user = current_merchant
+    end
+  end
+
   def search
   end
 end

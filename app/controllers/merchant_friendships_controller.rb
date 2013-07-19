@@ -7,13 +7,13 @@ class MerchantFriendshipsController < ApplicationController
   def create
     @friendship = current_merchant.merchant_friendships.build(:merchant_friend_id => params[:merchant_friend_id])
     if @friendship.save
-      redirect_to root_url
+      redirect_to merchants_url
     end
   end
 
   def destroy
     @friendship = current_merchant.merchant_friendships.find(params[:id])
     @friendship.destroy
-    redirect_to current_merchant
+    redirect_to merchants_url
   end
 end

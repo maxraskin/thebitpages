@@ -1,11 +1,14 @@
 <h1>merchants#index</h1>
-<p>Find me in app/views/merchants/index.html.erb</p>
 
-<% for merchant in @merchants %>
+<% @merchants.each do |merchant| %>
   <div class="merchant">
     <p>
-      <strong><%=h merchant.name %></strong>
-      <%= link_to "Add Friend", merchant_friendships_path(:merchant_friend_id => merchant), :method => :post %>
+      <strong><%=h merchant.bname %></strong>
+      <% unless current_merchant.merchant_friendships.include?(MerchantFriendship.find_by_merchant_friend_id(merchant.id)) %>
+        <%= link_to "Add Friend", merchant_friendships_path(:merchant_friend_id => merchant), :method => :post %>
+      <% else %>
+        <i>Already Added!</i>
+      <% end %>
       <div class="clear"></div>
     </p>
   </div>
