@@ -1,5 +1,9 @@
 Bitpages::Application.routes.draw do
 
+  get "user_friendships/create"
+
+  get "user_friendships/destroy"
+
   authenticated :user do
     root :to => "dashboard#index"
   end
@@ -15,6 +19,7 @@ Bitpages::Application.routes.draw do
   resources :profile
   resources :merchants
   resources :users
+  resources :user_friendships
 
   match '/map', :to => "dashboard#map"
 

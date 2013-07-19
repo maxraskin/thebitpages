@@ -12,6 +12,7 @@ gem 'rmagick', '2.13.2'
 gem "twitter-bootstrap-rails"
 gem "gon"
 gem "geokit-rails3"
+gem "rqrcode"
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
