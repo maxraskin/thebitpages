@@ -4,10 +4,18 @@
   <div class="user">
     <p>
       <strong><%=h user.name %></strong>
-      <% unless current_user.user_friendships.include?(UserFriendship.find_by_user_friend_id(user.id)) %>
-        <%= link_to "Add Friend", user_friendships_path(:user_friend_id => user), :method => :post %>
-      <% else %>
-        <i>Already Added!</i>
+      <% if current_user.present? %>
+        <% unless current_user.user_friendships.include?(UserFriendship.find_by_user_friend_id(user.id)) %>
+          <%= link_to "Add Friend", user_friendships_path(:user_friend_id => user), :method => :post %>
+        <% else %>
+          <i>Already Added!</i>
+        <% end %>
+      <% elsif current_merchant.present? %>
+        <% unless current_merchant.merchant_user_friendships.include?(MerchantUserFriendship.find_by_user_id(user.id)) %>
+          <%= link_to "Add Friend", merchant_user_friendships_path(:user_id => user), :method => :post %>
+        <% else %>
+          <i>Already Added!</i>
+        <% end %>
       <% end %>
       <div class="clear"></div>
     </p>
