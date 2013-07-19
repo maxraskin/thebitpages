@@ -16,6 +16,9 @@ class Merchant < ActiveRecord::Base
   acts_as_mappable :lat_column_name => :latitude,
                    :lng_column_name => :longitude
 
+  has_many :merchant_friendships
+  has_many :merchant_friends, :through => :merchant_friendships
+
   def geocode_method
     "#{self.street_address} #{self.city} #{self.state} #{self.zip_code}"
   end

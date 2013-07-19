@@ -1,2 +1,12 @@
-<h1>Merchants#index</h1>
+<h1>merchants#index</h1>
 <p>Find me in app/views/merchants/index.html.erb</p>
+
+<% for merchant in @merchants %>
+  <div class="merchant">
+    <p>
+      <strong><%=h merchant.name %></strong>
+      <%= link_to "Add Friend", merchant_friendships_path(:merchant_friend_id => merchant), :method => :post %>
+      <div class="clear"></div>
+    </p>
+  </div>
+<% end %>
