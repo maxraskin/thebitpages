@@ -4,6 +4,10 @@
   </div>
 
   <div class="span3">
+    <%= image_tag current_merchant.avatar.url %>
+  </div>
+
+  <div class="span3">
     <%= button_to "edit profile", edit_merchant_registration_path, :method => :get, :class => "btn profile-btn" %>
   </div>
 
@@ -17,6 +21,10 @@
 
   <div class="span3">
     <%= button_to "My network", "#", :method => :get, :class => "btn profile-btn" %>
+  </div>
+  
+  <div>
+    <img src="https://chart.googleapis.com/chart?chs=200x200&amp;cht=qr&amp;chl=Hello%20world&amp;choe=UTF-8&amp;chld=" alt="QR code"> 
   </div>
 
   <div class="span3">

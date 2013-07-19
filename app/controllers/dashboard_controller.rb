@@ -16,16 +16,20 @@ class DashboardController < ApplicationController
       @merchants = Merchant.within(10, :origin => zip_code)
     end
 
-    gon.merchants = @merchants      
 
     if params[:merchant_map]
-      center = rand(@merchants.length)
-      gon.merchant = @merchants[center] 
+      center = Geocoder::Calculations.geographic_center(@merchants)
+      # gon.merchant = Merchant.closest(:origin => center).first
+      gon.center = Geocoder::Calculations.geographic_center(@merchants)
+      # binding.pry
     elsif params[:submit_search]
       @new_members = User.last(3).reverse
       gon.merchants = @merchants
       render "search"
     end
+
+    gon.merchants = @merchants      
+
   end
 
   def search

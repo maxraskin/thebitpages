@@ -5,3 +5,30 @@
 .profile-photo {
   
 }
+
+.create-account {
+  text-align: center;
+}
+
+.create-account-header {
+  margin: 0 auto;
+  h1 {
+    margin-bottom: 30px;
+  }
+}
+
+.account-form {
+  border: 1px solid #E9E9E9;
+  width: 75%;
+  margin: 0 auto;
+  height: 380px;
+  padding-top: 60px;
+  padding-bottom:0;
+}
+
+.home-login {
+  p, a {
+    margin-bottom: 0;
+    text-align: center;
+  }
+}

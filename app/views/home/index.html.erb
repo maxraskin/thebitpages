@@ -5,12 +5,12 @@
 <!-- !!!!!!!! -->
   <div class="span6">
     <div class="row">
-      <div class="span6">
+      
+      <header class="span6">
         <h2>BIT PAGES LOGO</h2>
         <p>Bringing the Bitcoin world together for the first time</p>
-      </div>
-      <div class="span6">
-      </div>
+      </header>
+      
       <div class="span3">
         <h3>MERCHANTS</h3>
         <p>Do you accept Bitcoins as payment for goods / services? Claim your page today so that customers who want to buy with Bitcoins can find you!</p>
@@ -25,21 +25,15 @@
       <div class="span3 sign-in-button">
         <%= button_to "Claim Your Page", new_merchant_registration_path, :method => :get, :class => "btn btn-warning" %>
       </div>
-        <!-- Change Devise User Account type! -->
+
       <div class="span3 sign-in-button">
         <%= button_to "Sign up", new_user_registration_path, :method => :get, :class => "btn btn-warning" %>
       </div>
 
-      <div class="span6 offset2">
+      <div class="span6 home-login">
         <p>Already a member?</p>
-      </div>
-
-      <div class="span6 offset2">
-        <%= button_to "Merchant Log In", merchant_session_path, :method => :get %>
-      </div>
-      
-      <div class="span6 offset2">
-        <%= button_to "Individual Log In", user_session_path, :method => :get %>
+        <p><%= link_to "Merchant Log In", merchant_session_path, :method => :get %></p>
+        <p><%= link_to "Individual Log In", user_session_path, :method => :get %></p>
       </div>
         
     </div>
@@ -56,7 +50,7 @@
         <%= form_tag map_path, :method => 'post' do %>
           <%= text_field_tag :category, nil, :placeholder => "Search by category (e.g. restaurants, shopping, games)" %> <br />
           <%= text_field_tag :zip_code, nil, :placeholder => "Include your zip code to narrow results to your area" %> <br />
-          <%= button_tag "Search", :name => nil, :class => "sign-in-button" %>
+          <%= button_tag "Search", :name => "submit_search", :class => "sign-in-button btn btn-primary" %>
         <% end %>
       </div>
     </div>

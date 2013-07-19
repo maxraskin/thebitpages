@@ -1,15 +1,5 @@
 Bitpages::Application.routes.draw do
 
-  get "merchant_friendships/index"
-
-  get "merchant_friendships/create"
-
-  get "merchant_friendships/destroy"
-
-  get "user_friendships/create"
-
-  get "user_friendships/destroy"
-
   authenticated :user do
     root :to => "dashboard#index"
   end
