@@ -1,9 +1,10 @@
-<h2>Your MerchantFriends</h2>
+<h2><%= current_merchant.bname %>'s network</h2>
 <div class="row">
   <div class="span5">
+    <h4>Merchants</h4>
     <% @user.merchant_friendships.each do |merchant_friendship| %>
     <div class="row">
-      <div class="span5 recent-merchants-dashboard" >
+      <div class="span5 recent-merchants-dashboard">
       <%= merchant_friendship.merchant_friend.bname %>
       (<%= link_to "remove friend", merchant_friendship, :method => :delete %>)
 

@@ -14,10 +14,12 @@
           <div class="span2 address" >
             <p><%= merchant.street_address %></p>
             <p><%= merchant.city %>, <%= merchant.state %> <%= merchant.zip_code %></p>
-            <% if current_merchant.merchant_friendships.include?(MerchantFriendship.find_by_merchant_friend_id(merchant.id)) %>
-              <b><i>Already Added!</i></b>
-            <% else %>
-              <%= link_to "Add to Network", merchant_friendships_path(:merchant_friend_id => merchant), :method => :post, :remote => true %>
+            <% if current_merchant.present? %>
+              <% if current_merchant.merchant_friendships.include?(MerchantFriendship.find_by_merchant_friend_id(merchant.id)) %>
+                <b><i>Already Added!</i></b>
+              <% else %>
+                <%= link_to "Add to Network", merchant_friendships_path(:merchant_friend_id => merchant), :method => :post, :remote => true %>
+              <% end %>
             <% end %>
           </div>
         </div>
