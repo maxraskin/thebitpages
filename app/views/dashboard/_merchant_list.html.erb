@@ -1,0 +1,10 @@
+<div class="span6 recent-merchants-dashboard" >
+  <% @merchants.each do |merchant| %>
+    <%= image_tag(merchant.avatar.url) if merchant.avatar.url.present? %>
+    <h4><%= merchant.bname %></h4> <br />
+    <p><%= merchant.industry %></p>
+    <p><%= merchant.street_address %></p> <br />
+    <p><%= merchant.city %>, <%= merchant.state %> <%= merchant.zip_code %></p>
+    </p> <br />
+  <% end %>
+</div>

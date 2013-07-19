@@ -1,0 +1,13 @@
+<div class="span3">
+  <div class="row">
+    <div class="recent-users-dashboard">
+      <h4>New Bit Pages Members</h4>
+      <% @new_members.each do |member| %>
+        <%= image_tag(member.avatar.url) if member.avatar.url.present? %>
+        <h4><%= member.name %></h4> <br />
+        <!-- Mockup shows city and state; but account creation only asks for (optional) zip code -->
+        <p>Zip Code: <%= member.zip_code %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
