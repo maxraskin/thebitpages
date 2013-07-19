@@ -14,6 +14,6 @@ class MerchantFriendshipsController < ApplicationController
   def destroy
     @friendship = current_merchant.merchant_friendships.find(params[:id])
     @friendship.destroy
-    redirect_to merchants_url
+    redirect_to network_url
   end
 end

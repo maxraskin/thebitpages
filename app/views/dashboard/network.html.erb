@@ -1,9 +1,26 @@
 <h2>Your MerchantFriends</h2>
-<ul>
-  <% @user.merchant_friendships.each do |merchant_friendship| %>
-  <li>
+<% @user.merchant_friendships.each do |merchant_friendship| %>
+  <!-- This is just Merchant_list TEMPLATE! -->
+  <div class="span12 recent-merchants-dashboard" >
     <%= merchant_friendship.merchant_friend.bname %>
-    (<%= link_to "remove friend", merchant_friendship, :method => :delete %>)
-  </li>
-  <% end %>  
-</ul>
+  (<%= link_to "remove friend", merchant_friendship, :method => :delete %>)
+
+    <div class="each-merchant">
+      <div class="row">
+        <div class="span1">
+          <%= image_tag(merchant_friendship.merchant_friend.avatar.url) if merchant_friendship.merchant_friend.avatar.url.present? %>
+        </div>
+
+        <div class="span1 bname">
+          <h5><%= merchant_friendship.merchant_friend.bname %></h5>
+          <p><%= merchant_friendship.merchant_friend.industry %></p>
+        </div>
+
+        <div class="span2 address" >
+          <p><%= merchant_friendship.merchant_friend.street_address %></p>
+          <p><%= merchant_friendship.merchant_friend.city %>, <%= merchant_friendship.merchant_friend.state %> <%= merchant_friendship.merchant_friend.zip_code %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
