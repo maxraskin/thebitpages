@@ -1,5 +1,13 @@
 Bitpages::Application.routes.draw do
 
+  get "merchant_user_friendships/controller"
+
+  get "merchant_user_friendships/index"
+
+  get "merchant_user_friendships/create"
+
+  get "merchant_user_friendships/update"
+
   authenticated :user do
     root :to => "dashboard#index"
   end
@@ -15,6 +23,7 @@ Bitpages::Application.routes.draw do
   resources :profile
   resources :merchants
   resources :merchant_friendships
+  resources :merchant_user_friendships
 
   resources :users
   resources :user_friendships
