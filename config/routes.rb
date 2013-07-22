@@ -1,7 +1,5 @@
 Bitpages::Application.routes.draw do
 
-  devise_for :merchant_profiles, :controllers => { :registrations => "merchant_profiles" }
-
   authenticated :user do
     root :to => "dashboard#index"
   end
@@ -17,8 +15,13 @@ Bitpages::Application.routes.draw do
   root :to => "home#index"
   devise_for :merchants
   devise_for :users
+  devise_for :merchant_profiles, :controllers => { :registrations => "merchant_profiles" }
+  # devise_for :merchant_profiles
 
   resources :profile
+
+  #######
+  resources :merchant_profiles
   
   resources :merchants
   resources :merchant_friendships
@@ -31,7 +34,6 @@ Bitpages::Application.routes.draw do
   match '/map', :to => "dashboard#map"
   match '/search', :to => "dashboard#search"
   match '/network', :to => "dashboard#network"
-
   match '/admin', :to => "admin#index"
 
   # The priority is based upon order of creation:

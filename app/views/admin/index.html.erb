@@ -1,2 +1,10 @@
-<h1>Admin#index</h1>
-<p>Find me in app/views/admin/index.html.erb</p>
+<h1>Admin</h1>
+<p>Pending Merchant Accounts</p>
+<% @merchant_profiles.each do |merchant_profile| %>
+  <h4>Merchant B-name: <%= merchant_profile.merchant.bname %></h4>
+  <%= link_to "Link", merchant_path(merchant_profile.merchant), :method => :get %>
+  <%= form_for merchant_profile, :url => {:controller => "merchant_profiles", :action => "update"}, :method => :put do |f| %>
+    <%= f.text_field :approved, :value => true %>
+    <%= f.submit "Approve Account" %>
+  <% end %>
+<% end %>

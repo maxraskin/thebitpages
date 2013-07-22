@@ -10,8 +10,11 @@
         <% else %>
           <i>Already Added!</i>
         <% end %>
-      <% elsif current_merchant.present? %>
-        <% unless current_merchant.merchant_user_friendships.include?(MerchantUserFriendship.find_by_user_id(user.id)) %>
+      <% elsif current_merchant_profile.present? %>
+        <% unless current_merchant_profile.merchant.merchant_user_friendships.include?(MerchantUserFriendship.where(:user_id => user.id, :merchant_id => current_merchant_profile.merchant.id).first) %>
+        
+        <% binding.pry %>
+
           <%= link_to "Add Friend", merchant_user_friendships_path(:user_id => user), :method => :post %>
         <% else %>
           <i>Already Added!</i>

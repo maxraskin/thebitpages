@@ -16,6 +16,8 @@ class MerchantProfile < ActiveRecord::Base
   attr_accessible :merchant_id, :approved, :email, :zip_code, :bname
   belongs_to :merchant
 
+  
+
   # def active_for_authentication? 
   #   super && approved? 
   # end 

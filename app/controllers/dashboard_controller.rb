@@ -39,8 +39,8 @@ class DashboardController < ApplicationController
   def network
     if current_user.present?
       @user = current_user
-    elsif current_merchant.present?
-      @user = current_merchant
+    elsif current_merchant_profile.present?
+      @user = current_merchant_profile.merchant
     end
 
   end

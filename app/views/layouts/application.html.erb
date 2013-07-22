@@ -26,6 +26,11 @@
         <%= link_to "Sign up", new_user_registration_path %> or
         <%= link_to "Sign in", new_user_session_path %>
       <% end %>
+    <% elsif current_merchant_profile.class == MerchantProfile %>
+      <% if merchant_profile_signed_in? %>
+        Signed in as <%= current_merchant_profile.email %>. Not you?
+        <%= link_to "Sign out - Merchant Profile", destroy_merchant_profile_session_path, :method => "delete" %>
+      <% end %>
     <% end %>
   </div>
 

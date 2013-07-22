@@ -29,8 +29,8 @@
       <div class="claimed-merchant">
         <% if @merchant.merchant_profile.present? && @merchant.merchant_profile.approved %>
           <div class="span3">
-          <% if current_merchant.present? %>
-            <% if current_merchant.merchant_friendships.include?(MerchantFriendship.find_by_merchant_id(@merchant.id)) %>
+          <% if current_merchant_profile.present? %>
+            <% if current_merchant_profile.merchant.merchant_friendships.include?(MerchantFriendship.find_by_merchant_id(@merchant.id)) %>
               <b><i>Already Added!</i></b>
             <% else %>
               <%= button_to "Add to Network", merchant_friendships_path(:merchant_friend_id => @merchant), :method => :post %>
@@ -39,9 +39,11 @@
             <% if current_user.user_merchant_friendships.include?(UserMerchantFriendship.find_by_merchant_id(@merchant.id)) %>
               <b><i>Already Added!</i></b>
             <% else %>
-              <%= button_to "Add to Network", user_merchant_friendships_path(:merchant_friend_id => @merchant), :method => :post %>
+              <%= button_to "Add to Network", user_merchant_friendships_path, :merchant_friend_id => @merchant, :method => :post %>
             <% end %>
           <% end %>
+          <p><%= @merchant.bio %></p>
+          
           </div>
           <div class="span3 offset1">
             <button>Send a message</button>
@@ -50,7 +52,14 @@
           <h3>Is this your business?</h3>
          
 
-          <%= button_to "CLAIM THIS PAGE", new_merchant_profile_registration_path(:merchant_id => @merchant.id), :action => "new", :method => :get %>
+          <%= link_to "CLAIM THIS PAGE", new_merchant_profile_registration_path(:merchant => {
+                :id => @merchant.id, 
+                :bname => @merchant.bname, 
+                :street_address => @merchant.street_address,
+                :state => @merchant.state,
+                :city => @merchant.city,
+                :zip_code => @merchant.zip_code
+              }) %>
 
 
           <p>Creating a Bit Pages account will allow you to add information about your business so that Bitcoin users can easily find you ... use their Bitcoins to pay for goods & services that you offer.</p>
@@ -61,7 +70,6 @@
 
     </div>
 
-    <p><%= @merchant.bio %></p>
 
     <!-- Google Maps -->
     <div id="merchant-google-map" class="google-map-box">

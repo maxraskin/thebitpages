@@ -1,7 +1,7 @@
 class AdminController < ApplicationController
   before_filter :admin_auth
   def index
-    
+    @merchant_profiles = MerchantProfile.where(:approved => false)
   end
 
   def admin_auth

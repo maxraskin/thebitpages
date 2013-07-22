@@ -1,10 +1,10 @@
 <div class="row" id="leftside-profile">
   <div class="span3">
-    <h4><%= current_merchant.bname %></h4>
+    <h4><%= current_merchant_profile.merchant.bname %></h4>
   </div>
 
   <div class="span3">
-    <%= image_tag current_merchant.avatar.url %>
+    <%= image_tag current_merchant_profile.merchant.avatar.url %>
   </div>
 
   <div class="span3">
@@ -12,7 +12,7 @@
   </div>
 
   <div class="span3">
-    <%= button_to "view profile", merchant_path(current_merchant) , :method => :get, :class => "btn profile-btn" %>
+    <%= button_to "view profile", merchant_path(current_merchant_profile) , :method => :get, :class => "btn profile-btn" %>
   </div>
 
   <div class="span3">
@@ -65,10 +65,12 @@
   </div>
 
   <div class="span3">
-    <p><%= current_merchant.city %>, <%= current_merchant.state %> </p>
-    <p>Twitter: <%= current_merchant.twitter %></p> 
-    <p><%= current_merchant.phone %></p> 
-    <p><%= current_merchant.company_affiliation %></p> 
-    <p><%= current_merchant.industry %></p> 
+    <p><%= current_merchant_profile.merchant.city %>, <%= current_merchant_profile.merchant.state %> </p>
+    <p>Twitter: <%= current_merchant_profile.merchant.twitter %></p> 
+    <p><%= current_merchant_profile.merchant.phone %></p> 
+    <p><%= current_merchant_profile.merchant.company_affiliation %></p> 
+    <p><%= current_merchant_profile.merchant.industry %></p> 
   </div>
 </div>  
+
+
