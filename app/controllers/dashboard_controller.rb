@@ -2,6 +2,10 @@ class DashboardController < ApplicationController
   def index
     @merchants = Merchant.last(4).reverse
     @new_members = User.last(3).reverse
+
+    # @qrcode = RQRCode::QRCode.new("#{current_merchant.bitcoin_address}", :size => 8, :level => :l)
+    # png  = qr.to_img
+    # @qr = png.resize(90, 90).save("qrcodes.png")
   end
 
   def map
@@ -38,6 +42,7 @@ class DashboardController < ApplicationController
     elsif current_merchant.present?
       @user = current_merchant
     end
+
   end
 
   def search

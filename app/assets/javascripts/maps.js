@@ -45,6 +45,7 @@ function populateMap() {
   });
 }
 
+
 // $(document).ready(function() {
 //   $("#new-zip-code-button").click(function() {
 //     gon.zip_code = $("new-zip-code").val();

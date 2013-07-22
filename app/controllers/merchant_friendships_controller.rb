@@ -1,4 +1,4 @@
-class MerchantFriendshipsController < ApplicationController
+  class MerchantFriendshipsController < ApplicationController
 
   def index
     @merchant = current_merchant
