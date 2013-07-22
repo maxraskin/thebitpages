@@ -20,6 +20,12 @@
               <% else %>
                 <%= link_to "Add to Network", merchant_friendships_path(:merchant_friend_id => merchant), :method => :post, :remote => true %>
               <% end %>
+            <% elsif current_user.present? %>
+              <% if current_user.user_merchant_friendships.include?(UserMerchantFriendship.find_by_merchant_id(merchant.id)) %>
+                <b><i>Already Added!</i></b>
+              <% else %>
+                <%= link_to "Add to Network", user_merchant_friendships_path(:merchant_id => merchant), :method => :post, :remote => true %>
+              <% end %>
             <% end %>
           </div>
         </div>
