@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130722182728) do
+ActiveRecord::Schema.define(:version => 20130722190327) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -46,12 +46,36 @@ ActiveRecord::Schema.define(:version => 20130722182728) do
 
   create_table "merchant_profiles", :force => true do |t|
     t.integer  "merchant_id"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-    t.boolean  "approved",    :default => false, :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.boolean  "approved",               :default => false, :null => false
+    t.string   "email",                  :default => "",    :null => false
+    t.string   "encrypted_password",     :default => "",    :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "bname"
+    t.string   "bio"
+    t.string   "street_address"
+    t.string   "state"
+    t.string   "city"
+    t.integer  "zip_code"
+    t.string   "bitcoin_address"
+    t.string   "company_website"
+    t.string   "phone"
+    t.string   "company_affiliation"
+    t.string   "industry"
+    t.string   "twitter"
   end
 
   add_index "merchant_profiles", ["approved"], :name => "index_merchant_profiles_on_approved"
+  add_index "merchant_profiles", ["email"], :name => "index_merchant_profiles_on_email", :unique => true
+  add_index "merchant_profiles", ["reset_password_token"], :name => "index_merchant_profiles_on_reset_password_token", :unique => true
 
   create_table "merchant_user_friendships", :force => true do |t|
     t.integer  "merchant_id"

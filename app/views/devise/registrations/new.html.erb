@@ -18,6 +18,8 @@
       <%= render 'merchant', :f => f %>
     <% elsif resource_name == :user %>
       <%= render 'user', :f => f %>
+    <% elsif resource_name == :merchant_profile %>
+      <%= render 'merchant_profile', :f => f %>
     <% end %>
     <p><%= f.submit "Create Account" %></p>
     <!-- render "devise/shared/links" -->

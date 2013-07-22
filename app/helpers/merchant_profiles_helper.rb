@@ -1,0 +1,2 @@
+module MerchantProfilesHelper
+end

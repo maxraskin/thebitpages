@@ -1,12 +1,16 @@
 Bitpages::Application.routes.draw do
 
-  get "admin/index"
+  devise_for :merchant_profiles, :controllers => { :registrations => "merchant_profiles" }
 
   authenticated :user do
     root :to => "dashboard#index"
   end
 
   authenticated :merchant do
+    root :to => "dashboard#index"
+  end
+
+  authenticated :merchant_profile do
     root :to => "dashboard#index"
   end
 
