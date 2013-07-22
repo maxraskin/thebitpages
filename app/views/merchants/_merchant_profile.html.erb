@@ -26,17 +26,35 @@
 
   <div class="span7">
     <div class="row">
-      <div class="span3">
-        <% if current_merchant.merchant_friendships.include?(MerchantFriendship.find_by_merchant_id(@merchant.id)) %>
-          <b><i>Already Added!</i></b>
+      <div class="claimed-merchant">
+        <% if @merchant.merchant_profile.present? %>
+          <div class="span3">
+          <% if current_merchant.present? %>
+            <% if current_merchant.merchant_friendships.include?(Mer  chantFriendship.find_by_merchant_id(@merchant.id)) %>
+              <b><i>Already Added!</i></b>
+            <% else %>
+              <%= button_to "Add to Network", merchant_friendships_path(:merchant_friend_id => @merchant), :method => :post %>
+            <% end %>
+          <% elsif current_user.present? %>
+            <% if current_user.user_merchant_friendships.include?(UserMerchantFriendship.find_by_merchant_id(@merchant.id)) %>
+              <b><i>Already Added!</i></b>
+            <% else %>
+              <%= button_to "Add to Network", user_merchant_friendships_path(:merchant_friend_id => @merchant), :method => :post %>
+            <% end %>
+          <% end %>
+          </div>
+          <div class="span3 offset1">
+            <button>Send a message</button>
+          </div>
         <% else %>
-          <%= button_to "Add to Network", merchant_friendships_path(:merchant_friend_id => @merchant), :method => :post %>
+          <h3>Is this your business?</h3>
+          <button>Claim This Page</button>
+          <p>Creating a Bit Pages account will allow you to add information about your business so that Bitcoin users can easily find you ... use their Bitcoins to pay for goods & services that you offer.</p>
         <% end %>
+        
       </div>
+      
 
-      <div class="span3 offset1">
-        <button>Send a message</button>
-      </div>
     </div>
 
     <p><%= @merchant.bio %></p>
