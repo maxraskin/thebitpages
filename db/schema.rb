@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130719214339) do
+ActiveRecord::Schema.define(:version => 20130722154433) do
 
   create_table "conversations", :force => true do |t|
     t.string   "subject",    :default => ""
@@ -125,6 +125,13 @@ ActiveRecord::Schema.define(:version => 20130719214339) do
     t.integer  "user_friend_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "user_merchant_friendships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "merchant_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|

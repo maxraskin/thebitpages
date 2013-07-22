@@ -13,12 +13,14 @@ Bitpages::Application.routes.draw do
   devise_for :users
 
   resources :profile
+  
   resources :merchants
   resources :merchant_friendships
   resources :merchant_user_friendships
 
   resources :users
   resources :user_friendships
+  resources :user_merchant_friendships
 
   match '/map', :to => "dashboard#map"
   match '/search', :to => "dashboard#search"

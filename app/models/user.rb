@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_many :user_friendships
   has_many :user_friends, :through => :user_friendships
 
-  has_many :merchant_user_friendships
+  has_many :user_merchant_friendships
+  has_many :merchants, :through => :user_merchant_friendships
 
 end

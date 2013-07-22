@@ -26,7 +26,5 @@ class Merchant < ActiveRecord::Base
     "#{self.street_address} #{self.city} #{self.state} #{self.zip_code}"
   end
 
-  # def qr_code
-  #   qr = RQRCode::QRCode.new()
-  # end
+
 end
