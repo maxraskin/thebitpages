@@ -7,4 +7,16 @@ class MerchantProfile < ActiveRecord::Base
   # attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :merchant_id, :approved
   belongs_to :merchant
+
+  def active_for_authentication? 
+    super && approved? 
+  end 
+
+  def inactive_message 
+    if !approved? 
+      :not_approved 
+    else 
+      super
+    end 
+  end
 end
