@@ -1,4 +1,4 @@
-<h1>merchant PROFILE view</h1>
+<h3>approved merchant view</h3>
 <div class="row">
   <div class="span5">
     <div class="row profile">
@@ -48,22 +48,6 @@
           <div class="span3 offset1">
             <button>Send a message</button>
           </div>
-        <% else %>
-          <h3>Is this your business?</h3>
-         
-
-          <%= link_to "CLAIM THIS PAGE", new_merchant_profile_registration_path(:merchant => {
-                :id => @merchant.merchant_profile.id, 
-                :bname => @merchant.merchant_profile.bname, 
-                :street_address => @merchant.merchant_profile.street_address,
-                :state => @merchant.merchant_profile.state,
-                :city => @merchant.merchant_profile.city,
-                :zip_code => @merchant.merchant_profile.zip_code
-              }) %>
-
-
-          <p>Creating a Bit Pages account will allow you to add information about your business so that Bitcoin users can easily find you ... use their Bitcoins to pay for goods & services that you offer.</p>
-        
       </div>
       
 

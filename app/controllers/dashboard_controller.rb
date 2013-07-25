@@ -3,8 +3,8 @@ class DashboardController < ApplicationController
     @merchants = Merchant.last(4).reverse
     @new_members = User.last(3).reverse
 
-    if current_merchant.present?
-      gon.current_user = current_merchant
+    if current_merchant_profile.present?
+      gon.current_user = current_merchant_profile
     #   @qr = RQRCode::QRCode.new("#{current_merchant.bitcoin_address}", :size => 8, :level => :l)
     else
       gon.current_user = current_user

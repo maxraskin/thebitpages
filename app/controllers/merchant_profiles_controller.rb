@@ -9,7 +9,6 @@ class MerchantProfilesController < Devise::RegistrationsController
 
   def create
     @merchant = Merchant.find(params[:merchant_profile][:merchant_id])
-    # binding.pry
     @merchant_profile = MerchantProfile.create(params[:merchant_profile])
 
     @merchant_profile.name = @merchant.name
@@ -26,7 +25,6 @@ class MerchantProfilesController < Devise::RegistrationsController
     @merchant_profile.twitter = @merchant.twitter
     @merchant_profile.latitude = @merchant.latitude
     @merchant_profile.longitude = @merchant.longitude
-
 
     @merchant_profile.save
     redirect_to merchant_path(@merchant)
