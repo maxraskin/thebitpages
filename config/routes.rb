@@ -25,7 +25,7 @@ Bitpages::Application.routes.draw do
   resources :profile
 
   #######
-  resources :merchant_profiles
+  # resources :merchant_profiles
   
   resources :merchants
   resources :merchant_friendships
