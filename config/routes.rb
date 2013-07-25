@@ -1,7 +1,9 @@
 Bitpages::Application.routes.draw do
-
-  devise_for :admin_users, ActiveAdmin::Devise.config
+  
+  root :to => "home#index"
   ActiveAdmin.routes(self)
+  
+  devise_for :admin_users, ActiveAdmin::Devise.config
 
   authenticated :user do
     root :to => "dashboard#index"
@@ -15,7 +17,6 @@ Bitpages::Application.routes.draw do
     root :to => "dashboard#index"
   end
 
-  root :to => "home#index"
   devise_for :merchants
   devise_for :users
   devise_for :merchant_profiles, :controllers => { :registrations => "merchant_profiles" }
