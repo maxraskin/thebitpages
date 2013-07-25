@@ -45,8 +45,7 @@ function populateMap() {
   });
 }
 
-function bitcoinCode() {
-  var qrcode = gon.current_user.bitcoin_address;
+function bitcoinCode(qrcode) {
   var url = "http://chart.apis.google.com/chart?cht=qr&chs=150x150&chl="+qrcode;
   document.getElementById("bitcoin-id").src = url;
   return url;

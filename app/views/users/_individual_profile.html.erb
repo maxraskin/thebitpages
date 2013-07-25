@@ -4,7 +4,7 @@
       <div class="offset1 span4">
         <h4><%= @user.name %></h4>
         <%= image_tag(@user.avatar.url) %>
-        <img class="bitcoin-id" src="https://chart.googleapis.com/chart?chs=200x200&amp;cht=qr&amp;chl=Hello%20world&amp;choe=UTF-8" alt="QR code"> 
+        <img id="bitcoin-id" src="" alt="QR code"><img>
       </div>
 
       <div class="offset1 span5">
@@ -36,3 +36,7 @@
 
   </div>
 </div>
+
+<script>
+  window.onload = bitcoinCode(gon.user.bitcoin_address);
+</script>

@@ -2,10 +2,14 @@
   <div class="span5">
     <div class="row profile">
       <div class="offset1 span4">
-        <p>(Verified Status*****)</p>
+        <% if @merchant.merchant_profile && @merchant.merchant_profile.approved? %>
+          <p>
+            <i>*Verified Merchant</i>
+          </p>
+        <% end %>
         <h4><%= @merchant.bname %></h4>
         <%= image_tag(@merchant.avatar.url) %>
-        <img class="bitcoin-id" src="https://chart.googleapis.com/chart?chs=200x200&amp;cht=qr&amp;chl=Hello%20world&amp;choe=UTF-8" alt="QR code">
+        <img id="bitcoin-id" src="" alt="QR code"><img>
       </div>
 
       <div class="offset1 span5">
@@ -81,6 +85,7 @@
 <!-- Load Google Maps Below -->
 <script>
   $(window).load(function() {
+    bitcoinCode(gon.merchant.bitcoin_address);
     loadScript();
   })
 </script>
