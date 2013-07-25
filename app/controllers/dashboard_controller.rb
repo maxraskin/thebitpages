@@ -21,6 +21,7 @@ class DashboardController < ApplicationController
     zip_code = "10001" if params[:zip_code] == ""
 
     if @industry.present?
+      #filters merchants by industry
       merchant_industry_array =  Merchant.where("lower(industry) = ?", @industry.downcase)
 
       @merchants = merchant_industry_array.within(10, :origin => zip_code)
