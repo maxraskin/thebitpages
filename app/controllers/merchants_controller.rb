@@ -5,8 +5,10 @@ class MerchantsController < ApplicationController
 
   def show
     @merchants = Merchant.where(:id => params[:id])
+    @merchant = @merchants.first
     gon.merchants = @merchants
     gon.merchant = @merchant = @merchants.first
+    # binding.pry
   end
 
   def profile

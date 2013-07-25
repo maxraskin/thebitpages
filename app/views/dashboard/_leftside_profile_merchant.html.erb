@@ -8,11 +8,11 @@
   </div>
 
   <div class="span3">
-    <%= button_to "edit profile", edit_merchant_registration_path, :method => :get, :class => "btn profile-btn" %>
+    <%= button_to "edit profile", edit_merchant_profile_registration_path, :method => :get, :class => "btn profile-btn" %>
   </div>
 
   <div class="span3">
-    <%= button_to "view profile", merchant_path(current_merchant_profile) , :method => :get, :class => "btn profile-btn" %>
+    <%= button_to "view profile", merchant_path(current_merchant_profile.merchant) , :method => :get, :class => "btn profile-btn" %>
   </div>
 
   <div class="span3">

@@ -1,7 +1,5 @@
 class MerchantProfilesController < Devise::RegistrationsController
-  def index
-  end
-
+  
   def new
     @merchant = Merchant.find(params[:merchant][:id])
     super
@@ -28,7 +26,5 @@ class MerchantProfilesController < Devise::RegistrationsController
 
     @merchant_profile.save
     redirect_to merchant_path(@merchant)
-    
-
   end
 end
