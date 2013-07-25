@@ -3,9 +3,13 @@ class DashboardController < ApplicationController
     @merchants = Merchant.last(4).reverse
     @new_members = User.last(3).reverse
 
-    # @qrcode = RQRCode::QRCode.new("#{current_merchant.bitcoin_address}", :size => 8, :level => :l)
-    # png  = qr.to_img
-    # @qr = png.resize(90, 90).save("qrcodes.png")
+    if current_merchant.present?
+      gon.current_user = current_merchant
+    #   @qr = RQRCode::QRCode.new("#{current_merchant.bitcoin_address}", :size => 8, :level => :l)
+    else
+      gon.current_user = current_user
+      # @qr = RQRCode::QRCode.new("#{current_user.bitcoin_address}", :size => 8, :level => :l)
+    end
   end
 
   def map

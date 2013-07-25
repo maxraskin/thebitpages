@@ -19,13 +19,8 @@
     <%= button_to "My network", network_path, :method => :get, :class => "btn profile-btn" %>
   </div>
 
-  <div>
-    <img src="https://chart.googleapis.com/chart?chs=200x200&amp;cht=qr&amp;chl=Hello%20world&amp;choe=UTF-8" alt="QR code"> 
-  </div>
 
-  <div class="span2">
-    <p><%= current_user.bitcoin_address %></p>
-  </div>
+  <img id="bitcoin-id" src="" alt="QR code"><img>
 
   <div class="span3">
     <p><%= current_user.zip_code %>
@@ -35,4 +30,9 @@
     <p><%= current_user.industry %></p> 
     <p><%= current_user.job_title %></p>
   </div>
+
 </div>  
+
+<script>
+  window.onload = bitcoinCode;
+</script>
