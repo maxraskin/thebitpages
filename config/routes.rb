@@ -1,7 +1,5 @@
 Bitpages::Application.routes.draw do
   
-  root :to => "home#index"
-  ActiveAdmin.routes(self)
   
   devise_for :admin_users, ActiveAdmin::Devise.config
 
@@ -16,6 +14,8 @@ Bitpages::Application.routes.draw do
   authenticated :merchant_profile do
     root :to => "dashboard#index"
   end
+
+  root :to => "home#index"
 
   devise_for :merchants
   devise_for :users
@@ -38,6 +38,8 @@ Bitpages::Application.routes.draw do
   match '/map', :to => "dashboard#map"
   match '/search', :to => "dashboard#search"
   match '/network', :to => "dashboard#network"
+  
+  ActiveAdmin.routes(self)
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
