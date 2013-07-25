@@ -28,6 +28,7 @@ ActiveAdmin.register MerchantProfile do
       link_to "REVOKE", revoke_admin_merchant_profile_path(:id => merchant.id), :method => :put
     end
     column :approved                            
+    column :created_at           
     column :bname
     column :email
     column :bio
@@ -42,7 +43,7 @@ ActiveAdmin.register MerchantProfile do
     column :industry
     column :twitter
     column :current_sign_in_at        
-    column :last_sign_in_at           
+    column :last_sign_in_at
     default_actions                   
   end  
 

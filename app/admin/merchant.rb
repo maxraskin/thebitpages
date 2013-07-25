@@ -3,6 +3,7 @@ ActiveAdmin.register Merchant do
   index do
     selectable_column
     column :id
+    column :created_at           
     column :bname
     column :name
     column :email
@@ -21,7 +22,7 @@ ActiveAdmin.register Merchant do
     column :latitude
     column :longitude
     column :current_sign_in_at        
-    column :last_sign_in_at           
+    column :last_sign_in_at
     default_actions                   
   end 
 end
