@@ -6,7 +6,7 @@
   <h2>Create a free account</h2>
   <% if resource_name == :user %>
     <p>to connect with other Bitcoiners and discover merchants who will accept your Bitcoins</p>
-    <%= link_to "sign up as a merchant instead", new_merchant_registration_path %>
+    <%= link_to "sign up as a merchant instead", new_merchant_profile_registration_path %>
   <% elsif resource_name == :merchant %>
     <p>to claim your merchant page and let Bitcoin users discover you</p>
     <%= link_to "sign up as an individual instead", new_user_registration_path %>
