@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130725202422) do
+ActiveRecord::Schema.define(:version => 20130725210605) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -105,6 +105,10 @@ ActiveRecord::Schema.define(:version => 20130725202422) do
     t.string   "industry"
     t.string   "twitter"
     t.string   "avatar"
+    t.string   "name"
+    t.boolean  "online_business"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "merchant_profiles", ["approved"], :name => "index_merchant_profiles_on_approved"

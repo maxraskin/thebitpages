@@ -1,0 +1,86 @@
+<h1>merchant PROFILE view</h1>
+<div class="row">
+  <div class="span5">
+    <div class="row profile">
+      <div class="offset1 span4">
+        
+        <h4><%= @merchant.merchant_profile.bname %></h4>
+        <%= image_tag(@merchant.merchant_profile.avatar.url) %>
+        <img id="bitcoin-id" src="" alt="QR code"><img>
+      </div>
+
+      <div class="offset1 span5">
+        <p><%= @merchant.merchant_profile.industry %></p>
+      </div>
+
+      <div class="offset1 span5">
+        <p><%= @merchant.merchant_profile.street_address %></p>
+        <p><%= @merchant.merchant_profile.city %>, <%= @merchant.merchant_profile.state %> <%= @merchant.merchant_profile.zip_code %></p>
+        <p><%= @merchant.merchant_profile.company_website %></p>
+        <p><%= @merchant.merchant_profile.twitter %></p>
+        <p><%= @merchant.merchant_profile.phone %></p><br><br><br>
+        
+      </div>
+    </div>  
+  </div>
+
+  <div class="span7">
+    <div class="row">
+      <div class="claimed-merchant">
+          <div class="span3">
+          <% if current_merchant_profile.present? %>
+            <% if current_merchant_profile.merchant.merchant_friendships.include?(MerchantFriendship.find_by_merchant_id(@merchant.merchant_profile.id)) %>
+              <b><i>Already Added!</i></b>
+            <% else %>
+              <%= button_to "Add to Network", merchant_friendships_path(:merchant_friend_id => @merchant.merchant_profile), :method => :post %>
+            <% end %>
+          <% elsif current_user.present? %>
+            <% if current_user.user_merchant_friendships.include?(UserMerchantFriendship.find_by_merchant_id(@merchant.merchant_profile.id)) %>
+              <b><i>Already Added!</i></b>
+            <% else %>
+              <%= button_to "Add to Network", user_merchant_friendships_path, :merchant_friend_id => @merchant.merchant_profile, :method => :post %>
+            <% end %>
+          <% end %>
+          
+          <p><%= @merchant.merchant_profile.bio %></p>
+          </div>
+
+          <div class="span3 offset1">
+            <button>Send a message</button>
+          </div>
+        <% else %>
+          <h3>Is this your business?</h3>
+         
+
+          <%= link_to "CLAIM THIS PAGE", new_merchant_profile_registration_path(:merchant => {
+                :id => @merchant.merchant_profile.id, 
+                :bname => @merchant.merchant_profile.bname, 
+                :street_address => @merchant.merchant_profile.street_address,
+                :state => @merchant.merchant_profile.state,
+                :city => @merchant.merchant_profile.city,
+                :zip_code => @merchant.merchant_profile.zip_code
+              }) %>
+
+
+          <p>Creating a Bit Pages account will allow you to add information about your business so that Bitcoin users can easily find you ... use their Bitcoins to pay for goods & services that you offer.</p>
+        
+      </div>
+      
+
+    </div>
+
+
+    <!-- Google Maps -->
+    <div id="merchant-google-map" class="google-map-box">
+      
+    </div>
+  </div>
+</div>
+
+<!-- Load Google Maps Below -->
+<script>
+  $(window).load(function() {
+    bitcoinCode(gon.merchant.bitcoin_address);
+    loadScript();
+  })
+</script>

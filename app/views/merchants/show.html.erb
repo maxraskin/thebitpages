@@ -1,6 +1,9 @@
 <h1>Bit Pages Logo (Profile)</h1>
 <hr style="width: 100%; height: 1em; background: #fff; margin: 0 auto;">
 
-
-<%= render "merchant_profile" %>
+<% if @merchant.merchant_profile.present? && @merchant.merchant_profile.approved == true %>
+  <%= render "merchant_profiles/merchant_profile_profile.html.erb" %>
+<% else %>
+  <%= render "merchant_profile" %>
+<% end %>
 

@@ -2,32 +2,25 @@ class MerchantProfile < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
-  mount_uploader :avatar, AvatarUploader
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :bname, :avatar, :avatar_cache, :remove_avatar, :bio, :street_address, :city, :state, :zip_code, :online_business, :bitcoin_address, :company_website, :phone, :company_affiliation, :industry, :twitter
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :avatar, :avatar_cache
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable,
-  # :lockable, :timeoutable and :omniauthable
+  mount_uploader :avatar, AvatarUploader
 
-  # Setup accessible (or protected) attributes for your model
-  # attr_accessible :email, :password, :password_confirmation, :remember_me
+  geocoded_by :geocode_method
+  
+  after_validation :geocode
+
+  acts_as_mappable :lat_column_name => :latitude,
+                   :lng_column_name => :longitude
+  
   attr_accessible :merchant_id, :approved, :email, :zip_code, :bname
   belongs_to :merchant
 
-  
-
-  # def active_for_authentication? 
-  #   super && approved? 
-  # end 
-
-  # def inactive_message 
-  #   if !approved? 
-  #     :not_approved 
-  #   else 
-  #     super
-  #   end 
-  # end
+  def geocode_method
+    "#{self.street_address} #{self.city} #{self.state} #{self.zip_code}"
+  end
+ 
 end
