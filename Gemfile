@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 gem 'pg'
-gem 'jquery-rails'
+gem 'jquery-rails', '2.3.0'
 gem 'devise'
 gem 'geocoder'
 gem 'carrierwave'
@@ -13,6 +13,8 @@ gem "twitter-bootstrap-rails"
 gem "gon"
 gem "geokit-rails3"
 gem "rqrcode"
+gem "activeadmin"
+gem "meta_search",    '>= 1.1.0.pre'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'

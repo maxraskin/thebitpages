@@ -1,5 +1,8 @@
 Bitpages::Application.routes.draw do
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
   authenticated :user do
     root :to => "dashboard#index"
   end
@@ -34,7 +37,6 @@ Bitpages::Application.routes.draw do
   match '/map', :to => "dashboard#map"
   match '/search', :to => "dashboard#search"
   match '/network', :to => "dashboard#network"
-  match '/admin', :to => "admin#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
