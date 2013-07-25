@@ -38,6 +38,10 @@ Bitpages::Application.routes.draw do
   match '/map', :to => "dashboard#map"
   match '/search', :to => "dashboard#search"
   match '/network', :to => "dashboard#network"
+
+  match '/about', :to => "home#about"
+  match '/contact', :to => "home#contact"
+  match '/help', :to => "home#help"
   
   ActiveAdmin.routes(self)
 
