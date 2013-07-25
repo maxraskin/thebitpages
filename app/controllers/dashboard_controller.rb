@@ -14,7 +14,11 @@ class DashboardController < ApplicationController
 
   def map
     gon.industry = @industry = params[:category]
-    gon.zip_code = zip_code = params[:zip_code]
+    
+    gon.zip_code = zip_code = params[:zip_code] 
+
+    #temp fix for empty zip_code field
+    zip_code = "10001" if params[:zip_code] == ""
 
     if @industry.present?
       merchant_industry_array =  Merchant.where("lower(industry) = ?", @industry.downcase)
