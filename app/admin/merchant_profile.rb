@@ -19,6 +19,7 @@ ActiveAdmin.register MerchantProfile do
   end
       
   index do
+    selectable_column
     column "Approve Merchant" do |merchant|
       link_to "APPROVE", approve_admin_merchant_profile_path(:id => merchant.id), :method => :put
     end
