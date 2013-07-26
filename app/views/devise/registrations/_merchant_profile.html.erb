@@ -1,6 +1,16 @@
 <div class="create-account">
   <div>
-    <%= f.text_field :bname, :value => @merchant.bname, :autofocus => true %>
+    <%= f.text_field :name, :placeholder => "Full Name", :autofocus => true %>
+  </div>
+
+  <div>
+    <% if @merchant.present? %>
+      <%= f.text_field :name, :autofocus => true %>
+      <%= f.text_field :bname, :value => @merchant.bname %>
+      <%= f.hidden_field :merchant_id, :value => @merchant.id %>
+    <% else %>
+      <%= f.text_field :bname, :placeholder => "Business Name", :autofocus => true %>
+    <% end %>
   </div>
 
   <div>
@@ -13,10 +23,6 @@
 
   <div>   
     <%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %>
-  </div>
-
-  <div>
-    <%= f.hidden_field :merchant_id, :value => @merchant.id %>
   </div>
 
 </div>

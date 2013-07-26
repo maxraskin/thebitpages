@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130725210605) do
+ActiveRecord::Schema.define(:version => 20130726151921) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(:version => 20130725210605) do
     t.boolean  "online_business"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "pending"
   end
 
   add_index "merchant_profiles", ["approved"], :name => "index_merchant_profiles_on_approved"
