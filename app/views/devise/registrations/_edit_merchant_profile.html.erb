@@ -1,91 +1,58 @@
 <div class="profile-show-view">
   
-  <h2>Create your Merchant Page</h2>
+  <p>Create your Merchant Page</p>
   <p>Before you start using The Big Pages, please complete your merchant profile</p>
 
   <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true }) do |f| %>
     <%= devise_error_messages! %>
-    <h2> <%= current_merchant_profile.name %> </h2>
-    
-    <div>
-      <% if current_merchant_profile.avatar.url.present? %>
-        <%= image_tag(current_merchant_profile.avatar.url) %>
-        <%= f.label :remove_avatar do %></br>
-          <%= f.check_box :remove_avatar %> Remove avatar</br>
-        <% end %>
-        <%= f.file_field :avatar %>
-        <%= f.hidden_field :avatar_cache %>
-      <% else %>
-        <%= f.label :avatar do %>
-          <%= f.file_field :avatar %>
+
+    <div class="main-field-box">
+      <div class="row">
+        <div class="span12">
+          <h2> <%= current_merchant_profile.name %> </h2>
+        </div>
+
+        <div class="span2 ">
+          <%= image_tag(current_merchant_profile.avatar.url) %>
+        </div>
+
+        <div class="span10 avatar-field">
+          <%= f.file_field :avatar, :name => "Add/Change profile photo" %>
           <%= f.hidden_field :avatar_cache %>
-        <% end %>
-      <% end %>
-    </div>
+        </div>
+
+      </div>
   
-    <div class="row">
-      <div class="span6" style:"width: 100%;">
+      <div class="span6 info-fields">
         <%= f.input :street_address, :placeholder => "Street Address" %>
-
         <%= f.input :city, :placeholder => "City" %>
-
         <%= f.input :state, :placeholder => "State" %>
-
         <%= f.input :zip_code, :placeholder => "Zip Code" %>
-
         <%= f.check_box :online_business %>
         <%= f.label :online_business, "This is an online business - no physical address" %>
-
         <%= f.input :bitcoin_address, :placeholder => "Bitcoin address (optional)" %>
-
         <%= f.input :company_website, :placeholder => "Company website (optional)" %>
-
-     
         <%= f.input :phone, :placeholder => "Phone (optional)" %>
-
         <%= f.input :company_affiliation, :placeholder => "Company affiliation (optional)"%>
-          
-        <%= f.input :industry, :placeholder => "Industry" %>
-
+        <%= f.input :industry, :as => :select, :collection => ["Restaurant", "IndustryB", "IndustryC", "IndustryD"],:placeholder => "Industry" %>
         <%= f.input :twitter, :placeholder => "Twitter (optional)" %>
+        <%= f.input :current_password, :placeholder => "Current Password - To confirm your changes" %>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
       </div>
       
-      <div class="span5 offset1">
-        <div>
-          <%= f.text_area :bio, :placeholder => "Bio / notes about your Bitcoin involvement and who you are looking to connect with in the community (optional)", :size => "10x10" %>
-        </div>
+      <div class="span5 profile-bio">
+        <%= f.input :bio, :placeholder => "Bio / notes about your Bitcoin involvement and who you are looking to connect with in the community (optional)" %>
+        <%= f.button :submit, "Save Profile", :class => "save-profile-btn" %>
       </div>
-    </div>
 
+      <div class="span6 password-fields">
+        <%= f.input :email, :label => "New Email" %>
+        <%= f.input :password, :label => "New Password", :placeholder => "Password", :autocomplete => "off", :inline_label => "yes" %>
+        <%= f.input :password_confirmation, :label => "New Password confirmation", :placeholder => "Password Confirmation" %> 
+      </div>
 
-
-
-    <div>
-      <%= f.email_field :email, :autofocus => true %>
-    </div>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-    <% end %>
-
-    <div>
-      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-      <%= f.password_field :password, :autocomplete => "off" %>
-    </div>
-
-    <div>
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation %>
-    </div>
-
-    <div>
-      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password %>
-    </div>
-
-    <div>
-      <%= f.submit "Save Profile" %>
     </div>
   <% end %>
 </div>
-
