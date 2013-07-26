@@ -22,7 +22,7 @@ class Merchant < ActiveRecord::Base
   has_many :merchant_user_friendships
   has_many :users, :through => :merchant_user_friendships
 
-  has_one :merchant_profile
+  has_one :merchant_profile, :dependent => :destroy
 
   def geocode_method
     "#{self.street_address} #{self.city} #{self.state} #{self.zip_code}"
