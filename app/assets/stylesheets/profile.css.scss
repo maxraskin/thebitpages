@@ -5,3 +5,25 @@
 .profile {
   border-right: 2px solid #d9d9d9;
 }
+
+.profile-show-view {
+  margin: 45px 45px;
+  margin-right: 20px;
+  input, select {
+    font-size: 20px;
+    height: 32px;
+    width: 100%;
+  }
+  .save-profile-btn {
+    width: 100%;
+  }
+}
+
+
+.password-fields {
+    border: 1px solid #d9d9d9;
+    width: 100%;
+    input {
+      width: 40%;
+    }
+}

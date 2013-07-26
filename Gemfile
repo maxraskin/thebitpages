@@ -15,6 +15,7 @@ gem "geokit-rails3"
 gem "rqrcode"
 gem "activeadmin"
 gem "meta_search",    '>= 1.1.0.pre'
+gem "simple_form"
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'

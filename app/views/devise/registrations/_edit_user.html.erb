@@ -1,12 +1,14 @@
-<div id="individual-edit-profile">
+<div class="profile-show-view">
 
-  <h2>Create your profile</h2>
+  <h3>Create your profile</h3>
   <p>Before you start using The Bit Pages, please complete your profile</p>
     
-  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true }) do |f| %>
+  <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true }) do |f| %>
   <%= devise_error_messages! %>
     <h2> <%= current_user.name %> </h2>
-    <div>
+    
+          
+    <div class>
       <% if current_user.avatar.url.present? %>
         <%= image_tag(current_user.avatar.url) %>
         <%= f.label :remove_avatar do %></br>
@@ -21,43 +23,45 @@
         <% end %>
       <% end %>
     </div>
-          
     <div class="row">
+
       <div class="span6" style:"width: 100%;">
           
-        <%= f.number_field :zip_code, :placeholder => "Zip Code" %>
-        <%= f.text_field :bitcoin_address, :placeholder => "Bitcoin Address"%>
-        <%= f.text_field :twitter, :placeholder => "Twitter" %>
-        <%= f.telephone_field :phone, :placeholder => "Phone"%>
-        <%= f.text_field :company_affiliation, :placeholder => "Company Affiliation"%>
-        <%= f.text_field :industry, :placeholder => "Industry"%>
-        <%= f.text_field :job_title, :placeholder => "Job Title"%>
+        <%= f.input :zip_code, :placeholder => "Zip Code (optional)" %>
+
+        <%= f.input :bitcoin_address, :placeholder => "Bitcoin Address (optional)"%>
+
+        <%= f.input :twitter, :placeholder => "Twitter (optional)" %>
+
+        <%= f.input :phone, :placeholder => "Phone (optional)"%>
+
+        <%= f.input :company_affiliation, :placeholder => "Company Affiliation (optional)"%>
+
+        <%= f.input :industry, :as => :select, :collection => ["Restaurant", "IndustryB", "IndustryC", "IndustryD"],:placeholder => "Industry"%>
+
+        <%= f.input :job_title, :placeholder => "Job Title (optional)"%>
+
+        <%= f.input :current_password, :placeholder => "Current Password - To confirm your changes" %>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
-
-        <%= f.email_field :email, :placeholder => "Email", :autofocus => true %><br />
-
-        <%= f.password_field :password, :placeholder => "Password", :autocomplete => "off" %>
-        <i>(leave blank if you don't want to change it)</i>
-
-        <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation" %> <br />
-
-        <%= f.password_field :current_password, :placeholder => "Current Password" %>
-        <i>(to confirm your changes)</i> <br />
-
-        
-
-        <%= f.submit "Save Profile" %>
-
       </div>
 
-      <div class="span6">
-        <div>
-          <%= f.text_area :bio, :placeholder => "Bio / notes about your Bitcoin involvement and who you are looking to connect with in the community (optional)", :size => "10x10" %>
+      <div class="span5">
+        <%= f.input :bio, :placeholder => "Bio / notes about your Bitcoin involvement and who you are looking to connect with in the community (optional)", :size => "10x10", :input_html => {:style => "width: 100%"} %>
+        <%= f.button :submit, "Save Profile", :class => "save-profile-btn" %>
+      </div>
+
+      <div class="span6 password-fields">
+          <%= f.input :email, :label => "New Email", :autofocus => true %>
+
+          <%= f.input :password, :label => "New Password", :placeholder => "Password", :autocomplete => "off", :inline_label => "yes'" %>
+
+          <%= f.input :password_confirmation, :label => "New Password confirmation", :placeholder => "Password Confirmation" %> 
+
+          
         </div>
-      </div>
     </div>
   <% end %>
 </div>
