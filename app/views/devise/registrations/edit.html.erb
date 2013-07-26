@@ -1,4 +1,5 @@
 <%= image_tag "bitpages_logo.png" %>
+
 <hr style="width: 100%; height: 1em; background: #fff; margin: 0 auto;">
 
 <% if resource_name == :user %>
@@ -6,10 +7,3 @@
 <% elsif resource_name == :merchant_profile %>
   <%= render "edit_merchant_profile" %>
 <% end %>
-
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
-
-<%= link_to "Back", :back %>

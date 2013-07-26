@@ -7,23 +7,62 @@
 }
 
 .profile-show-view {
+  color: #616161;
   margin: 45px 45px;
   margin-right: 20px;
+  margin-top: 0;
+  
+  p:first-child {
+    font-size: 31px;
+  }
+
+  p:nth-child(2) {
+    font-size: 20px;
+  }
+
   input, select {
     font-size: 20px;
     height: 32px;
     width: 100%;
+    border: 2px solid #D9D9D9;
   }
   .save-profile-btn {
     width: 100%;
   }
-}
 
+  img {
+    width: 100px;
+    border: 2px solid #B9B9B9;
+  }
+  
+  .main-field-box {
+    margin-top: 30px;
+  }
 
-.password-fields {
-    border: 1px solid #d9d9d9;
-    width: 100%;
+  .avatar-field {
+    bottom: 0;
+    input {
+      border: none;
+    }
+  }
+
+  .info-fields {
+    margin-left: 0;
+    margin-right: 40px;
+
+    div:first-child {
+      margin-top: 20px;
+    }
+  }
+
+  .password-fields {
+    margin-left: 0;
+    padding: 20px;
+    border: 3px solid #d9d9d9;
+    width: 90%;
     input {
       width: 40%;
     }
+  }
 }
+

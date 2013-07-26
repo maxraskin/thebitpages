@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#user_nav {
+  float: right;
+  padding-top: 12px;
+  padding-right:20px;
+}
+
 .google-map-box {
   height: 320px;
   width: 100%;
