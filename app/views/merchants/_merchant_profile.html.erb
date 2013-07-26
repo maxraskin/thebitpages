@@ -56,11 +56,12 @@
 
         <% elsif @merchant.merchant_profile.present? && @merchant.merchant_profile.approved==false %>
           <h4>This page is pending approval. If you are business owner, thank you for claiming your account. We will contact you soon!</h4>
+          <p>In the meantime, you can log into your account and edit your merchant profile information</p>
+          <%= link_to "Sign in", new_merchant_profile_session_path %>
 
         <% else %>
           <h3>Is this your business?</h3>
          
-
           <%= link_to "CLAIM THIS PAGE", new_merchant_profile_registration_path(:merchant => {
                 :id => @merchant.id, 
                 :bname => @merchant.bname, 
