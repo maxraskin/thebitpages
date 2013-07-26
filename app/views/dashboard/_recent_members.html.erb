@@ -4,10 +4,12 @@
     <div class="each-member">
       <div class="row">
         <div class="span1">
-          <%= image_tag(member.avatar.url) if member.avatar.url.present? %>
+          <% if member.avatar.url.present? %>
+            <%= link_to image_tag(member.avatar.url), user_path(member)  %>
+          <% end %>
         </div>
         <div class="span1">
-          <h5><%= member.name %></h5>
+          <h5><%= link_to member.name, user_path(member) %></h5>
           <p>ZipCode: <%= member.zip_code %></p>
         </div>
       </div>

@@ -3,11 +3,13 @@
       <div class="each-merchant">
         <div class="row">
           <div class="span1">
-            <%= image_tag(merchant.avatar.url) if merchant.avatar.url.present? %>
+            <% if merchant.avatar.url.present? %>
+              <%= link_to image_tag(merchant.avatar.url), merchant_path(merchant) %>
+            <% end %>
           </div>
 
           <div class="span1 bname">
-            <h5><%= merchant.bname %></h5>
+            <h5><%= link_to merchant.bname, merchant_path(merchant) %></h5>
             <p><%= merchant.industry %></p>
           </div>
 
