@@ -2,7 +2,7 @@ function initialize() {
   var myLatlng = (gon.center === undefined) ? new google.maps.LatLng(gon.merchant.latitude, gon.merchant.longitude) : new google.maps.LatLng(gon.center[0], gon.center[1])
 
   var mapOptions = {
-    zoom: 15,
+    zoom: 11,
     center: myLatlng,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
@@ -28,7 +28,7 @@ function initializeAndPopulate() {
 
 }
 
-function addMarker(latitude, longitude, letter, url, title) {
+function addMarker(latitude, longitude, letter, url, title, icon_number) {
   // var map = new google.maps.Map(document.getElementById("merchant-google-map"));
   var myLatlng = new google.maps.LatLng(latitude, longitude);
 
@@ -36,7 +36,7 @@ function addMarker(latitude, longitude, letter, url, title) {
     position : myLatlng,
     map: map,
     url: url,
-    icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|F66F66|000000'
+    icon: "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld="+icon_number+"|F66F66|000000"
   });
 
   google.maps.event.addListener(marker, 'click', function() {
@@ -48,10 +48,12 @@ function addMarker(latitude, longitude, letter, url, title) {
 }
 
 function populateMap() {
+  var icon_number = 1;
   _.each(gon.merchants, function(merchant) {
     var url = "/merchants/" + merchant.id;
     var title = merchant.bname;
-    addMarker(merchant.latitude, merchant.longitude, merchant.bname, url, title);
+    addMarker(merchant.latitude, merchant.longitude, merchant.bname, url, title, icon_number);
+    icon_number += 1;
   });
 }
 
