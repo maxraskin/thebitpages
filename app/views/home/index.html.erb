@@ -74,11 +74,13 @@
         <div class="span3 recent-merchants">
           <div class="row">
             <div class="span1">
-              <%= image_tag(merchant.avatar.url) if merchant.avatar.url.present? %>
+              <% if merchant.avatar.url.present? %>
+                <%= link_to image_tag(merchant.avatar.url), merchant_path(merchant)  %>
+              <% end %>
             </div>
             <div class="span1" id="title">
               <p>
-                <%= merchant.bname %> <br />
+                <%= link_to merchant.bname, merchant_path(merchant) %>
                 <%= merchant.industry %> 
               </p>
             </div>
