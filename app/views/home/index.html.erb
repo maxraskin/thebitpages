@@ -7,9 +7,9 @@
     <div class="row">
       
       <header class="span6">
-        <!-- image_tag "fallback/default.png" -->
-        <%= image_tag "bitpages_logo.png" %> 
-        <p>Your currency is virtual ... your friends don't have to be.</p>
+        <%= image_tag "bitpages_logo.png" %>
+        <p>Your currency is virtual ... </p>
+        <p>your friends don't have to be.</p>
       </header>
       
       <div class="span3">
@@ -39,7 +39,6 @@
         
     </div>
   </div>
-
 
 <!-- !!!!!!!! -->
 <!-- Right box -->
@@ -71,7 +70,7 @@
     <div class="row">
       <% @recent_merchants.each do |merchant| %>
 
-        <div class="span3 recent-merchants">
+        <div class="span4 recent-merchants">
           <div class="row">
             <div class="span1">
               <% if merchant.avatar.url.present? %>

@@ -2,6 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+header {
+  img {
+    margin-left: 40px;
+  }
+  p {
+    font-size:30px;
+    line-height: 27px;
+    text-align: center;
+  }
+}
+
 .sign-in {
   // margin: 0 auto;
   text-align: center;
