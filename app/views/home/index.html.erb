@@ -32,7 +32,7 @@
       </div>
 
       <div class="span6 home-login">
-        <p>Already a member?</p>
+        <p><i>Already a member?</i></p>
         <p><%= link_to "Merchant Log In", merchant_profile_session_path, :method => :get %></p>
         <p><%= link_to "Individual Log In", user_session_path, :method => :get %></p>
       </div>
@@ -65,31 +65,32 @@
 </div>
 
 <div class="row merchants-list">
-  <div class="span12">
-    <h3>Merchants recently listed on Bit Pages</h3>
+  <div class="span13">
+    <h3 style="margin-left: -30px;">Merchants recently listed on Bit Pages</h3>
     <div class="row">
       <% @recent_merchants.each do |merchant| %>
 
-        <div class="span4 recent-merchants">
-          <div class="row">
-            <div class="span1">
-              <% if merchant.avatar.url.present? %>
-                <%= link_to image_tag(merchant.avatar.url), merchant_path(merchant)  %>
-              <% end %>
+        <div class="span4 recent-merchant">
+            
+            <div class="" id="box1">
+              <%= link_to image_tag(merchant.avatar.url), merchant_path(merchant)  %>
             </div>
-            <div class="span1" id="title">
+
+            <div class="" id="box2">
               <p>
                 <%= link_to merchant.bname, merchant_path(merchant) %>
                 <%= merchant.industry %> 
               </p>
             </div>
-            <div class="span1" id="address">
+
+            <div class="" id="box3">
               <p>
                 <%= merchant.street_address %> <br />
                 <%= merchant.city %>, <%= merchant.state %> <%= merchant.zip_code %>
               </p>
             </div>
-          </div>
+            
+
         </div>
 
       <% end %>

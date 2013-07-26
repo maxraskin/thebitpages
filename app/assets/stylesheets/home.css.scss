@@ -20,7 +20,41 @@ header {
 
 .merchants-list {
   // border: 1px solid black;
-  padding: 5px;
+  padding-left: 45px;
+  .recent-merchant {
+    height: 80px;
+    margin-left: 0;
+    width:400px;
+    border: 1px solid #D9D9D9;
+    padding: 0;
+
+    img {
+      margin: 2px 2px;
+      height: 74px;
+      border: 1px solid #D9D9D9;
+      -webkit-box-shadow: 2px 2px 3px rgba(50, 50, 50, 0.75);
+      -moz-box-shadow:    2px 2px 3px rgba(50, 50, 50, 0.75);
+      box-shadow:         2px 2px 3px rgba(50, 50, 50, 0.75);
+    }
+
+    #box1 {
+      width: 100px;
+      float: left;
+
+    }
+
+    #box2 {
+      width: 100px;
+      float: left;
+
+    }
+
+    #box3 {
+      width: 100px;
+      float: left;
+
+    }
+  }
 }
 
 .discover-merchants {
@@ -66,19 +100,21 @@ footer {
   }
 }
 
-.recent-merchants {
-  border: 1px solid black;
-  height: 100px;
-  padding: 2px;
+// .recent-merchants {
+//   border: 1px solid black;
+//   height: 100px;
+//   padding: 2px;
 
-  #title p {
-    font-size: 15px;
-    font-weight: bold;
-  }
-  #address {
-    float: right;
-  }
-}
+//   #title p {
+//     font-size: 15px;
+//     font-weight: bold;
+//   }
+//   #address {
+//     float: right;
+//   }
+// }
+
+
 
 footer {
   margin-top: 200px;  
