@@ -1,6 +1,8 @@
 Bitpages::Application.routes.draw do
   
   
+  get "user_submissions/create"
+
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   authenticated :user do
@@ -42,6 +44,8 @@ Bitpages::Application.routes.draw do
   match '/about', :to => "home#about"
   match '/contact', :to => "home#contact"
   match '/help', :to => "home#help"
+
+  resources :user_submissions
   
   ActiveAdmin.routes(self)
 

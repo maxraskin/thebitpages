@@ -5,10 +5,8 @@ class DashboardController < ApplicationController
 
     if current_merchant_profile.present?
       gon.current_user = current_merchant_profile
-    #   @qr = RQRCode::QRCode.new("#{current_merchant.bitcoin_address}", :size => 8, :level => :l)
     else
       gon.current_user = current_user
-      # @qr = RQRCode::QRCode.new("#{current_user.bitcoin_address}", :size => 8, :level => :l)
     end
   end
 
@@ -34,7 +32,6 @@ class DashboardController < ApplicationController
       center = Geocoder::Calculations.geographic_center(@merchants)
       # gon.merchant = Merchant.closest(:origin => center).first
       gon.center = Geocoder::Calculations.geographic_center(@merchants)
-      # binding.pry
     elsif params[:submit_search]
       @new_members = User.last(3).reverse
       gon.merchants = @merchants

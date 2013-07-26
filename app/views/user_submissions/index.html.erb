@@ -1,0 +1,15 @@
+<h1>user submission index page</h1>
+
+<p>Find me in app/views/user_submissions/create.html.erb</p>
+
+<%= simple_form_for @user_submission do |f| %>
+  
+  <div class="span6 info-fields">
+    <%= f.input :username, :placeholder => "Street Address" %>
+    <%= f.input :merchant_name %>
+    <%= f.input :merchant_website %>
+    <%= f.input :comment %>
+    <%= f.submit "Create Account" %>
+  </div>
+      
+<% end %>

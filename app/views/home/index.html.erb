@@ -52,6 +52,8 @@
           <%= text_field_tag :zip_code, nil, :placeholder => "Include your zip code to narrow results to your area" %> <br />
           <%= button_tag "Search", :name => "submit_search", :class => "sign-in-button btn btn-primary" %>
         <% end %>
+        <h5>Or submit a merchant for review</h5>
+        <%= button_to "Submit", user_submissions_path, :method => :get, :class => "sign-in-button btn btn-info", :style => "width: 72px;"  %>
       </div>
     </div>
 
