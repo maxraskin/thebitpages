@@ -1,5 +1,6 @@
 <%= content_tag_for(:li, conversation) do |conversation| %>
   <%= link_to conversation.subject, conversation_path(conversation) %> |
+  <% current_user = current_merchant_profile if current_merchant_profile.present? %>
   <% if conversation.is_completely_trashed?(current_user) %>
     <%= link_to "Untrash", [:untrash, conversation], :method => :post %>
   <% else %>

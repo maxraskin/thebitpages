@@ -1,5 +1,5 @@
 class ConversationsController < ApplicationController
-  before_filter :authenticate_user!
+  # before_filter :authenticate_user!
   helper_method :mailbox, :conversation
 
   def index
@@ -7,40 +7,63 @@ class ConversationsController < ApplicationController
   end
 
   def new
-    users = User.all
-    merchant_profiles = MerchantProfile.all
-    @potential_recipients = users + merchant_profiles
+    @potential_recipients = []
+    User.all.each do |user|
+      @potential_recipients << user.email
+    end 
+
+    Merchant.all.each do |merchant|
+      @potential_recipients << merchant.email
+    end
   end
 
   def create
-    recipient_id = conversation_params(:recipients).split(',')
-    recipients = User.where(id: recipient_id).all
+    recipient_email = conversation_params(:recipients).split(',')
+    recipients = User.where(email: recipient_email).all
+    recipients = MerchantProfile.where(email: recipient_email).all  if recipients.empty?
 
-    conversation = current_user.
-      send_message(recipients, *conversation_params(:body, :subject)).conversation
-
+    if current_merchant_profile.present?
+      conversation = current_merchant_profile.
+        send_message(recipients, *conversation_params(:body, :subject)).conversation
+    elsif current_user.present?
+      conversation = current_user.
+        send_message(recipients, *conversation_params(:body, :subject)).conversation
+    end
     redirect_to conversation
   end
 
   def reply
+    current_user = current_merchant_profile if current_merchant_profile.present?
     current_user.reply_to_conversation(conversation, *message_params(:body, :subject))
     redirect_to conversation
   end
 
   def trash
-    conversation.move_to_trash(current_user)
+    if current_merchant_profile.present?
+      conversation.move_to_trash(current_merchant_profile)
+    elsif current_user.present?
+      conversation.move_to_trash(current_user)
+    end
     redirect_to :conversations
   end
 
   def untrash
-    conversation.untrash(current_user)
+    if current_merchant_profile.present?
+      conversation.untrash(current_merchant_profile)
+    elsif current_user.present?
+      conversation.untrash(current_user)
+    end
     redirect_to :conversations
   end
 
   private
 
   def mailbox
-    @mailbox ||= current_user.mailbox
+    if current_user.present?
+      @mailbox = current_user.mailbox
+    elsif current_merchant_profile.present?
+      @mailbox = current_merchant_profile.mailbox
+    end
   end
 
   def conversation
