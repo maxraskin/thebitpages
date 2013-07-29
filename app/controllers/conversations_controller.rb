@@ -3,7 +3,11 @@ class ConversationsController < ApplicationController
   helper_method :mailbox, :conversation
 
   def index
-    gon.current_user = current_user
+    if current_user.present?
+      gon.current_user = current_user
+    elsif current_merchant_profile.present?
+      gon.current_user = current_merchant_profile
+    end
   end
 
   def new
