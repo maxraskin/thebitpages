@@ -1,11 +1,18 @@
 <h1>Message</h1>
 <%= link_to "Back to inbox", conversations_path %>
 <ul>
-  <% current_user = current_merchant_profile if current_merchant_profile.present? %>
-  <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
-    <% message = receipt.message %>
-    <h4>Subject: <%= message.subject %></h4>
-    <p>Body: <%= message.body %></p>
+  <% if current_merchant_profile.present? %>
+    <%= content_tag_for(:li, conversation.receipts_for(current_merchant_profile)) do |receipt| %>
+      <% message = receipt.message %>
+      <h4>Subject: <%= message.subject %></h4>
+      <p>Body: <%= message.body %></p>
+    <% end %>
+  <% elsif current_user.present? %>
+    <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
+      <% message = receipt.message %>
+      <h4>Subject: <%= message.subject %></h4>
+      <p>Body: <%= message.body %></p>
+    <% end %>
   <% end %>
 <%= render "messages/form", conversation: conversation %>
 

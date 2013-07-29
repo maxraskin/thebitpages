@@ -1,10 +1,17 @@
 <%= content_tag_for(:li, conversation) do |conversation| %>
   <%= link_to conversation.subject, conversation_path(conversation) %> |
-  <% current_user = current_merchant_profile if current_merchant_profile.present? %>
-  <% if conversation.is_completely_trashed?(current_user) %>
-    <%= link_to "Untrash", [:untrash, conversation], :method => :post %>
-  <% else %>
-    <%= link_to "Move to trash", [:trash, conversation], :method => :post %>
+  <% if current_user.present? %>
+    <% if conversation.is_completely_trashed?(current_user) %>
+      <%= link_to "Untrash", [:untrash, conversation], :method => :post %>
+    <% else %>
+      <%= link_to "Move to trash", [:trash, conversation], :method => :post %>
+    <% end %>
+  <% elsif current_merchant_profile.present? %>
+    <% if conversation.is_completely_trashed?(current_merchant_profile) %>
+      <%= link_to "Untrash", [:untrash, conversation], :method => :post %>
+    <% else %>
+      <%= link_to "Move to trash", [:trash, conversation], :method => :post %>
+    <% end %>
   <% end %>
   <p>Sent by: <%= conversation.last_sender.email %></p>
 <% end %>
