@@ -1,8 +1,9 @@
 Bitpages::Application.routes.draw do
   
   
+  mount Messaging::Engine => "/messaging"
+  devise_for :messaging_users
   get "user_submissions/create"
-
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   authenticated :user do
