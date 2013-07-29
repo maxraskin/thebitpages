@@ -17,8 +17,18 @@
         </div>
 
         <div class="span10 avatar-field">
-          <%= f.file_field :avatar, :name => "Add/Change profile photo" %>
-          <%= f.hidden_field :avatar_cache %>
+         <% if current_user.avatar.url.present? %>
+            <%= f.label :remove_avatar do %></br>
+              <%= f.check_box :remove_avatar %> Remove avatar</br>
+            <% end %>
+            <%= f.file_field :avatar %>
+            <%= f.hidden_field :avatar_cache %>
+          <% else %>
+            <%= f.label :avatar do %>
+              <%= f.file_field :avatar %>
+              <%= f.hidden_field :avatar_cache %>
+            <% end %>
+          <% end %>
         </div>
 
       </div>
