@@ -5,7 +5,7 @@
 
   <div class="span3">
     <% if current_merchant_profile.avatar.url.present? %>
-      <%= image_tag current_merchant_profile.avatar.url p %>
+      <%= image_tag current_merchant_profile.avatar.url %>
     <% else %>
       <%= image_tag current_merchant_profile.merchant.avatar.url %>
     <% end %>
