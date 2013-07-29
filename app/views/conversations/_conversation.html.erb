@@ -5,4 +5,5 @@
   <% else %>
     <%= link_to "Move to trash", [:trash, conversation], :method => :post %>
   <% end %>
+  <p>Sent by: <%= conversation.last_sender.email %></p>
 <% end %>

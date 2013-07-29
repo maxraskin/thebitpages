@@ -10,6 +10,9 @@
     <% end %>
   </div>
 
+  <div class="span9">
+    <%= button_to "Send a Message", new_conversation_path, :class => "btn btn-primary", :method => "get" %>
+  </div>
 
   <div class="span9">
     <div class="row">
@@ -34,9 +37,6 @@
         </ul>
       </div>
 
-      <div class="span9">
-        <%= link_to "Start Conversation", :new_conversation %>
-      </div>
     </div>
   </div>
 

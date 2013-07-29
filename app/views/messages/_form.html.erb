@@ -1,8 +1,8 @@
-<%= simple_form_for :message, :url => :messages do |f| %>
+<%= simple_form_for :message, :url => reply_conversation_url do |f| %>
   <%= f.input :subject %>
   <%= f.input :body %>
   <div class="form-actions">
-    <%= f.button :submit, :class => "btn btn-primary" %>
+    <%= f.button :submit, "Send Message", :class => "btn btn-primary" %>
     <%= submit_tag "Cancel", :type => "reset", :class => "btn btn-danger" %>
   </div>
 <% end %>
