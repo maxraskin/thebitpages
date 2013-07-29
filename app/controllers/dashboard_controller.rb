@@ -54,4 +54,5 @@ class DashboardController < ApplicationController
   def search
     @merchants = Merchant.all
   end
+
 end

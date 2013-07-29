@@ -19,8 +19,18 @@ class MerchantProfile < ActiveRecord::Base
   attr_accessible :merchant_id, :approved, :email, :zip_code, :bname
   belongs_to :merchant
 
+  acts_as_messageable
+
   def geocode_method
     "#{self.street_address} #{self.city} #{self.state} #{self.zip_code}"
+  end
+
+  def mailboxer_name
+    name
+  end
+
+  def mailboxer_email(object)
+    email
   end
  
 end

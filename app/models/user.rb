@@ -16,4 +16,14 @@ class User < ActiveRecord::Base
   has_many :user_merchant_friendships
   has_many :merchants, :through => :user_merchant_friendships
 
+  acts_as_messageable
+
+  def mailboxer_name
+    name
+  end
+
+  def mailboxer_email(object)
+    email
+  end
+
 end

@@ -1,6 +1,5 @@
 Bitpages::Application.routes.draw do
   
-  
   mount Messaging::Engine => "/messaging"
   devise_for :messaging_users
   get "user_submissions/create"
@@ -48,6 +47,17 @@ Bitpages::Application.routes.draw do
 
   resources :user_submissions
   
+  resources :conversations
+  resources :messages
+
+  resources :conversations, only: [:index, :show, :new, :create] do
+    member do
+      post :reply
+      post :trash
+      post :untrash
+    end
+  end
+
   ActiveAdmin.routes(self)
 
   # The priority is based upon order of creation:
