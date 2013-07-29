@@ -53,6 +53,7 @@ Bitpages::Application.routes.draw do
       post :reply
       post :trash
       post :untrash
+      delete :destroy_trash
     end
   end
 

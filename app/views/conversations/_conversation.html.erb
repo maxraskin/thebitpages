@@ -2,15 +2,15 @@
   <%= link_to conversation.subject, conversation_path(conversation) %> |
   <% if current_user.present? %>
     <% if conversation.is_completely_trashed?(current_user) %>
-      <%= link_to "Untrash", [:untrash, conversation], :method => :post %>
+      <%= link_to "Untrash", [:untrash, conversation], :method => :post %> |
     <% else %>
-      <%= link_to "Move to trash", [:trash, conversation], :method => :post %>
+        <%= link_to "Move to trash", [:trash, conversation], :method => :post %>
     <% end %>
   <% elsif current_merchant_profile.present? %>
     <% if conversation.is_completely_trashed?(current_merchant_profile) %>
-      <%= link_to "Untrash", [:untrash, conversation], :method => :post %>
+      <%= link_to "Untrash", [:untrash, conversation], :method => :post %> |
     <% else %>
-      <%= link_to "Move to trash", [:trash, conversation], :method => :post %>
+      <%= link_to "Move to trash", [:destroy_trash, conversation], :method => :post %>
     <% end %>
   <% end %>
   <p>Sent by: <%= conversation.last_sender.email %></p>

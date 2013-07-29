@@ -1,62 +1,56 @@
-<h2><%= current_user.name %>'s network</h2>
-<div class="row">
-  <div class="span5">
-    <h4>Merchants</h4>
-    
-    <!-- !!!!!!!!!!!!!!!!!!!!!!!! -->
-    <!-- Fix merchant_friendships -->
-    <!-- !!!!!!!!!!!!!!!!!!!!!!!! -->
-    <% @user.user_merchant_friendships.each do |user_merchant_friendship| %>
-    <div class="row">
-      <div class="span5 recent-merchants-dashboard">
-      <%= user_merchant_friendship.merchant.bname %>
-      (<%= link_to "remove friend", user_merchant_friendship, :method => :delete %>)
+<div class="network">
+  <h2><%= current_user.name %>'s network</h2>
+  <div class="row">
+    <div class="span5">
+      <h4>Merchants</h4>
 
-      <div class="each-merchant">
+      <% @user.user_merchant_friendships.each do |user_merchant_friendship| %>
+      <div class="row">
+        <div class="span5 recent-merchants-dashboard">
+        <%= user_merchant_friendship.merchant.bname %>
+        (<%= link_to "remove friend", user_merchant_friendship, :method => :delete %>)
+
+        <div class="each-merchant">
+          <div class="row">
+            <div class="span1">
+              <%= image_tag(user_merchant_friendship.merchant.avatar.url) if user_merchant_friendship.merchant.avatar.url.present? %>
+            </div>
+
+            <div class="span1 bname">
+              <h5><%= user_merchant_friendship.merchant.bname %></h5>
+              <p><%= user_merchant_friendship.merchant.industry %></p>
+            </div>
+
+            <div class="span2 address" >
+              <p><%= user_merchant_friendship.merchant.street_address %></p>
+              <p><%= user_merchant_friendship.merchant.city %>, <%= user_merchant_friendship.merchant.state %> <%= user_merchant_friendship.merchant.zip_code %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="span3 recent-users-dashboard">
+    <h4>People</h4>
+    <% @user.user_friendships.each do |user_friendship| %>
+
+         <%= user_friendship.user.name %>
+        (<%= link_to "remove friend", user_friendship, :method => :delete %>)
+      <div class="each-member">
         <div class="row">
           <div class="span1">
-            <%= image_tag(user_merchant_friendship.merchant.avatar.url) if user_merchant_friendship.merchant.avatar.url.present? %>
+            <%= image_tag(user_friendship.user.avatar.url) if user_friendship.user.avatar.url.present? %>
           </div>
-
-          <div class="span1 bname">
-            <h5><%= user_merchant_friendship.merchant.bname %></h5>
-            <p><%= user_merchant_friendship.merchant.industry %></p>
-          </div>
-
-          <div class="span2 address" >
-            <p><%= user_merchant_friendship.merchant.street_address %></p>
-            <p><%= user_merchant_friendship.merchant.city %>, <%= user_merchant_friendship.merchant.state %> <%= user_merchant_friendship.merchant.zip_code %></p>
+          <div class="span1">
+            <h5><%= user_friendship.user.name %></h5>
+            <p>ZipCode: <%= user_friendship.user.zip_code %></p>
           </div>
         </div>
       </div>
-    </div>
+    <% end %>
   </div>
-  <% end %>
 </div>
-
-    <!-- !!!!!!!!!!!!!!!!!!!!!!!! -->
-    <!-- Fix user_friendships -->
-    <!-- !!!!!!!!!!!!!!!!!!!!!!!! -->
-
-<div class="span3 recent-users-dashboard">
-  <h4>People</h4>
-  <% @user.user_friendships.each do |user_friendship| %>
-
-       <%= user_friendship.user.name %>
-      (<%= link_to "remove friend", user_friendship, :method => :delete %>)
-    <div class="each-member">
-      <div class="row">
-        <div class="span1">
-          <%= image_tag(user_friendship.user.avatar.url) if user_friendship.user.avatar.url.present? %>
-        </div>
-        <div class="span1">
-          <h5><%= user_friendship.user.name %></h5>
-          <p>ZipCode: <%= user_friendship.user.zip_code %></p>
-        </div>
-      </div>
-    </div>
-  <% end %>
-</div>
-
 
   

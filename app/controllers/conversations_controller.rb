@@ -37,8 +37,12 @@ class ConversationsController < ApplicationController
   end
 
   def reply
+    if current_user.present?
+      current_user.reply_to_conversation(conversation, *message_params(:body, :subject))
+    elsif current_merchant_profile.present?
+      current_merchant.reply_to_conversation(conversation, *message_params(:body, :subject))
+    end
     current_user = current_merchant_profile if current_merchant_profile.present?
-    current_user.reply_to_conversation(conversation, *message_params(:body, :subject))
     redirect_to conversation
   end
 
@@ -58,6 +62,21 @@ class ConversationsController < ApplicationController
       conversation.untrash(current_user)
     end
     redirect_to :conversations
+  end
+
+  def destroy_trash
+    user = User.find(params[:id])
+    trash = user.mailbox.trash
+
+    trash.each do |conversation|
+      conversation.receipts_for(user).update_all(:deleted => true)
+      # conversation.save
+      # binding.pry
+    end
+
+
+    redirect_to conversations_url
+    #current_user.mailbox.trash.where(:id => find_this_id)
   end
 
   private

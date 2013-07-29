@@ -29,7 +29,7 @@ class DashboardController < ApplicationController
 
 
     if params[:merchant_map]
-      center = Geocoder::Calculations.geographic_center(@merchants)
+      # center = Geocoder::Calculations.geographic_center(@merchants)
       # gon.merchant = Merchant.closest(:origin => center).first
       gon.center = Geocoder::Calculations.geographic_center(@merchants)
     elsif params[:submit_search]
