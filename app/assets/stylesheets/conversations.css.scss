@@ -1,3 +1,37 @@
 // Place all the styles related to the conversations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.messages {
+  // border: 1px solid black;
+  // padding-left: 10px;
+  .message {
+    height: 100%;
+    margin-left: 0;
+    padding: 5px 5px;
+    width:600px;
+    border: 1px solid #D9D9D9;
+
+    .message-sender {
+      font-size: 1.2em;
+      font-weight: bolder;
+    }
+    
+    .message-subject {
+      font-style: italic;
+    }
+
+    img {
+      margin: 2px 2px;
+      height: 74px;
+      border: 1px solid #D9D9D9;
+      -webkit-box-shadow: 2px 2px 3px rgba(50, 50, 50, 0.75);
+      -moz-box-shadow:    2px 2px 3px rgba(50, 50, 50, 0.75);
+      box-shadow:         2px 2px 3px rgba(50, 50, 50, 0.75);
+    }
+
+    .trash {
+      width: 100%;
+    }
+  }
+}
