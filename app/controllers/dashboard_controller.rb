@@ -11,34 +11,40 @@ class DashboardController < ApplicationController
   end
 
   def map
-    gon.industry = @industry = params[:category]
-    
-    gon.zip_code = zip_code = params[:zip_code] 
-
-    #temp fix for empty zip_code field
-    zip_code = "10001" if params[:zip_code] == ""
-
-    if @industry.present?
-      #filters merchants by industry
-      merchant_industry_array =  Merchant.where("lower(industry) = ?", @industry.downcase)
-
-      @merchants = merchant_industry_array.within(10, :origin => zip_code)
+    if params[:zip_code].length != 5 || params[:zip_code].to_i == 0
+      flash.notice = "Invalid Zip Code."
+      redirect_to root_url
     else
-      @merchants = Merchant.within(10, :origin => zip_code)
+      gon.industry = @industry = params[:category]
+      gon.zip_code = zip_code = params[:zip_code] 
+
+      begin 
+        if @industry.present?
+          merchant_industry_array =  Merchant.where("lower(industry) = ?", @industry.downcase)
+
+          @merchants = merchant_industry_array.within(10, :origin => zip_code)
+        else
+          @merchants = Merchant.within(10, :origin => zip_code)
+        end
+      rescue Geokit::Geocoders::GeocodeError
+        flash.notice = "Invalid Zip Code."
+        redirect_to root_url
+      end
+
+      if @merchants.present?
+        if params[:merchant_map]
+          gon.center = Geocoder::Calculations.geographic_center(@merchants)
+        elsif params[:submit_search]
+          @new_members = User.last(3).reverse
+          gon.merchants = @merchants
+          render "search"
+        end
+      end
+
+      gon.merchants = @merchants 
     end
 
-
-    if params[:merchant_map]
-      # center = Geocoder::Calculations.geographic_center(@merchants)
-      # gon.merchant = Merchant.closest(:origin => center).first
-      gon.center = Geocoder::Calculations.geographic_center(@merchants)
-    elsif params[:submit_search]
-      @new_members = User.last(3).reverse
-      gon.merchants = @merchants
-      render "search"
-    end
-
-    gon.merchants = @merchants      
+    
 
   end
 

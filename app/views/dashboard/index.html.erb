@@ -12,9 +12,17 @@
     <% end %>
   </div>
 
+  <% if flash[:notice] %>
+    <div class="notice span9">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
   <div class="span9">
 
     <%= render "discover_merchants" %>
+
+
     
     <div class="row">
       <div class="span6">
