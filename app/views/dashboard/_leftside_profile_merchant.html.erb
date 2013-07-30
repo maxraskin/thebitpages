@@ -3,7 +3,7 @@
     <h4><%= current_merchant_profile.merchant.bname %></h4>
   </div>
 
-  <div class="span3">
+  <div class="span3 avatar-image-profile">
     <% if current_merchant_profile.avatar.url.present? %>
       <%= image_tag current_merchant_profile.avatar.url %>
     <% else %>

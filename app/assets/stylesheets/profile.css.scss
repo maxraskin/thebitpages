@@ -6,6 +6,13 @@
   border-right: 2px solid #d9d9d9;
 }
 
+.avatar-image-profile {
+  img {
+    width: 120px;
+    margin-bottom: 20px;
+  }
+}
+
 .profile-show-view, .user-submission, .conversation-view {
   color: #616161;
   margin: 45px 45px;
