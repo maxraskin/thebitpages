@@ -37,7 +37,6 @@
   <div class="span3 recent-users-dashboard">
     <h4>People</h4>
     <% @user.merchant_user_friendships.each do |merchant_user_friendship| %>
-
          <%= merchant_user_friendship.user.name %>
         (<%= link_to "remove friend", merchant_user_friendship, :method => :delete %>)
       <div class="each-member">

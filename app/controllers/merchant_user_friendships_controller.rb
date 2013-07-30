@@ -6,9 +6,8 @@ class MerchantUserFriendshipsController < ApplicationController
   
   def create
     @friendship = current_merchant_profile.merchant.merchant_user_friendships.build(:user_id => params[:user_id])
-    if @friendship.save
-      redirect_to users_url
-    end
+    @friendship.save
+    redirect_to network_url
   end
 
   def destroy

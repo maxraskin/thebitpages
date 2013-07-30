@@ -1,17 +1,42 @@
-<%= content_tag_for(:li, conversation) do |conversation| %>
-  <%= link_to conversation.subject, conversation_path(conversation) %> |
-  <% if current_user.present? %>
-    <% if conversation.is_completely_trashed?(current_user) %>
-      <%= link_to "Untrash", [:untrash, conversation], :method => :post %> |
-    <% else %>
-        <%= link_to "Move to trash", [:trash, conversation], :method => :post %>
-    <% end %>
-  <% elsif current_merchant_profile.present? %>
-    <% if conversation.is_completely_trashed?(current_merchant_profile) %>
-      <%= link_to "Untrash", [:untrash, conversation], :method => :post %> |
-    <% else %>
-      <%= link_to "Move to trash", [:destroy_trash, conversation], :method => :post %>
-    <% end %>
-  <% end %>
-  <p>Sent by: <%= conversation.last_sender.email %></p>
+
+<div class="row messages">
+  <div class="span13">
+
+  <%= content_tag_for(:li, conversation) do |conversation| %>
+
+    <div class="message">
+      <p class="message-sender"><%= conversation.last_sender.email %></b></p>
+
+      <p><b><i>Subject:</i></b> <%= link_to conversation.subject, conversation_path(conversation) %> </p> 
+      <% if current_user.present? %>
+        <% if conversation.is_completely_trashed?(current_user) %>
+          <%= link_to "Untrash", [:untrash, conversation], :method => :post %> 
+        <% else %>
+            <p class="message-subject">Message: <%= conversation.messages.last.body %></p>
+            <div class="trash">
+              <%= link_to "Move to trash", [:trash, conversation], :method => :post %>
+            </div>
+        <% end %>
+
+      <% elsif current_merchant_profile.present? %>
+        
+        <% if conversation.is_completely_trashed?(current_merchant_profile) %>
+          <%= link_to "Untrash", [:untrash, conversation], :method => :post %> 
+        <% else %>
+          <p class="message-subject">Message: <%= conversation.messages.last.body %></p>
+          <div class="trash">
+            <%= link_to "Move to trash", [:destroy_trash, conversation], :method => :post %>
+          </div>
+        <% end %>
+
+      <% end %>
+      
+      
+      
+
+    </div>
+    
+
+  </div>
+</div>
 <% end %>
