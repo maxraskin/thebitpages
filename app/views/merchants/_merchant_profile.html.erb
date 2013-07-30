@@ -2,11 +2,7 @@
   <div class="span5">
     <div class="row profile">
       <div class="offset1 span4">
-        <% if @merchant.merchant_profile && @merchant.merchant_profile.approved? %>
-          <p>
-            <i>*Verified Merchant</i>
-          </p>
-        <% end %>
+
         <h4><%= @merchant.bname %></h4>
         <%= image_tag(@merchant.avatar.url) %>
         <img id="bitcoin-id" src="" alt="QR code"><img>
@@ -35,16 +31,16 @@
         <% if @merchant.merchant_profile.present? && @merchant.merchant_profile.approved %>
           <div class="span3">
           <% if current_merchant_profile.present? %>
-            <% if current_merchant_profile.merchant.merchant_friendships.include?(MerchantFriendship.find_by_merchant_id(@merchant.id)) %>
+            <% if current_merchant_profile.merchant.merchant_friendships.include?(MerchantFriendship.where(:merchant_friend_id => @merchant.id, :merchant_id => current_merchant_profile.merchant.id).first) %>
               <b><i>Already Added!</i></b>
             <% else %>
               <%= button_to "Add to Network", merchant_friendships_path(:merchant_friend_id => @merchant), :method => :post %>
             <% end %>
           <% elsif current_user.present? %>
-            <% if current_user.user_merchant_friendships.include?(UserMerchantFriendship.find_by_merchant_id(@merchant.id)) %>
+            <% if current_user.user_merchant_friendships.include?(UserMerchantFriendship.where(:merchant_id => @merchant.id, :user_id => current_user.id).first) %>
               <b><i>Already Added!</i></b>
             <% else %>
-              <%= button_to "Add to Network", user_merchant_friendships_path, :merchant_friend_id => @merchant, :method => :post %>
+              <%= button_to "Add to Network", user_merchant_friendships_path(:merchant_id => @merchant.id), :method => :post %>
             <% end %>
           <% end %>
           

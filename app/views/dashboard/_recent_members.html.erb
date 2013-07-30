@@ -3,7 +3,7 @@
   <% @new_members.each do |member| %>
     <div class="each-member">
       <div class="row">
-        <div class="span1">
+        <div class="span0">
           <% if member.avatar.url.present? %>
             <%= link_to image_tag(member.avatar.url), user_path(member)  %>
           <% end %>
@@ -11,6 +11,22 @@
         <div class="span1">
           <h5><%= link_to member.name, user_path(member) %></h5>
           <p>ZipCode: <%= member.zip_code %></p>
+        </div>
+
+        <div class="span1">
+          <% if current_merchant_profile.present? %>
+            <% if current_merchant_profile.merchant.merchant_user_friendships.include?(MerchantUserFriendship.where(:merchant_id => current_merchant_profile.merchant.id, :user_id => member.id).first) %>
+              <b><i>Already Added!</i></b>
+            <% else %>
+              <%= link_to "Add to Network", merchant_user_friendships_path(:merchant_id => current_merchant_profile.merchant.id, :user_id => member.id), :method => :post %>
+            <% end %>
+          <% elsif current_user.present? %>
+            <% if current_user.user_friendships.include?(UserFriendship.where(:user_id => current_user.id, :user_friend_id => member.id).first) %>
+              <b><i>Already Added!</i></b>
+            <% else %>
+              <%= link_to "Add to Network", user_friendships_path(:user_id => current_user.id, :user_friend_id => member), :method => :post %>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>

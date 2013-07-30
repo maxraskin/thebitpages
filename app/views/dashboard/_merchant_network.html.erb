@@ -8,7 +8,6 @@
       <% @user.merchant_friendships.each do |merchant_friendship| %>
       <div class="row">
         <div class="span5 recent-merchants-dashboard">
-        <% merchant_friendship %>
         <%= merchant_friendship.merchant_friend.bname %>
         (<%= link_to "remove friend", merchant_friendship, :method => :delete %>)
 

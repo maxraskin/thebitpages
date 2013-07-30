@@ -9,7 +9,6 @@
     <div class="merchant">
       <p>
         <strong><%= merchant.bname %></strong>
-        <!-- unless current_merchant_profile.merchant.merchant_user_friendships.include?(MerchantUserFriendship.where(:user_id => user.id, :merchant_id => current_merchant_profile.merchant.id).first) -->
         <% if current_merchant_profile.present? %>
           <% unless current_merchant_profile.merchant.merchant_friendships.include?(MerchantFriendship.where(:merchant_id => current_merchant_profile.merchant.id, :merchant_friend_id => merchant.id).first) %>
           <%= link_to "Add Friend", merchant_friendships_path(:merchant_friend_id => merchant), :method => :post %>
