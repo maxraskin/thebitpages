@@ -26,12 +26,10 @@
           <p class="message-subject">Message: <%= conversation.messages.last.body %></p>
           <div class="trash">
             <%= link_to "Move to trash", [:trash, conversation], :method => :post %>
-          </div>
+            </div>
         <% end %>
 
       <% end %>
-      
-      
       
 
     </div>
