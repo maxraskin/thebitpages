@@ -26,4 +26,15 @@ class User < ActiveRecord::Base
     email
   end
 
+  def self.number_of_friendships(user)
+    this_user_follow_other_users = UserFriendship.where(:user_id => user.id)
+    other_users_follow_this_user = UserFriendship.where(:user_friend_id => user.id)
+
+    this_user_follow_other_merchants = UserMerchantFriendship.where(:user_id => user.id)    
+    other_merchants_follow_this_user = MerchantUserFriendship.where(:user_id => user.id)
+
+    total = this_user_follow_other_users.count + other_users_follow_this_user.count + this_user_follow_other_merchants.count + other_merchants_follow_this_user.count
+    return total
+  end
+
 end
