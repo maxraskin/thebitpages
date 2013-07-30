@@ -28,5 +28,16 @@ class Merchant < ActiveRecord::Base
     "#{self.street_address} #{self.city} #{self.state} #{self.zip_code}"
   end
 
+  def self.number_of_friendships(merchant)
+    this_merchant_follow_other_merchants = MerchantFriendship.where(:merchant_id => merchant.id)
+    other_merchants_follow_this_merchant = MerchantFriendship.where(:merchant_friend_id => merchant.id)
+
+    this_merchant_follow_other_users = MerchantUserFriendship.where(:merchant_id => merchant.id)
+    other_users_follow_this_merchant = UserMerchantFriendship.where(:merchant_id => merchant.id)
+
+    total = this_merchant_follow_other_merchants.count + other_merchants_follow_this_merchant.count + this_merchant_follow_other_users.count + other_users_follow_this_merchant.count
+    return total
+  end
+
 
 end
