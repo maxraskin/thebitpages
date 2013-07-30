@@ -1,5 +1,4 @@
-<%= image_tag "bitpages_logo.png" %>
-<hr style="width: 100%; height: 1em; background: #fff; margin: 0 auto;">
+<%= render "layouts/logo.html.erb" %>
 
 <div class="all-merchants">
   <p>Listed Merchants on Bitpages</p>
@@ -9,16 +8,21 @@
   <% @merchants.each do |merchant| %>
     <div class="merchant">
       <p>
-        <strong><%=h merchant.bname %></strong>
+        <strong><%= merchant.bname %></strong>
         <!-- unless current_merchant_profile.merchant.merchant_user_friendships.include?(MerchantUserFriendship.where(:user_id => user.id, :merchant_id => current_merchant_profile.merchant.id).first) -->
-
-        <% unless current_merchant_profile.merchant.merchant_friendships.include?(MerchantFriendship.where(:merchant_id => current_merchant_profile.merchant.id, :merchant_friend_id => merchant.id).first) %>
+        <% if current_merchant_profile.present? %>
+          <% unless current_merchant_profile.merchant.merchant_friendships.include?(MerchantFriendship.where(:merchant_id => current_merchant_profile.merchant.id, :merchant_friend_id => merchant.id).first) %>
           <%= link_to "Add Friend", merchant_friendships_path(:merchant_friend_id => merchant), :method => :post %>
-
+          <% else %>
+            <i>Already Added!</i>
+          <% end %>
         <% else %>
-          <i>Already Added!</i>
+          <% unless current_user.user_merchant_friendships.include?(UserMerchantFriendship.where(:merchant_id => merchant.id, :user_id => current_user.id).first) %>
+            <%= link_to "Add Friend", user_merchant_friendships_path(:merchant_id => merchant.id), :method => :post %>
+          <% else %>
+            <i>Already Added!</i>
+          <% end %>
         <% end %>
-
         
         <div class="clear"></div>
       </p>
