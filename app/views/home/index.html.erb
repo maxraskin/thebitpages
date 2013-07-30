@@ -45,7 +45,13 @@
 <!-- !!!!!!!! -->
   <div class="span6">
     <div class="row">
-      <div class="span6" id="right-box" > 
+      <div class="span6" id="right-box" >
+          <% if flash[:notice] %>
+            <div class="notice span5">
+              <%= flash[:notice] %>
+            </div>
+          <% end %>
+
         <h4>Discover Bitcoin Merchants</h4>
         <%= form_tag map_path, :method => 'post' do %>
           <%= text_field_tag :category, nil, :placeholder => "Search by category (e.g. restaurant, shopping, games)" %> <br />
