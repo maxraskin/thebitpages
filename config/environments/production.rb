@@ -34,7 +34,7 @@ Bitpages::Application.configure do
   # config.log_level = :debug
 
   # Prepend all log lines with the following tags
-  # config.log_tags = [ :subdomain, :uuid ]
+  # config.log_tags = [ :subdomai n, :uuid ]
 
   # Use a different logger for distributed setups
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
@@ -50,7 +50,7 @@ Bitpages::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default_url_options = { :host => 'bitpages.heroku.com' }
+  # config.action_mailer.default_url_options = { :host => 'bitpages.heroku.com' }
 
   # Enable threaded mode
   # config.threadsafe!
