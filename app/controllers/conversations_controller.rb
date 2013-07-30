@@ -1,5 +1,4 @@
 class ConversationsController < ApplicationController
-  # before_filter :authenticate_user!
   helper_method :mailbox, :conversation
 
   def index
@@ -16,7 +15,7 @@ class ConversationsController < ApplicationController
       @potential_recipients << user.email
     end 
 
-    Merchant.all.each do |merchant|
+    MerchantProfile.all.each do |merchant|
       @potential_recipients << merchant.email
     end
   end
@@ -69,13 +68,10 @@ class ConversationsController < ApplicationController
 
     trash.each do |conversation|
       conversation.receipts_for(user).update_all(:deleted => true)
-      # conversation.save
-      # binding.pry
     end
 
 
     redirect_to conversations_url
-    #current_user.mailbox.trash.where(:id => find_this_id)
   end
 
   private
