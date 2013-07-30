@@ -1,9 +1,13 @@
 <%= simple_form_for :conversation, :url => :conversations do |f| %>
-  <%= f.input :recipients, :label => "Recipient", :collection => @potential_recipients %>
-  <%= f.input :subject %>
-  <%= f.input :body %>
-  <div class="form-actions">
-    <%= f.button :submit, :class => "btn btn-primary" %>
-    <%= submit_tag "Cancel", :type => :reset, :class => "btn btn-danger" %>    
+  <div class="span6">
+    <%= f.input :recipients, :label => "Recipient", :collection => @potential_recipients %>
+  </div>
+  <div class="form-actions span6">
+    <%= f.input :subject %>
+    <div class="conversation-body">
+      <%= f.input :body %>
+    </div>
+    <%= f.button :submit, :class => "btn" %>
+    <%= submit_tag "Cancel", :type => :reset, :class => "btn" %>    
   </div>
 <% end %>

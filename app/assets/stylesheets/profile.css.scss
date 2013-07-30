@@ -6,7 +6,7 @@
   border-right: 2px solid #d9d9d9;
 }
 
-.profile-show-view, .user-submission {
+.profile-show-view, .user-submission, .conversation-view {
   color: #616161;
   margin: 45px 45px;
   margin-right: 20px;
@@ -68,6 +68,21 @@
     width: 90%;
     input {
       width: 40%;
+    }
+  }
+}
+
+// override input button and textfield sizes
+.conversation-view {
+  input, select {
+      height: 32px;
+      width: 80%;
+      border: 2px solid #D9D9D9;
+    }
+
+  .conversation-body {
+    input {
+      height: 300px;
     }
   }
 }

@@ -35,3 +35,27 @@
     }
   }
 }
+
+// override input button and textfield sizes from profile.css.scss
+.conversation-view {
+  width: 80%;
+  input, select {
+      height: 32px;
+      width: 80%;
+      border: 2px solid #D9D9D9;
+    }
+
+  .conversation-body {
+    input {
+      height: 300px;
+    }
+  }
+
+  .conversation-message {
+    border: 1px solid #D9D9D9;
+  }
+
+  h3 {
+    margin-top: 50px;
+  }
+}

@@ -1,19 +1,31 @@
-<h1>Message</h1>
-<%= link_to "Back to inbox", conversations_path %>
-<ul>
-  <% if current_merchant_profile.present? %>
-    <%= content_tag_for(:li, conversation.receipts_for(current_merchant_profile)) do |receipt| %>
-      <% message = receipt.message %>
-      <h4>Subject: <%= message.subject %></h4>
-      <p>Body: <%= message.body %></p>
-    <% end %>
-  <% elsif current_user.present? %>
-    <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
-      <% message = receipt.message %>
-      <h4>Subject: <%= message.subject %></h4>
-      <p>Body: <%= message.body %></p>
-    <% end %>
-  <% end %>
-<%= render "messages/form", conversation: conversation %>
+<%= image_tag "bitpages_logo.png" %>
+<hr style="width: 100%; height: 1em; background: #fff; margin: 0 auto;">
 
-</ul>
+<div class="conversation-view">
+  <p>Messages</p>
+  <%= link_to "Back to inbox", conversations_path %>
+  <ul>
+    
+      <% if current_merchant_profile.present? %>
+        <%= content_tag_for(:li, conversation.receipts_for(current_merchant_profile)) do |receipt| %>
+          <div class="conversation-message">
+            <% message = receipt.message %>
+            <h4>Subject: <%= message.subject %></h4>
+            <p>Body: <%= message.body %></p>
+          </div>
+        <% end %>
+      <% elsif current_user.present? %>
+        <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
+          <div class="conversation-message">
+            <% message = receipt.message %>
+            <h4>Subject: <%= message.subject %></h4>
+            <p>Body: <%= message.body %></p>
+          </div>
+        <% end %>
+      <% end %>
+
+  <h3>Reply with Message: </h3>
+  <%= render "messages/form", conversation: conversation %>
+
+  </ul>
+</div>
