@@ -7,7 +7,7 @@ class UserFriendshipsController < ApplicationController
   def create
     @friendship = current_user.user_friendships.build(:user_friend_id => params[:user_friend_id])
     if @friendship.save
-      redirect_to users_url
+      redirect_to network_url
     end
   end
 
