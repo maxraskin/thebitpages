@@ -2,7 +2,7 @@ class DashboardController < ApplicationController
   def index
     @merchants = Merchant.last(4).reverse
     @new_members = User.last(3).reverse
-
+    
     if current_merchant_profile.present?
       gon.current_user = current_merchant_profile
     else
@@ -21,7 +21,6 @@ class DashboardController < ApplicationController
       begin 
         if @industry.present?
           merchant_industry_array =  Merchant.where("lower(industry) = ?", @industry.downcase)
-
           @merchants = merchant_industry_array.within(10, :origin => zip_code)
         else
           @merchants = Merchant.within(10, :origin => zip_code)
@@ -43,12 +42,8 @@ class DashboardController < ApplicationController
         flash.alert = "No matches found."
         redirect_to root_url
       end
-
       gon.merchants = @merchants 
     end
-
-    
-
   end
 
   def network
@@ -57,7 +52,6 @@ class DashboardController < ApplicationController
     elsif current_merchant_profile.present?
       @user = current_merchant_profile.merchant
     end
-
   end
 
   def search
