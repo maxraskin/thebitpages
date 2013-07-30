@@ -42,7 +42,6 @@ class ConversationsController < ApplicationController
     elsif current_merchant_profile.present?
       current_merchant.reply_to_conversation(conversation, *message_params(:body, :subject))
     end
-    current_user = current_merchant_profile if current_merchant_profile.present?
     redirect_to conversation
   end
 
