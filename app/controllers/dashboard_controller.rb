@@ -12,7 +12,7 @@ class DashboardController < ApplicationController
 
   def map
     if params[:zip_code].length != 5 || params[:zip_code].to_i == 0
-      flash.notice = "Invalid Zip Code."
+      flash.alert = "Invalid Zip Code."
       redirect_to root_url
     else
       gon.industry = @industry = params[:category]
@@ -27,11 +27,11 @@ class DashboardController < ApplicationController
           @merchants = Merchant.within(10, :origin => zip_code)
         end
       rescue Geokit::Geocoders::GeocodeError
-        flash.notice = "Invalid Zip Code."
+        flash.alert = "Invalid Zip Code."
         redirect_to root_url
       end
 
-      if @merchants.present?
+      unless @merchants.empty?
         if params[:merchant_map]
           gon.center = Geocoder::Calculations.geographic_center(@merchants)
         elsif params[:submit_search]
@@ -39,6 +39,9 @@ class DashboardController < ApplicationController
           gon.merchants = @merchants
           render "search"
         end
+      else
+        flash.alert = "No matches found."
+        redirect_to root_url
       end
 
       gon.merchants = @merchants 
