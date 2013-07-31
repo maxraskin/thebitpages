@@ -27,8 +27,11 @@
   <img id="bitcoin-id" src="" alt="QR code"><img>
 
   <div class="span3">
-    <p><%= current_user.zip_code %>
-    <p>Twitter: <%= current_user.twitter %></p> 
+    <% if current_user.twitter.present? %>
+      <a href="https://twitter.com/<%= current_user.twitter %>" class="twitter-follow-button" data-show-count="false" data-size="large"></a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    <% end %>
+    <p><%= current_user.zip_code %></p>
     <p><%= current_user.phone %></p> 
     <p><%= current_user.company_affiliation %></p> 
     <p><%= current_user.industry %></p> 
