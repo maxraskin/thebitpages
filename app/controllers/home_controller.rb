@@ -1,11 +1,11 @@
 class HomeController < ApplicationController
   
   def index
-    @recent_merchants = MerchantProfile.last(3).reverse
-    offset = rand(MerchantProfile.count)
-    gon.merchant = rand_merchant = MerchantProfile.first(:offset => offset)
+    @recent_merchants = Merchant.last(3).reverse
+    offset = rand(Merchant.count)
+    gon.merchant = rand_merchant = Merchant.first(:offset => offset)
 
-    gon.merchants = @merchant_array = MerchantProfile.within(10, :origin => rand_merchant)
+    gon.merchants = @merchant_array = Merchant.within(10, :origin => rand_merchant)
 
   end
 end
