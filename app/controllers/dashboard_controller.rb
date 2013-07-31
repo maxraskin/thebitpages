@@ -18,8 +18,7 @@ class DashboardController < ApplicationController
     else
       gon.current_user = current_user
     end
-
-    if params[:zip_code].length != 5 || params[:zip_code].to_i == 0
+    if params[:zip_code].length != 5 || params[:zip_code].to_i == 0 || params[:zip_code].to_i.to_s.length < 4
       flash.alert = "Invalid Zip Code."
       redirect_to root_url  
     else
