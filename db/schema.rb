@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130730141508) do
+ActiveRecord::Schema.define(:version => 20130731144336) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(:version => 20130730141508) do
     t.string   "street_address"
     t.string   "state"
     t.string   "city"
-    t.integer  "zip_code"
+    t.string   "zip_code"
     t.string   "bitcoin_address"
     t.string   "company_website"
     t.string   "phone"
@@ -150,7 +150,7 @@ ActiveRecord::Schema.define(:version => 20130730141508) do
     t.string   "company_affiliation"
     t.string   "industry"
     t.string   "twitter"
-    t.integer  "zip_code"
+    t.string   "zip_code"
     t.float    "latitude"
     t.float    "longitude"
   end
@@ -231,7 +231,7 @@ ActiveRecord::Schema.define(:version => 20130730141508) do
     t.string   "name"
     t.string   "avatar"
     t.text     "bio"
-    t.integer  "zip_code"
+    t.string   "zip_code"
     t.string   "bitcoin_address"
     t.string   "twitter"
     t.string   "phone"
