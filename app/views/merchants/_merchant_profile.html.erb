@@ -13,8 +13,10 @@
       </div>
 
       <div class="offset1 span5">
-        <p><%= @merchant.street_address %></p>
-        <p><%= @merchant.city %>, <%= @merchant.state %> <%= @merchant.zip_code %></p>
+        <% if @merchant.city.present? %>
+          <p><%= @merchant.street_address %></p>
+          <p><%= @merchant.city %>, <%= @merchant.state %> <%= @merchant.zip_code %></p>
+        <% end %>
         <p><%= @merchant.company_website %></p>
         <% if @merchant.twitter.present? %>
           <a href="https://twitter.com/<%= @merchant.twitter %>" class="twitter-follow-button" data-show-count="false">Follow <%= @merchant.twitter %></a>

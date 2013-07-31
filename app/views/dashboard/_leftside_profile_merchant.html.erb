@@ -32,8 +32,14 @@
   </div>
 
   <div class="span3">
-    <p><%= current_merchant_profile.city %>, <%= current_merchant_profile.state %> </p>
-    <p>Twitter: <%= current_merchant_profile.twitter %></p> 
+    <% if current_merchant_profile.city.present? %>
+        <p><%= current_merchant_profile.city %>, <%= current_merchant_profile.state %> </p>
+    <% end %>
+    
+    <% if current_merchant_profile.twitter.present? %>
+      <a href="https://twitter.com/aaa" class="twitter-follow-button" data-show-count="false" data-size="large"></a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    <% end %>
     <p><%= current_merchant_profile.phone %></p> 
     <p><%= current_merchant_profile.company_affiliation %></p> 
     <p><%= current_merchant_profile.industry %></p> 
