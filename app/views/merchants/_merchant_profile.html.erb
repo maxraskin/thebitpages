@@ -52,6 +52,7 @@
           </div>
           <div class="span3 offset1">
             <button>Send a message</button>
+            <%= link_to "Send Message", :controller => "conversations", :action => "new", :email => @user.email%>
           </div>
 
         <% elsif @merchant.merchant_profile.present? && @merchant.merchant_profile.approved==false %>

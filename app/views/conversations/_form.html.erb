@@ -1,6 +1,6 @@
 <%= simple_form_for :conversation, :url => :conversations do |f| %>
   <div class="span6">
-    <%= f.input :recipients, :label => "Recipient", :collection => @potential_recipients %>
+    <%= f.input :recipients, :label => "Recipient", :collection => @potential_recipients, :selected => @email %>
   </div>
   <div class="form-actions span6">
     <%= f.input :subject %>

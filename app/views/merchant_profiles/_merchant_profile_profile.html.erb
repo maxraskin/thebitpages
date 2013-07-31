@@ -52,7 +52,7 @@
           </div>
 
           <div class="span3 offset1">
-            <button>Send a message</button>
+            <%= link_to "Send Message", :controller => "conversations", :action => "new", :email => @merchant.merchant_profile.email%>
           </div>
       </div>
       

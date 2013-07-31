@@ -10,6 +10,7 @@ class ConversationsController < ApplicationController
   end
 
   def new
+    @email = params[:email]
     @potential_recipients = []
     User.all.each do |user|
       @potential_recipients << user.email
@@ -18,6 +19,7 @@ class ConversationsController < ApplicationController
     MerchantProfile.all.each do |merchant|
       @potential_recipients << merchant.email
     end
+
   end
 
   def create
