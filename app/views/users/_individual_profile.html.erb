@@ -6,6 +6,12 @@
         <%= image_tag(@user.avatar.url) %>
         <img id="bitcoin-id" src="" alt="QR code"><img>
       </div>
+  
+      <div class="offset1 span5">
+        <% if @user.verified? %>
+          <%= image_tag "bitpages_verified.png" %>
+        <% end %>
+      </div>
 
       <div class="offset1 span5">
         <p><%= @user.industry %></p>
