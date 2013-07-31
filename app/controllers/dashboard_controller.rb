@@ -1,4 +1,5 @@
 class DashboardController < ApplicationController
+  include DashboardHelper
   def index
     @merchants = Merchant.last(4).reverse
     @new_members = User.last(3).reverse
@@ -13,21 +14,13 @@ class DashboardController < ApplicationController
   end
 
   def map
-    if current_merchant_profile.present?
-      gon.current_user = current_merchant_profile
-    else
-      gon.current_user = current_user
-    end
-    if params[:zip_code].length != 5 || params[:zip_code].to_i == 0 || params[:zip_code].to_i.to_s.length < 4
+    set_current_user
+
+    unless valid_zipcode?(params[:zip_code])
       flash.alert = "Invalid Zip Code."
       redirect_to root_url  
     else
-      if params[:zip_code].first == "0"
-        gon.zip_code = Geocoder.coordinates(params[:zip_code])
-      else
-        gon.zip_code = params[:zip_code]
-      end
-      gon.industry = params[:category]
+      set_zip_code_and_industry
 
       begin 
         if @industry.present?
@@ -58,11 +51,7 @@ class DashboardController < ApplicationController
   end
 
   def network
-    if current_user.present?
-      @user = current_user
-    elsif current_merchant_profile.present?
-      @user = current_merchant_profile.merchant
-    end
+    set_current_user
   end
 
   def search

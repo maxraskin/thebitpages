@@ -1,15 +1,19 @@
 require 'spec_helper'
 
-# Specs in this file have access to a helper object that includes
-# the DashboardHelper. For example:
-#
-# describe DashboardHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       helper.concat_strings("this","that").should == "this that"
-#     end
-#   end
-# end
 describe DashboardHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "zip code validation method" do
+    
+    it "should return true for valid zip codes" do
+      expect(valid_zipcode?("11229")).to be(true)
+      expect(valid_zipcode?("01111")).to be(true)
+      expect(valid_zipcode?("99999")).to be(true)
+    end
+
+    it "should return false for invalid zip codes" do
+      expect(valid_zipcode?("00000")).to be(false)
+      expect(valid_zipcode?("19191919")).to be(false)
+      expect(valid_zipcode?("34")).to be(false)
+    end
+
+  end
 end
