@@ -41,7 +41,7 @@ ActiveAdmin.register User do
     column :job_title
     column :current_sign_in_at
     column :last_sign_in_at
-
+    default_actions  
 
   end
 end
