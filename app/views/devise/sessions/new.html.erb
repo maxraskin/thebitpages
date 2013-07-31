@@ -1,39 +1,28 @@
 <div class="create-account-header text-center">
-  <%= image_tag "bitpages_logo.png" %>
+  <%= render "layouts/logo.html.erb" %>
 </div>
 
 <div class="text-center account-form">
-  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <h2>Sign in to an existing account</h2>
-
-  <div class="row">
-    <div class="span12">
-      <div class="row">
-        <div class="offset1 span3" >
-          <h4>Facebook Login</h4>
-        </div>
-
-        <div class="span5 offset1" style="text-align: left; border-left: 2px solid #D9D9D9;padding-left: 30px;">
-          <div>
-            <%= f.email_field :email, :autofocus => true, :placeholder => "Email" %>  
-          </div>
-
-          <div>
-            <%= f.password_field :password, :placeholder => "Password" %>  
-            <%= link_to "Forgot your password?", new_password_path(resource_name), html_options = { :style => "font-size: .8em;"} %>
-          </div>
-
-          <div><%= f.submit "Sign in" %></div>
-
-        </div>
-      </div>
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <div class="create-account">
+    <%= link_to "Sign up instead", new_registration_path(resource_name) %>
+    
+    <div>
+      <%= f.email_field :email, :autofocus => true, :placeholder => "Email" %>  
     </div>
 
-  </div>
+    <div>
+      <%= f.password_field :password, :placeholder => "Password" %>  <br>
+      <%= link_to "Forgot your password?", new_password_path(resource_name), html_options = { :style => "font-size: .8em;"} %>
+    </div>
+
+    <div><%= f.submit "Sign in" %></div>
+
   <% end %>
+  </div>
 
   <div class="span10">
-    <%= link_to "Sign up", new_registration_path(resource_name) %>
   </div>
 
 </div>
