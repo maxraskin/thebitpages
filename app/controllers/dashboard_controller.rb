@@ -22,21 +22,20 @@ class DashboardController < ApplicationController
     if params[:zip_code].length != 5 || params[:zip_code].to_i == 0
       flash.alert = "Invalid Zip Code."
       redirect_to root_url  
-    # elsif params[:zip_code].first == "0" #fix geokit error for zip_codes with leading zeros
-    #   zip_code = params[:zip_code]
-    #   zip_code[0] = ''
-    #   zip_code = "%05d" % zip_code
-    #   binding.pry
     else
-      gon.industry = @industry = params[:category]
-      gon.zip_code = zip_code = params[:zip_code] 
+      if params[:zip_code].first == "0"
+        gon.zip_code = Geocoder.coordinates(params[:zip_code])
+      else
+        gon.zip_code = params[:zip_code]
+      end
+      gon.industry = params[:category]
 
       begin 
         if @industry.present?
           merchant_industry_array =  Merchant.where("lower(industry) = ?", @industry.downcase)
-          @merchants = merchant_industry_array.within(10, :origin => zip_code)
+          @merchants = merchant_industry_array.within(10, :origin => gon.zip_code)
         else
-          @merchants = Merchant.within(10, :origin => zip_code)
+          @merchants = Merchant.within(10, :origin => gon.zip_code)
         end
       rescue Geokit::Geocoders::GeocodeError
         flash.alert = "Invalid Zip Code."
