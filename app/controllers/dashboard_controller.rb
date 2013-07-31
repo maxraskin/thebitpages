@@ -11,6 +11,12 @@ class DashboardController < ApplicationController
   end
 
   def map
+    if current_merchant_profile.present?
+      gon.current_user = current_merchant_profile
+    else
+      gon.current_user = current_user
+    end
+    
     if params[:zip_code].length != 5 || params[:zip_code].to_i == 0
       flash.alert = "Invalid Zip Code."
       redirect_to root_url
