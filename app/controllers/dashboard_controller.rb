@@ -40,7 +40,13 @@ class DashboardController < ApplicationController
         elsif params[:submit_search]
           @new_members = User.last(3).reverse
           gon.merchants = @merchants
-          render "search"
+          
+          if current_merchant_profile.present? == false && current_user.present? == false
+            gon.center = Geocoder::Calculations.geographic_center(@merchants)
+            render "unregistered_search"
+          else
+            render "search"
+          end
         end
       else
         flash.alert = "No matches found."
@@ -48,6 +54,7 @@ class DashboardController < ApplicationController
       end
       gon.merchants = @merchants 
     end
+
   end
 
   def network
@@ -55,6 +62,7 @@ class DashboardController < ApplicationController
   end
 
   def search
+    binding.pry
     @merchants = Merchant.all
   end
 
