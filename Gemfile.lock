@@ -189,7 +189,6 @@ GEM
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-ssh (2.6.7)
-    newrelic_rpm (3.6.6.147)
     nokogiri (1.5.10)
     orm_adapter (0.4.0)
     pg (0.15.1)
@@ -326,7 +325,6 @@ DEPENDENCIES
   mailboxer!
   messaging!
   meta_search (>= 1.1.0.pre)
-  newrelic_rpm
   nokogiri (~> 1.5.0)
   pg
   poltergeist
