@@ -16,7 +16,10 @@
         <p><%= @merchant.merchant_profile.street_address %></p>
         <p><%= @merchant.merchant_profile.city %>, <%= @merchant.merchant_profile.state %> <%= @merchant.merchant_profile.zip_code %></p>
         <p><%= @merchant.merchant_profile.company_website %></p>
-        <p><%= @merchant.merchant_profile.twitter %></p>
+        <% if @merchant.twitter.present? %>
+          <a href="https://twitter.com/<%= @merchant.twitter %>" class="twitter-follow-button" data-show-count="false">Follow <%= @merchant.twitter %></a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        <% end %>
         <p><%= @merchant.merchant_profile.phone %></p>
         <p>Network count: <%= @number_of_friendships %></p>
         
