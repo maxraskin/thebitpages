@@ -25,4 +25,29 @@ ActiveAdmin.register Merchant do
     column :last_sign_in_at
     default_actions                   
   end 
+    form do |f|
+      f.inputs do
+        f.input :email
+        f.input :password
+        f.input :password_confirmation
+        f.input :name
+        f.input :bname
+        f.input :avatar
+        f.input :bio
+        f.input :street_address
+        f.input :city
+        f.input :state
+        f.input :online_business
+        f.input :bitcoin_address
+        f.input :company_website
+        f.input :phone
+        f.input :company_affiliation
+        f.input :industry
+        f.input :twitter
+        f.input :zip_code
+      f.buttons :commit
+      end
+    end
+
+
 end
