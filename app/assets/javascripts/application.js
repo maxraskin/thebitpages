@@ -15,3 +15,9 @@
 //= require twitter/bootstrap
 //= require_tree .
 
+$(document).ready(function() {
+  $("#merchant_profile_online_business").on("click", function(event){
+    $("#physical-address").toggleClass("display-hide");
+  });
+});
+

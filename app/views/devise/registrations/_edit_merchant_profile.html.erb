@@ -34,10 +34,12 @@
       </div>
   
       <div class="span6 info-fields">
-        <%= f.input :street_address, :placeholder => "Street Address" %>
-        <%= f.input :city, :placeholder => "City" %>
-        <%= f.input :state, :placeholder => "State" %>
-        <%= f.input :zip_code, :placeholder => "Zip Code" %>
+        <div id="physical-address">
+          <%= f.input :street_address, :placeholder => "Street Address" %>
+          <%= f.input :city, :placeholder => "City" %>
+          <%= f.input :state, :placeholder => "State" %>
+          <%= f.input :zip_code, :placeholder => "Zip Code" %>
+        </div>
         <%= f.check_box :online_business %>
         <%= f.label :online_business, "This is an online business - no physical address" %>
         <%= f.input :bitcoin_address, :placeholder => "Bitcoin address (optional)" %>
