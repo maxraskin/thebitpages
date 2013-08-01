@@ -15,26 +15,32 @@
   <div class="span9">
 
     <div class="row">
-      <div class="span6">
-        <%= render "discover_merchants" %>
-      </div>
-
-      <div class="span3">
-      </div>
-
       <div class="span5">
-        <h4>Search Results for Merchants: </h4>
-        <div class="row merchant-list">
-          <%= render "merchant_list" %>
+        <div class="span5">
+          <%= render "discover_merchants" %>
+        </div>
+
+        <div class="span5">
+          <h4>Search Results for Merchants: </h4>
+          <div class="row merchant-list">
+            <%= render "merchant_list" %>
+          </div>
         </div>
       </div>
 
-      <div class="span4">
+
+      <div class="span4 unregistered-search">
         <div class="google-map-box" id="merchant-google-map"></div>
       </div>
       
       <div class="span9">
         <%= render "recent_members" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="span4">
+        
       </div>
     </div>
   </div>

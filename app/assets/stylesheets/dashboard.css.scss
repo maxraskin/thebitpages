@@ -20,6 +20,11 @@
   border: 1px solid black;
 }
 
+.unregistered-search .google-map-box {
+  margin-top: 20px;
+  height: 500px;
+}
+
 .recent-merchants, .recent-merchants-dashboard, .recent-users-dashboard {
   img {
     height: 80px;
@@ -48,7 +53,7 @@
     }
 
     .address {
-      text-align: right;
+      text-align: left;
       margin-right:0;
     }
   }

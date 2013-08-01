@@ -1,4 +1,4 @@
-<div class="span5 recent-merchants-dashboard" >
+<div class="span4 recent-merchants-dashboard" >
     <% @merchants.each do |merchant| %>
       <div class="each-merchant">
         <div class="row">
@@ -13,7 +13,7 @@
             <p><%= merchant.industry %></p>
           </div>
 
-          <div class="span2 address" >
+          <div class="address span2" >
             <p><%= merchant.street_address %></p>
             <p><%= merchant.city %>, <%= merchant.state %> <%= merchant.zip_code %></p>
             <% if current_merchant_profile.present? %>
