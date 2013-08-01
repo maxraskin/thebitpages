@@ -23,6 +23,7 @@ class DashboardController < ApplicationController
       set_zip_code_and_industry
 
       begin 
+        #industry; use better searching here.
         if @industry.present?
           merchant_industry_array =  Merchant.where("lower(industry) = ?", @industry.downcase)
           @merchants = merchant_industry_array.within(10, :origin => gon.zip_code)

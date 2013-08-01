@@ -18,8 +18,7 @@ gem "meta_search",    '>= 1.1.0.pre'
 gem "simple_form"
 gem 'messaging', git: 'git://github.com/frodefi/rails-messaging.git'
 gem 'mailboxer', git: 'git://github.com/ging/mailboxer.git'
-gem 'sunspot_solr'
-gem 'sunspot_rails'
+gem 'pg_search'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
