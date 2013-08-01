@@ -45,6 +45,9 @@ ActiveAdmin.register MerchantProfile do
     column :twitter
     column :current_sign_in_at        
     column :last_sign_in_at
+    column "Messages" do |merchant_profile|
+      link_to "See all messages", "#{request.protocol}#{request.host_with_port}#{request.fullpath}/"+merchant_profile.id.to_s+"/messages"
+    end
     default_actions                   
   end  
 

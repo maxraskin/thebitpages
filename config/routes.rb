@@ -58,6 +58,14 @@ Bitpages::Application.routes.draw do
   end
 
   ActiveAdmin.routes(self)
+    namespace :admin do
+      resources :users do
+        resources :messages
+      end
+      resources :merchant_profiles do
+        resources :messages
+      end
+    end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

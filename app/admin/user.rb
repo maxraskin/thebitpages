@@ -41,6 +41,9 @@ ActiveAdmin.register User do
     column :job_title
     column :current_sign_in_at
     column :last_sign_in_at
+    column "Messages" do |user|
+      link_to "See all messages", "#{request.protocol}#{request.host_with_port}#{request.fullpath}/"+user.id.to_s+"/messages"
+    end
     default_actions  
 
   end
