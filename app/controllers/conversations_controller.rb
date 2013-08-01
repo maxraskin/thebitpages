@@ -15,7 +15,6 @@ class ConversationsController < ApplicationController
       gon.current_user = current_user
       @number_of_friendships = User.number_of_friendships(current_user)
     end    
-    # binding.pry
   end
 
   def new
