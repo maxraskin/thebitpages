@@ -34,7 +34,7 @@ class DashboardController < ApplicationController
         redirect_to root_url
       end
 
-      if !@merchants.empty?
+      if @merchants.present? && !@merchants.empty?
         if params[:merchant_map]
           gon.center = Geocoder::Calculations.geographic_center(@merchants)
         elsif params[:submit_search]
@@ -50,7 +50,6 @@ class DashboardController < ApplicationController
         end
       else
         flash.alert = "No matches found."
-        redirect_to root_url
       end
       gon.merchants = @merchants 
     end
@@ -60,7 +59,6 @@ class DashboardController < ApplicationController
   def network
     set_current_user
     set_current_user_followers(@user)
-    #@user_followers. @merchant_followers
   end
 
   def search
