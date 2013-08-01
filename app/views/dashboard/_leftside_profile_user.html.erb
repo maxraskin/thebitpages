@@ -20,7 +20,11 @@
   </div>
 
   <div class="span3">
-   <%= button_to "My network (#{@number_of_friendships})", network_path, :method => :get, :class => "btn profile-btn" %>
+    <% if @number_of_friendships == 0 %>
+      <%= button_to "My network (0)", network_path, :method => :get, :class => "btn profile-btn" %>
+    <% else %>
+      <%= button_to "My network (#{@number_of_friendships})", network_path, :method => :get, :class => "btn profile-btn" %>
+    <% end %>
   </div>
 
 
