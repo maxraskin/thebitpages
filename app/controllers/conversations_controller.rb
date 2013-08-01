@@ -29,9 +29,7 @@ class ConversationsController < ApplicationController
   def create
     if params[:class] == "User"
       @recipient = User.where(:id => params[:id], :name => params[:name]).first
-      binding.pry
     elsif params[:class] == "MerchantProfile"
-      binding.pry
       @recipient = MerchantProfile.where(:id => params[:id], :bname => params[:name]).first
     end
 
