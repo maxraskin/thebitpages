@@ -77,34 +77,18 @@
     <h3 style="margin-left: -30px;">Merchants recently listed on Bit Pages</h3>
     <div class="row">
       <% @recent_merchants.each do |merchant| %>
-        <div class="span4 recent-merchant">
+        <div class="span recent-merchant">
             
-            <div class="" id="box1">
+            <div class="span2" id="box1">
               <%= link_to image_tag(merchant.avatar.url), merchant_path(merchant)  %>
             </div>
 
-            <div class="" id="box2">
+            <div class="span1" id="box2">
               <p>
                 <%= link_to merchant.bname, merchant_path(merchant) %>
                 <%= merchant.industry %> 
               </p>
             </div>
-
-            <div class="" id="box3">
-              <% if merchant.online_business == true %>
-                <%= link_to merchant.company_website, "http://#{merchant.company_website}" %>
-              <% elsif !merchant.street_address.present? %>
-                <p>
-                  <%= merchant.email %>
-                </p>
-              <% else %>
-                <p>
-                  <%= merchant.street_address %> <br />
-                  <%= merchant.city %>, <%= merchant.state %> <%= merchant.zip_code %>
-                </p>
-              <% end %>
-            </div>
-            
 
         </div>
 
