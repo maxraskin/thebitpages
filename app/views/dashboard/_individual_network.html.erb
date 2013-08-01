@@ -1,8 +1,10 @@
 <div class="network">
   <h2><%= current_user.name %>'s network</h2>
   <div class="row">
+    <div class="span12 follows">
+      <h4>Accounts you are following: </h4>
+    </div>   
     <div class="span5">
-      <h3>Accounts you are following: </h3>
       <h4>Merchants</h4>
       <% @user.user_merchant_friendships.each do |user_merchant_friendship| %>
         <div class="row">
@@ -32,7 +34,6 @@
       <% end %>
     </div>
 
-
     <div class="span3 recent-users-dashboard">
       <h4>People</h4>
       <% @user.user_friendships.each do |user_friendship| %>
@@ -51,12 +52,14 @@
         </div>
       <% end %>
     </div>
-    
   </div>
 
   <div class="row">
+    <div class="span12 follows">
+      <h4>Accounts following you: </h4>
+    </div>
     <div class="span5">
-      <h3>Accounts following you: </h3>
+      
       <h4>Merchants</h4>
       <% @merchant_followers.each do |merchant_user_friendship| %>
         <div class="row">
@@ -85,7 +88,6 @@
       <% end %>
     </div>
 
-
     <div class="span3 recent-users-dashboard">
       <h4>People</h4>
       <% @user_followers.each do |user_friendship| %>
@@ -102,8 +104,7 @@
           </div>
         </div>
       <% end %>
-    </div>
-    
+    </div>    
   </div>
 </div>
 
