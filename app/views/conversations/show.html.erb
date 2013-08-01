@@ -4,27 +4,36 @@
   <p>Messages</p>
   <%= link_to "Back to inbox", conversations_path %>
   <h4>Subject: <%= conversation.subject  %></h4>
-  <ul>
       <% if current_merchant_profile.present? %>
-        <%= content_tag_for(:li, conversation.receipts_for(current_merchant_profile)) do |receipt| %>
-          <div class="conversation-message">
-            <% message = receipt.message %>
-            <h4>Sent by: receipt.message.sender.name</h4>
-            <p>Body: <%= message.body %></p>
+        <%= content_tag_for(:div, conversation.receipts_for(current_merchant_profile)) do |receipt| %>
+          <div class="conversation-message row">
+            <div class="span1">
+              <%= image_tag receipt.message.sender.avatar.url %>
+            </div>
+            
+            <div class="span8">
+              <% message = receipt.message %>
+              <h4>Sent by: receipt.message.sender.name</h4>
+              <p>Body: <%= message.body %></p>
+            </div>
           </div>
         <% end %>
       <% elsif current_user.present? %>
-        <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
-          <div class="conversation-message">
-            <% message = receipt.message %>
-            <h4>Sent by: <%= receipt.message.sender.name %></h4>
-            <p>Body: <%= message.body %></p>
+        <%= content_tag_for(:div, conversation.receipts_for(current_user)) do |receipt| %>
+          <div class="conversation-message row">
+            <div class="span1">
+              <%= image_tag receipt.message.sender.avatar.url %>
+            </div>
+
+            <div class="span8">
+              <% message = receipt.message %>
+              <h4>Sent by: <%= receipt.message.sender.name %></h4>
+              <p>Body: <%= message.body %></p>
+            </div>
           </div>
         <% end %>
       <% end %>
 
   <h3>Reply with Message: </h3>
   <%= render "messages/form", conversation: conversation %>
-
-  </ul>
 </div>

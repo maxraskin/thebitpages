@@ -2,22 +2,23 @@
 <div class="row messages">
   <div class="span13">
 
-  <%= content_tag_for(:li, conversation) do |conversation| %>
+  <%= content_tag_for(:p, conversation) do |conversation| %>
 
-    <div class="message">
+    <div class="message row">
       <p class="message-sender">Conversation started by: <%= conversation.messages.first.sender.name %></b></p>
       <p><b><i>Subject:</i></b> <%= link_to conversation.messages.first.subject, conversation_path(conversation) %> </p> 
+        <div class="span2">
+          <%= image_tag conversation.messages.last.sender.avatar.url %>
+            </div>
       <% if current_user.present? %>
-        <% if conversation.is_completely_trashed?(current_user) %>
-          <%= link_to "Untrash", [:untrash, conversation], :method => :post %> 
-        <% else %>
+          
+
             <p class="message-subject">Updated: <%= conversation.updated_at %></p>
             <p class="message-subject">Last message sent by <%= conversation.messages.last.sender.name %>: <%= conversation.messages.last.body %></p>
             <div class="trash">
               <%= link_to "Move to trash", [:trash, conversation], :method => :post %>
             </div>
-        <% end %>
-
+  
       <% elsif current_merchant_profile.present? %>
         
         <% if conversation.is_completely_trashed?(current_merchant_profile) %>
