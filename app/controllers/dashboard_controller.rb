@@ -21,12 +21,11 @@ class DashboardController < ApplicationController
       redirect_to root_url  
     else
       set_zip_code_and_industry
-
       begin 
-        #industry; use better searching here.
-        if @industry.present?
-          merchant_industry_array =  Merchant.where("lower(industry) = ?", @industry.downcase)
+        if gon.industry.present?
+          merchant_industry_array = Merchant.where("industry ILIKE?", "%"+"#{gon.industry}"+"%")
           @merchants = merchant_industry_array.within(10, :origin => gon.zip_code)
+          binding.pry
         else
           @merchants = Merchant.within(10, :origin => gon.zip_code)
         end
@@ -34,6 +33,7 @@ class DashboardController < ApplicationController
         flash.alert = "Invalid Zip Code."
         redirect_to root_url
       end
+
 
       if @merchants.present? && !@merchants.empty?
         if params[:merchant_map]
