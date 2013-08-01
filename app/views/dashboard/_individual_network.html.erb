@@ -19,7 +19,7 @@
                 </div>
 
                 <div class="span1 bname">
-                  <h5><%= user_merchant_friendship.merchant.bname %></h5>
+                  <h5><%= link_to user_merchant_friendship.merchant.bname, user_merchant_friendship.merchant %></h5>
                   <p><%= user_merchant_friendship.merchant.industry %></p>
                 </div>
 
@@ -45,7 +45,7 @@
               <%= link_to image_tag(user_friendship.user.avatar.url), user_friendship.user %>
             </div>
             <div class="span1">
-              <h5><%= user_friendship.user.name %></h5>
+              <h5><%= link_to user_friendship.user.name, user_friendship.user %></h5>
               <p>ZipCode: <%= user_friendship.user.zip_code %></p>
             </div>
           </div>
@@ -73,7 +73,7 @@
                 </div>
 
                 <div class="span1 bname">
-                  <h5><%= merchant_user_friendship.merchant.bname %></h5>
+                  <h5><%= link_to merchant_user_friendship.merchant.bname, merchant_user_friendship.merchant %></h5>
                   <p><%= merchant_user_friendship.merchant.industry %></p>
                 </div>
 
@@ -98,7 +98,7 @@
               <%= link_to image_tag(user_friendship.user.avatar.url), user_friendship.user %>
             </div>
             <div class="span1">
-              <h5><%= user_friendship.user.name %></h5>
+              <h5><%= link_to user_friendship.user.name, user_friendship.user %></h5>
               <p>ZipCode: <%= user_friendship.user.zip_code %></p>
             </div>
           </div>

@@ -22,7 +22,7 @@
               </div>
 
               <div class="span1 bname">
-                <h5><%= merchant_friendship.merchant_friend.bname %></h5>
+                <h5><%= link_to merchant_friendship.merchant_friend.bname, merchant_friendship.merchant_friend %></h5>
                 <p><%= merchant_friendship.merchant_friend.industry %></p>
               </div>
 
@@ -40,15 +40,15 @@
     <div class="span3 recent-users-dashboard">
       <h4>People</h4>
       <% @user.merchant_user_friendships.each do |merchant_user_friendship| %>
-           <%= merchant_user_friendship.user.name %>
-          (<%= link_to "remove friend", merchant_user_friendship, :method => :delete %>)
+         <%= merchant_user_friendship.user.name %>
+        (<%= link_to "remove friend", merchant_user_friendship, :method => :delete %>)
         <div class="each-member">
           <div class="row">
             <div class="span1">
               <%= link_to image_tag(merchant_user_friendship.user.avatar.url), merchant_user_friendship.user %>
             </div>
             <div class="span1">
-              <h5><%= merchant_user_friendship.user.name %></h5>
+              <h5><%= link_to merchant_user_friendship.user.name, merchant_user_friendship.user %></h5>
               <p>ZipCode: <%= merchant_user_friendship.user.zip_code %></p>
             </div>
           </div>
@@ -76,7 +76,7 @@
             </div>
 
             <div class="span1 bname">
-              <h5><%= merchant_friendship.merchant_friend.bname %></h5>
+              <h5><%= link_to merchant_friendship.merchant_friend.bname, merchant_friendship.merchant_friend %></h5>
               <p><%= merchant_friendship.merchant_friend.industry %></p>
             </div>
 
@@ -101,7 +101,7 @@
             <%= link_to image_tag(merchant_user_friendship.user.avatar.url), merchant_user_friendship.user %>
           </div>
           <div class="span1">
-            <h5><%= merchant_user_friendship.user.name %></h5>
+            <h5><%= link_to merchant_user_friendship.user.name, merchant_user_friendship.user %></h5>
             <p>ZipCode: <%= merchant_user_friendship.user.zip_code %></p>
           </div>
         </div>
