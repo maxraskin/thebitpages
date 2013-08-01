@@ -1,7 +1,15 @@
 <%= simple_form_for :conversation, :url => :conversations do |f| %>
   <div class="span6">
-    <%= f.input :recipients, :label => "Recipient", :collection => @potential_recipients, :selected => @email %>
+      <!-- f.input :recipients, :label => "Recipient", :collection => @potential_recipients, :selected => exit@recipient %> -->
+    <% if @recipient.class.to_s == "MerchantProfile" %>
+      <%= hidden_field_tag :name, @recipient.bname %>
+    <% else %>
+      <%= hidden_field_tag :name, @recipient.name %>
+    <% end %>
+    <%= hidden_field_tag :id, @recipient.id %>
+    <%= hidden_field_tag :class, @recipient.class.to_s %>
   </div>
+
   <div class="form-actions span6">
     <%= f.input :subject %>
     <div class="conversation-body">

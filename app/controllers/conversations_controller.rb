@@ -10,29 +10,27 @@ class ConversationsController < ApplicationController
   end
 
   def new
-    @email = params[:email]
-    @potential_recipients = []
-    User.all.each do |user|
-      @potential_recipients << user.email
-    end 
-
-    MerchantProfile.all.each do |merchant|
-      @potential_recipients << merchant.email
+    @potential_recipient = []
+    if params[:merchant_id]
+      @recipient = MerchantProfile.where(:id => params[:merchant_id], :bname => params[:merchant_bname]).first
+    elsif params[:user_id]
+      @recipient = User.where(:id => params[:user_id], :name => params[:user_name]).first
     end
-
   end
 
   def create
-    recipient_email = conversation_params(:recipients).split(',')
-    recipients = User.where(email: recipient_email).all
-    recipients = MerchantProfile.where(email: recipient_email).all  if recipients.empty?
+    if params[:class] == "User"
+      @recipient = User.where(:id => params[:id], :name => params[:name]).first
+      binding.pry
+    elsif params[:class] == "MerchantProfile"
+      binding.pry
+      @recipient = MerchantProfile.where(:id => params[:id], :bname => params[:name]).first
+    end
 
     if current_merchant_profile.present?
-      conversation = current_merchant_profile.
-        send_message(recipients, *conversation_params(:body, :subject)).conversation
+      conversation = current_merchant_profile.send_message(@recipient, *conversation_params(:body, :subject)).conversation
     elsif current_user.present?
-      conversation = current_user.
-        send_message(recipients, *conversation_params(:body, :subject)).conversation
+      conversation = current_user.send_message(@recipient, *conversation_params(:body, :subject)).conversation
     end
     redirect_to conversation
   end
