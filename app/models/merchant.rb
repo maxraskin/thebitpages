@@ -16,10 +16,10 @@ class Merchant < ActiveRecord::Base
   acts_as_mappable :lat_column_name => :latitude,
                    :lng_column_name => :longitude
 
-  has_many :merchant_friendships
+  has_many :merchant_friendships, :dependent => :destroy
   has_many :merchant_friends, :through => :merchant_friendships
 
-  has_many :merchant_user_friendships
+  has_many :merchant_user_friendships, :dependent => :destroy
   has_many :users, :through => :merchant_user_friendships
 
   has_one :merchant_profile, :dependent => :destroy
