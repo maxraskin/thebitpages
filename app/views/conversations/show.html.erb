@@ -3,13 +3,13 @@
 <div class="conversation-view">
   <p>Messages</p>
   <%= link_to "Back to inbox", conversations_path %>
+  <h4>Subject: <%= conversation.subject  %></h4>
   <ul>
-    
       <% if current_merchant_profile.present? %>
         <%= content_tag_for(:li, conversation.receipts_for(current_merchant_profile)) do |receipt| %>
           <div class="conversation-message">
             <% message = receipt.message %>
-            <h4>Subject: <%= message.subject %></h4>
+            <h4>Sent by: receipt.message.sender.name</h4>
             <p>Body: <%= message.body %></p>
           </div>
         <% end %>
@@ -17,7 +17,7 @@
         <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
           <div class="conversation-message">
             <% message = receipt.message %>
-            <h4>Subject: <%= message.subject %></h4>
+            <h4>Sent by: <%= receipt.message.sender.name %></h4>
             <p>Body: <%= message.body %></p>
           </div>
         <% end %>
