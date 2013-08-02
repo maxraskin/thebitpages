@@ -39,7 +39,6 @@ class DashboardController < ApplicationController
         else
           @merchants = Merchant.within(10, :origin => gon.zip_code)
         end
-        
       rescue Geokit::Geocoders::GeocodeError
         flash.alert = "Invalid Zip Code."
         redirect_to root_url
@@ -59,12 +58,13 @@ class DashboardController < ApplicationController
             render "search"
           end
         end
-        
       else
         flash.alert = "No matches found."
+        redirect_to root_url
       end
       gon.merchants = @merchants 
     end
+
   end
 
   def network
