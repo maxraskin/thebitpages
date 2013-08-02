@@ -18,20 +18,36 @@
   <% end %>
 
   <div class="span9">
-
-    <%= render "discover_merchants" %>
-
-
-    
     <div class="row">
-      <div class="span6">
-        <h4>Recent Bitcoin merchants listed on The Bit Pages</h4>
-        <div class="row">
-          <%= render "merchant_list" %>
-        </div>
+      <div class="span4">
+        <%= render "discover_merchants" %>
       </div>
+
+      <div class="span4">
+        <%= render "discover_users" %>
+        
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="span4">
+        <h4>Recent Bitcoin merchants</h4>
+        <%= render "merchant_list" %>
+      </div>
+
+      <div class="span4">
+        <h4>New Bit Pages Members</h4>
+        <%= render "recent_members" %>
+        
+      </div>
+    </div>
     
-      <%= render "recent_members" %>
+    
+      <div class="span6">
+      </div>
+
+    
     </div>
   </div>
 
