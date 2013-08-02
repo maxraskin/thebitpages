@@ -3,7 +3,7 @@
 <div class="row">
   
   <div class="span2 offset1 profile">
-    <% if current_merchant.present? %>
+    <% if current_merchant_profile.present? %>
       <%= render "leftside_profile_merchant" %>
     <% elsif current_user.present?%>
       <%= render "leftside_profile_user" %>

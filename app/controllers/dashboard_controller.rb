@@ -73,7 +73,13 @@ class DashboardController < ApplicationController
   end
 
   def search
-    @merchants = Merchant.all
+    if current_merchant_profile.present?
+      gon.current_user = current_merchant_profile
+      @number_of_friendships = Merchant.number_of_friendships(current_merchant_profile.merchant).to_s
+    elsif current_user.present?
+      gon.current_user = current_user
+      @number_of_friendships = User.number_of_friendships(current_user)
+    end
   end
 
 end
