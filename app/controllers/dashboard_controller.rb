@@ -23,7 +23,11 @@ class DashboardController < ApplicationController
       @number_of_friendships = User.number_of_friendships(current_user)
     end
 
-    unless valid_zipcode?(params[:zip_code])
+    if params[:user_name]
+      @merchants = Merchant.last(4).reverse
+      @new_members = User.where("name ILIKE?", "%"+"#{params[:user_name]}"+"%")
+      render "search"
+    elsif !valid_zipcode?(params[:zip_code])
       flash.alert = "Invalid Zip Code."
       redirect_to root_url  
     else
@@ -35,7 +39,7 @@ class DashboardController < ApplicationController
         else
           @merchants = Merchant.within(10, :origin => gon.zip_code)
         end
-        binding.pry
+        
       rescue Geokit::Geocoders::GeocodeError
         flash.alert = "Invalid Zip Code."
         redirect_to root_url
