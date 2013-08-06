@@ -13,7 +13,7 @@
   <div class="form-actions span6">
     <%= f.input :subject %>
     <div class="conversation-body">
-      <%= f.input :body %>
+      <%= f.input :body, :as => :text %>
     </div>
     <%= f.button :submit, "Send Message", :class => "btn" %>
     <%= submit_tag "Cancel", :type => :reset, :class => "btn" %>    
