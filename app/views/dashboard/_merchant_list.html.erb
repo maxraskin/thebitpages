@@ -14,8 +14,12 @@
           </div>
 
           <div class="address span2" >
-            <p><%= merchant.street_address %></p>
-            <p><%= merchant.city %>, <%= merchant.state %> <%= merchant.zip_code %></p>
+
+            <% if merchant.street_address.present? %>
+              <p><%= merchant.street_address %></p>
+              <p><%= merchant.city %>, <%= merchant.state %> <%= merchant.zip_code %></p>
+            <% end %>
+
             <% if current_merchant_profile.present? %>
               <% if current_merchant_profile.merchant.merchant_friendships.include?(MerchantFriendship.where(:merchant_id => current_merchant_profile.merchant.id, :merchant_friend_id => merchant.id).first) %>
                 <b><i>Already Added!</i></b>
