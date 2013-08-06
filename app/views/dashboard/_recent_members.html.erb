@@ -9,7 +9,9 @@
         </div>
         <div class="span1">
           <h5><%= link_to member.name, user_path(member) %></h5>
-          <p>ZipCode: <%= member.zip_code %></p>
+          <% if member.zip_code.present? %>
+              <p>ZipCode: <%= member.zip_code %></p>
+          <% end %>
         </div>
 
         <div class="span1">
