@@ -21,8 +21,10 @@
             <% end %>
 
             <% if current_merchant_profile.present? %>
-              <% if current_merchant_profile.merchant.merchant_friendships.include?(MerchantFriendship.where(:merchant_id => current_merchant_profile.merchant.id, :merchant_friend_id => merchant.id).first) %>
+              <% if current_merchant_profile.merchant.merchant_friendships.include?(MerchantFriendship.where(:merchant_id => current_merchant_profile.merchant.id, :merchant_friend_id => merchant.id).first) %>              
                 <b><i>Already Added!</i></b>
+              <% elsif current_merchant_profile.merchant == merchant %>
+                <b><i>Current User</i></b>
               <% else %>
                 <%= link_to "Add to Network", merchant_friendships_path(:merchant_friend_id => merchant), :method => :post %>
               <% end %>
