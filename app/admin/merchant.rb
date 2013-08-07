@@ -27,9 +27,6 @@ ActiveAdmin.register Merchant do
   end 
     form do |f|
       f.inputs do
-        f.input :email
-        f.input :password
-        f.input :password_confirmation
         f.input :name
         f.input :bname
         f.input :avatar
@@ -45,6 +42,9 @@ ActiveAdmin.register Merchant do
         f.input :industry
         f.input :twitter
         f.input :zip_code
+        f.input :email, :as => :hidden, input_html: { :value => "admin@bitpages.com" }
+        f.input :password, :as => :hidden, input_html: { :value => "password" }
+        f.input :password_confirmation, :as => :hidden, input_html: { :value => "password" }
       f.buttons :commit
       end
     end
