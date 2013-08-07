@@ -19,7 +19,11 @@
           <div class="each-merchant">
             <div class="row">
               <div class="span1">
-                <%= link_to image_tag(merchant_friendship.merchant_friend.avatar.url), merchant_friendship.merchant_friend %>
+                <% if merchant_friendship.merchant_friend.merchant_profile && merchant_friendship.merchant_friend.merchant_profile.approved %>
+                  <%= link_to image_tag(merchant_friendship.merchant_friend.merchant_profile.avatar.url), merchant_friendship.merchant_friend %>
+                <% else %>
+                  <%= link_to image_tag(merchant_friendship.merchant_friend.avatar.url), merchant_friendship.merchant_friend %>
+                <% end %>
               </div>
 
               <div class="span1 bname">
@@ -77,18 +81,22 @@
         <div class="each-merchant">
           <div class="row">
             <div class="span1">
-              <%= link_to image_tag(merchant_friendship.merchant_friend.avatar.url), merchant_friendship.merchant_friend%>
+              <% if merchant_friendship.merchant.merchant_profile && merchant_friendship.merchant.merchant_profile.approved %>
+                <%= link_to image_tag(merchant_friendship.merchant.merchant_profile.avatar.url), merchant_friendship.merchant%>
+              <% else %>
+                <%= link_to image_tag(merchant_friendship.merchant.avatar.url), merchant_friendship.merchant%>
+              <% end %>
             </div>
 
             <div class="span1 bname">
-              <h5><%= link_to merchant_friendship.merchant_friend.bname, merchant_friendship.merchant_friend %></h5>
-              <p><%= merchant_friendship.merchant_friend.industry %></p>
+              <h5><%= link_to merchant_friendship.merchant.bname, merchant_friendship.merchant %></h5>
+              <p><%= merchant_friendship.merchant.industry %></p>
             </div>
 
             <div class="span2 address" >
-              <% if merchant_friendship.merchant_friend.street_address %>
-                <p><%= merchant_friendship.merchant_friend.street_address %></p>
-                <p><%= merchant_friendship.merchant_friend.city %>, <%= merchant_friendship.merchant_friend.state %> <%= merchant_friendship.merchant_friend.zip_code %></p>
+              <% if merchant_friendship.merchant.street_address %>
+                <p><%= merchant_friendship.merchant.street_address %></p>
+                <p><%= merchant_friendship.merchant.city %>, <%= merchant_friendship.merchant.state %> <%= merchant_friendship.merchant_friend.zip_code %></p>
               <% end %>
             </div>
           </div>
