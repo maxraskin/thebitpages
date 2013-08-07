@@ -46,7 +46,7 @@
         <%= f.input :company_website, :placeholder => "Company website (optional)" %>
         <%= f.input :phone, :placeholder => "Phone (optional)" %>
         <%= f.input :company_affiliation, :placeholder => "Company affiliation (optional)"%>
-        <%= f.input :industry, :as => :select, :collection => ["Restaurant", "IndustryB", "IndustryC", "IndustryD"],:placeholder => "Industry" %>
+        <%= f.input :industry, :as => :select, :collection => ["Restaurant", "IndustryB", "IndustryC", "IndustryD"] %>
         <%= f.input :twitter, :placeholder => "Twitter (optional)" %>
         <%= f.input :current_password, :placeholder => "Current Password - To confirm your changes" %>
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
