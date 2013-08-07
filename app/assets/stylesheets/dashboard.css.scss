@@ -76,6 +76,31 @@
   }
 }
 
+.nearby-merchants {
+  .each-merchant {
+    margin-bottom: 0;
+    border: 1px solid #D9D9D9;
+
+    p, h5 {
+      margin: 0 0;
+    }
+    
+    .overlay {
+      width: 20px;
+    }
+  
+    .bname {
+      width: 100px;
+    }
+
+    .address {
+      width: 180px;
+    }
+
+  }
+}
+
+
 #bitcoin-id {
   margin-left: 23px;
 }
