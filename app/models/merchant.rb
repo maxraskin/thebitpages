@@ -24,6 +24,8 @@ class Merchant < ActiveRecord::Base
 
   has_one :merchant_profile, :dependent => :destroy
 
+  MERCHANT_CATEGORIES = ["", "Athletics", "Arts", "Entertainment", "Automotive", "Beauty", "Spas", "Education", "Event", "Planning", "Services", "Financial Services", "Food", "Health", "Medical", "Home Services", "Hotels",  "Travel", "Media", "Nightlife", "Pets" "Professional Services", "Public Services", "Government", "Real Estate", "Religious Organizations", "Restaurants", "Shopping", "Other"]
+
   def geocode_method
     "#{self.street_address} #{self.city} #{self.state} #{self.zip_code}"
   end

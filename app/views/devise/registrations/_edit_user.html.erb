@@ -40,7 +40,7 @@
         <%= f.input :twitter, :placeholder => "Twitter (optional)" %>
         <%= f.input :phone, :placeholder => "Phone (optional)"%>
         <%= f.input :company_affiliation, :placeholder => "Company Affiliation (optional)"%>
-        <%= f.input :industry, :as => :select, :collection => ["Restaurant", "IndustryB", "IndustryC", "IndustryD"],:placeholder => "Industry"%>
+        <%= f.input :industry, :as => :select, :collection => User::USER_CATEGORIES %>
         <%= f.input :job_title, :placeholder => "Job Title (optional)"%>
         <%= f.input :current_password, :placeholder => "Current Password - To confirm your changes" %>
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
 
   acts_as_messageable
 
+  USER_CATEGORIES = ["Athletics", "Arts", "Entertainment", "Automotive", "Beauty", "Spas", "Education", "Event", "Planning", "Services", "Financial Services", "Food", "Health", "Medical", "Home Services", "Hotels",  "Travel", "Media", "Nightlife", "Pets" "Professional Services", "Public Services", "Government", "Real Estate", "Religious Organizations", "Restaurants", "Shopping", "Other"]
+
   def mailboxer_name
     name
   end

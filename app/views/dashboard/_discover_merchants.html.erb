@@ -2,7 +2,7 @@
   <div class="span9 search">
     <h4>DISCOVER BITCOIN MERCHANTS</h4>
     <%= form_tag map_path, :method => 'post' do %>
-      <%= text_field_tag :category, nil, :placeholder => "Search by category (e.g. restaurants, shopping, games)" %> <br />
+      <%= select_tag :category, options_for_select(Merchant::MERCHANT_CATEGORIES) %> <br />
       <%= text_field_tag :zip_code, nil, :placeholder => "Include your zip code to narrow results to your area" %> <br />
       <%= button_tag "Search", :name => "submit_search", :class => "btn btn-primary" %>
       <%= button_tag "Map of Merchants", :name => "merchant_map", :class => "btn btn-primary" %>
