@@ -1,5 +1,5 @@
 function initialize() {
-  var myLatlng = (gon.center === undefined) ? new google.maps.LatLng(gon.merchant.latitude, gon.merchant.longitude) : new google.maps.LatLng(gon.center[0], gon.center[1])
+  var myLatlng = (gon.center === undefined) ? new google.maps.LatLng(gon.merchant.latitude, gon.merchant.longitude) : new google.maps.LatLng(gon.center[0], gon.center[1]);
 
   var mapOptions = {
     zoom: 11,
