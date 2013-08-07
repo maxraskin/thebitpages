@@ -13,10 +13,10 @@
       <% @user.merchant_friendships.each do |merchant_friendship| %>
       <div class="row">
         <div class="span5 recent-merchants-dashboard">
-        <%= merchant_friendship.merchant_friend.bname %>
-        (<%= link_to "remove friend", merchant_friendship, :method => :delete %>)
+        <p style="margin-left:30px; margin-bottom: 0;"><%= merchant_friendship.merchant_friend.bname %></p>
+        <p style="margin-left:30px; margin-bottom: 0;">(<%= link_to "remove friend", merchant_friendship, :method => :delete %>)</>
 
-          <div class="each-merchant">
+          <div class="each-merchant " style="margin-left:30px; margin-bottom: 0;">
             <div class="row">
               <div class="span1">
                 <% if merchant_friendship.merchant_friend.merchant_profile && merchant_friendship.merchant_friend.merchant_profile.approved %>
@@ -76,9 +76,9 @@
       <% @merchant_followers.each do |merchant_friendship| %>
       <div class="row">
         <div class="span5 recent-merchants-dashboard">
-        <%= merchant_friendship.merchant.bname %>
+        <p style="margin-left:30px; margin-bottom: 0;"><%= merchant_friendship.merchant.bname %></p>
 
-        <div class="each-merchant">
+        <div class="each-merchant" style="margin-left:30px; margin-bottom: 0;">
           <div class="row">
             <div class="span1">
               <% if merchant_friendship.merchant.merchant_profile && merchant_friendship.merchant.merchant_profile.approved %>
