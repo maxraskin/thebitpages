@@ -4,6 +4,7 @@
   <div class="row">
     <div class="span12 follows">
       <h4>Accounts you are following: </h4>
+      <p><%= button_to "Back to Dashboard", root_path %></p>
     </div>     
 
     <div class="span5">
@@ -27,8 +28,10 @@
               </div>
 
               <div class="span2 address" >
-                <p><%= merchant_friendship.merchant_friend.street_address %></p>
-                <p><%= merchant_friendship.merchant_friend.city %>, <%= merchant_friendship.merchant_friend.state %> <%= merchant_friendship.merchant_friend.zip_code %></p>
+                <% if merchant_friendship.merchant_friend.street_address %>
+                  <p><%= merchant_friendship.merchant_friend.street_address %></p>
+                  <p><%= merchant_friendship.merchant_friend.city %>, <%= merchant_friendship.merchant_friend.state %> <%= merchant_friendship.merchant_friend.zip_code %></p>
+                <% end %>
               </div>
             </div>
           </div>
@@ -49,7 +52,9 @@
             </div>
             <div class="span1">
               <h5><%= link_to merchant_user_friendship.user.name, merchant_user_friendship.user %></h5>
+              <% if merchant_user_friendship.user.zip_code %>
               <p>ZipCode: <%= merchant_user_friendship.user.zip_code %></p>
+              <% end %>
             </div>
           </div>
         </div>
@@ -81,8 +86,10 @@
             </div>
 
             <div class="span2 address" >
-              <p><%= merchant_friendship.merchant_friend.street_address %></p>
-              <p><%= merchant_friendship.merchant_friend.city %>, <%= merchant_friendship.merchant_friend.state %> <%= merchant_friendship.merchant_friend.zip_code %></p>
+              <% if merchant_friendship.merchant_friend.street_address %>
+                <p><%= merchant_friendship.merchant_friend.street_address %></p>
+                <p><%= merchant_friendship.merchant_friend.city %>, <%= merchant_friendship.merchant_friend.state %> <%= merchant_friendship.merchant_friend.zip_code %></p>
+              <% end %>
             </div>
           </div>
         </div>
@@ -102,7 +109,9 @@
           </div>
           <div class="span1">
             <h5><%= link_to merchant_user_friendship.user.name, merchant_user_friendship.user %></h5>
-            <p>ZipCode: <%= merchant_user_friendship.user.zip_code %></p>
+            <% if merchant_user_friendship.user.zip_code  %>
+              <p>ZipCode: <%= merchant_user_friendship.user.zip_code %></p>
+            <% end %>
           </div>
         </div>
       </div>
