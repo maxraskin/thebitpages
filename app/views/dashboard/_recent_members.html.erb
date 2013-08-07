@@ -7,14 +7,14 @@
             <%= link_to image_tag(member.avatar.url), user_path(member)  %>
           <% end %>
         </div>
-        <div class="span1">
+        <div class="span2">
           <h5><%= link_to member.name, user_path(member) %></h5>
           <% if member.zip_code.present? %>
-              <p>ZipCode: <%= member.zip_code %></p>
+              <p><%= member.zip_code %></p>
           <% end %>
         </div>
 
-        <div class="span1">
+        <div class="span2">
           <% if current_merchant_profile.present? %>
             <% if current_merchant_profile.merchant.merchant_user_friendships.include?(MerchantUserFriendship.where(:merchant_id => current_merchant_profile.merchant.id, :user_id => member.id).first) %>
               <b><i>Already Added!</i></b>
