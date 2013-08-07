@@ -3,7 +3,9 @@
       <div class="each-merchant">
         <div class="row">
           <div class="span1">
-            <% if merchant.avatar.url.present? %>
+            <% if merchant.merchant_profile && merchant.merchant_profile.approved %>
+              <%= link_to image_tag(merchant.merchant_profile.avatar.url), merchant_path(merchant) %>
+            <% else %>
               <%= link_to image_tag(merchant.avatar.url), merchant_path(merchant) %>
             <% end %>
           </div>

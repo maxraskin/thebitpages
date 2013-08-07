@@ -38,6 +38,13 @@ class MerchantProfilesController < Devise::RegistrationsController
 
     redirect_to merchant_path(@merchant)
   end
+
+  def update
+    merchant = current_merchant_profile.merchant
+    merchant.industry = params[:merchant_profile][:industry]
+    merchant.save
+    super
+  end
 end
 
 
