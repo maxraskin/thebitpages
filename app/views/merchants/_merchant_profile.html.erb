@@ -56,7 +56,7 @@
           </div>
 
         <% elsif @merchant.merchant_profile.present? && @merchant.merchant_profile.approved==false %>
-          <h4>This page is pending approval. If you are business owner, thank you for claiming your account. We will contact you soon!</h4>
+          <h4>This page is pending approval. If you are the business owner, thank you for claiming your account. We will contact you soon!</h4>
           <p>In the meantime, you can log into your account and edit your merchant profile information</p>
           <%= link_to "Sign in", new_merchant_profile_session_path %>
 
