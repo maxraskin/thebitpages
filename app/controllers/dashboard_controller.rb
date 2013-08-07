@@ -27,15 +27,21 @@ class DashboardController < ApplicationController
       @merchants = Merchant.last(4).reverse
       @new_members = User.where("name ILIKE?", "%"+"#{params[:user_name]}"+"%")
       render "search"
+    elsif !params[:zip_code].present? && params[:category].present? && params[:submit_search]
+      @merchants = Merchant.where("industry ILIKE?", "%"+"#{params[:category]}"+"%")
+      gon.merchants = @merchants
+      @new_members = User.last(3).reverse
+      render "search"
     elsif !valid_zipcode?(params[:zip_code])
       flash.alert = "Invalid Zip Code."
-      redirect_to root_url  
+      redirect_to root_url
     else
       set_zip_code_and_industry
       begin 
         if gon.industry.present?
           merchant_industry_array = Merchant.where("industry ILIKE?", "%"+"#{gon.industry}"+"%")
           @merchants = merchant_industry_array.within(10, :origin => gon.zip_code)
+          @new_members = User.last(3).reverse
         else
           @merchants = Merchant.within(10, :origin => gon.zip_code)
         end
