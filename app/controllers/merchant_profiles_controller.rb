@@ -45,6 +45,7 @@ class MerchantProfilesController < Devise::RegistrationsController
     merchant.state = params[:merchant_profile][:state]
     merchant.city = params[:merchant_profile][:city]
     merchant.zip_code = params[:merchant_profile][:zip_code]
+    merchant.bname = params[:merchant_profile][:bname]
     merchant.save
     super
   end
