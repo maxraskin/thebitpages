@@ -52,13 +52,15 @@
             <% end %>
           <% end %>
           
-          <p><%= @merchant.merchant_profile.bio %></p>
           </div>
 
           <div class="span3 offset1">
             <%= link_to "Send Message", :controller => "conversations", :action => "new", :merchant_id => @merchant.merchant_profile.id, :merchant_bname => @merchant.merchant_profile.bname %>
           </div>
       </div>
+      <div class="span7">
+        <p><%= @merchant.merchant_profile.bio %></p>
+      </div>  
       
 
     </div>
