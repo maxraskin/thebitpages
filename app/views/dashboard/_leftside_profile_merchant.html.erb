@@ -32,9 +32,12 @@
   </div>
 
   <div class="span3">
-    <% if current_merchant_profile.city.present? %>
-        <p><%= current_merchant_profile.city %>, <%= current_merchant_profile.state %> </p>
-    <% end %>
+    <div style="width:170px;">
+      <% if current_merchant_profile.city.present? %>
+          <p style="margin-bottom:0;"><%= current_merchant_profile.city %>,</p> 
+          <p><%= current_merchant_profile.state %> </p>
+      <% end %>
+    </div>
 
     <% if current_merchant_profile.twitter.present? %>
       <a href="https://twitter.com/<%= current_merchant_profile.twitter %>" class="twitter-follow-button" data-show-count="false" data-size="large"></a>
