@@ -1,0 +1,5 @@
+<% unless @merchants.first.street_address.blank? && @merchants.first.zip_code.blank? && @merchants.first.city.blank? %>
+  <div id="merchant-google-map" class="google-map-box"></div>
+<% else %>    
+  <h3><i>This business has not yet added an address.</i></h3>
+<% end %>
