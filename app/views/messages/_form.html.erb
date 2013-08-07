@@ -1,7 +1,7 @@
 <%= simple_form_for :message, :url => reply_conversation_url do |f| %>
   <%= f.input :subject %>
   <div class="conversation-body">
-    <%= f.input :body %>
+    <%= f.input :body, :as => :text %>
   </div>
   <div class="form-actions">
     <%= f.button :submit, "Send Message", :class => "btny" %>
