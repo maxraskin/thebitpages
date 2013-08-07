@@ -11,7 +11,6 @@ class MerchantProfilesController < Devise::RegistrationsController
       @merchant_profile = MerchantProfile.create(params[:merchant_profile])
 
       @merchant_profile.name = @merchant.name
-      @merchant_profile.email = @merchant.email
       @merchant_profile.bio = @merchant.bio
       @merchant_profile.street_address = @merchant.street_address
       @merchant_profile.city = @merchant.city
