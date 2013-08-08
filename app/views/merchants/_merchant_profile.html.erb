@@ -13,9 +13,13 @@
       </div>
 
       <div class="offset1 span5">
-        <% if @merchant.city.present? %>
-          <p><%= @merchant.street_address %></p>
-          <p><%= @merchant.city %>, <%= @merchant.state %> <%= @merchant.zip_code %></p>
+        <% if !@merchant.online_business %>
+          <% if @merchant.city.present? %>
+            <p><%= @merchant.street_address %></p>
+            <p><%= @merchant.city %>, <%= @merchant.state %> <%= @merchant.zip_code %></p>
+          <% end %>
+        <% else %>
+          <p>Online Business</p>
         <% end %>
         <p><%= @merchant.company_website %></p>
         <% if @merchant.twitter.present? %>

@@ -25,15 +25,19 @@ class DashboardController < ApplicationController
 
     if params[:user_search_link]
       @merchants = Merchant.last(4).reverse
-      @new_members = User.all
+      @new_members = User.alphabetically
       render "search"
     elsif params[:user_search_button]
       @merchants = Merchant.last(4).reverse
-      @new_members = User.where("name ILIKE?", "%"+"#{params[:user_name]}"+"%")
+      @new_members = User.alphabetically.where("name ILIKE?", "%"+"#{params[:user_name]}"+"%")
       render "search"
     elsif !params[:zip_code].present? && params[:category].present? && params[:submit_search]
-      @merchants = Merchant.where("industry ILIKE?", "%"+"#{params[:category]}"+"%")
+      @merchants = Merchant.alphabetically.where("industry ILIKE?", "%"+"#{params[:category]}"+"%")
       gon.merchants = @merchants
+      @new_members = User.last(3).reverse
+      render "search"
+    elsif !params[:zip_code].present? && !params[:category].present? && params[:submit_search]
+      @merchants = Merchant.alphabetically
       @new_members = User.last(3).reverse
       render "search"
     elsif !valid_zipcode?(params[:zip_code])
@@ -43,7 +47,7 @@ class DashboardController < ApplicationController
       set_zip_code_and_industry
       begin 
         if gon.industry.present?
-          merchant_industry_array = Merchant.where("industry ILIKE?", "%"+"#{gon.industry}"+"%")
+          merchant_industry_array = Merchant.alphabetically.where("industry ILIKE?", "%"+"#{gon.industry}"+"%")
           @merchants = merchant_industry_array.within(10, :origin => gon.zip_code)
           @new_members = User.last(3).reverse
         else
