@@ -117,3 +117,18 @@
 .display-hide {
   display: none;
 }
+
+button#user-search {
+  color: #0088cc;
+  background:none; 
+  border:none; padding:0;
+  font-weight:bold; 
+  text-decoration: underline;
+  width: 220px;
+  margin: 0 auto;
+}
+
+button#user-search:hover {
+  color: #005580;
+}
+

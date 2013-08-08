@@ -56,7 +56,8 @@
         <%= form_tag map_path, :method => 'post' do %>
           <%= select_tag :category, options_for_select(Merchant::MERCHANT_CATEGORIES), :id => "unregistered-search" %>
           <%= text_field_tag :zip_code, nil, :placeholder => "Include your zip code to narrow results to your area" %> <br />
-          <%= button_tag "Search", :name => "submit_search", :class => "sign-in-button btn btn-primary" %>
+          <%= button_tag "Search", :name => "submit_search", :class => "sign-in-button btn btn-primary" %> <br>
+          <%= link_to "See All Merchants", merchants_path %>
         <% end %>
         <h5>Or submit a merchant for review</h5>
         <%= button_to "Submit", user_submissions_path, :method => :get, :class => "sign-in-button btn btn-info", :style => "width: 72px;"  %>

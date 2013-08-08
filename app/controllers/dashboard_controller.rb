@@ -23,7 +23,11 @@ class DashboardController < ApplicationController
       @number_of_friendships = User.number_of_friendships(current_user)
     end
 
-    if params[:user_name]
+    if params[:user_search_link]
+      @merchants = Merchant.last(4).reverse
+      @new_members = User.all
+      render "search"
+    elsif params[:user_search_button]
       @merchants = Merchant.last(4).reverse
       @new_members = User.where("name ILIKE?", "%"+"#{params[:user_name]}"+"%")
       render "search"
