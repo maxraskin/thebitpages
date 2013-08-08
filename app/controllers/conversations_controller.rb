@@ -51,12 +51,16 @@ class ConversationsController < ApplicationController
   end
 
   def trash
+
     if current_merchant_profile.present?
-      conversation.move_to_trash(current_merchant_profile)
+      user = current_merchant_profile
     elsif current_user.present?
-      conversation.move_to_trash(current_user)
+      user = current_user
     end
+    conversation.move_to_trash(user)
+    user.mailbox.trash.each { |conversation| conversation.destroy }
     redirect_to :conversations
+    
   end
 
   def untrash
@@ -75,7 +79,6 @@ class ConversationsController < ApplicationController
     trash.each do |conversation|
       conversation.receipts_for(user).update_all(:deleted => true)
     end
-
 
     redirect_to conversations_url
   end
