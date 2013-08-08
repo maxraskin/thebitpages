@@ -20,7 +20,7 @@
   </div>
 
   <div class="span3">
-    <%= button_to "Inbox", conversations_path, :method => :get, :class => "btn profile-btn"  %>
+    <%= button_to "Inbox (#{current_merchant_profile.mailbox.conversations.count})", conversations_path, :method => :get, :class => "btn profile-btn"  %>
   </div>
 
   <div class="span3">
