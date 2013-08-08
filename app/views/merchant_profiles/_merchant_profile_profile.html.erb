@@ -17,9 +17,14 @@
       </div>
 
       <div class="offset1 span5">
-        <% if @merchant.merchant_profile.city.present? %>
-          <p><%= @merchant.merchant_profile.street_address %></p>
-          <p><%= @merchant.merchant_profile.city %>, <%= @merchant.merchant_profile.state %> <%= @merchant.merchant_profile.zip_code %></p>
+
+        <% if !@merchant.merchant_profile.online_business %> 
+          <% if @merchant.merchant_profile.city.present? %>
+            <p><%= @merchant.merchant_profile.street_address %></p>
+            <p><%= @merchant.merchant_profile.city %>, <%= @merchant.merchant_profile.state %> <%= @merchant.merchant_profile.zip_code %></p>
+          <% end %>
+        <% else %>
+          <p>Online Business</p>
         <% end %>
         <p><%= @merchant.merchant_profile.company_website %></p>
         <% if @merchant.merchant_profile.twitter.present? %>
