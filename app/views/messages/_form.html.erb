@@ -1,5 +1,5 @@
 <%= simple_form_for :message, :url => reply_conversation_url do |f| %>
-  <%= f.input :subject %>
+  <%= f.hidden_field :subject, :value => "Subject" %>
   <div class="conversation-body">
     <%= f.input :body, :as => :text %>
   </div>
