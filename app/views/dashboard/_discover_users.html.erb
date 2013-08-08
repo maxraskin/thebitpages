@@ -3,7 +3,8 @@
     <h4>DISCOVER BITCOIN USERS</h4>
     <%= form_tag map_path, :method => 'post' do %>
       <%= text_field_tag :user_name, nil, :placeholder => "Search username" %> <br />
-      <%= button_tag "Search", :name => "user_search", :style => "width: 220px;", :class => "btn btn-primary" %>
+      <%= button_tag "Search", :name => "user_search_button", :style => "width: 220px;", :class => "btn btn-primary" %><br>
+      <%= button_tag "Search for All Users", :name => "user_search_link", :id => "user-search" %>
     <% end %>
   </div>
 </div>
