@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130731214239) do
+ActiveRecord::Schema.define(:version => 20130808194234) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(:version => 20130731214239) do
     t.boolean  "online_business"
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "pending"
+    t.boolean  "newly_registered",       :default => true
   end
 
   add_index "merchant_profiles", ["approved"], :name => "index_merchant_profiles_on_approved"
@@ -157,6 +157,24 @@ ActiveRecord::Schema.define(:version => 20130731214239) do
 
   add_index "merchants", ["email"], :name => "index_merchants_on_email", :unique => true
   add_index "merchants", ["reset_password_token"], :name => "index_merchants_on_reset_password_token", :unique => true
+
+  create_table "messaging_users", :force => true do |t|
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+  end
+
+  add_index "messaging_users", ["email"], :name => "index_messaging_users_on_email", :unique => true
+  add_index "messaging_users", ["reset_password_token"], :name => "index_messaging_users_on_reset_password_token", :unique => true
 
   create_table "notifications", :force => true do |t|
     t.string   "type"
@@ -262,9 +280,5 @@ ActiveRecord::Schema.define(:version => 20130731214239) do
 
   add_index "views", ["email"], :name => "index_views_on_email", :unique => true
   add_index "views", ["reset_password_token"], :name => "index_views_on_reset_password_token", :unique => true
-
-  add_foreign_key "notifications", "conversations", :name => "notifications_on_conversation_id"
-
-  add_foreign_key "receipts", "notifications", :name => "receipts_on_notification_id"
 
 end

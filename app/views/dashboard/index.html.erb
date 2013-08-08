@@ -54,3 +54,28 @@
   </div>
 
 </div>
+ 
+
+<!-- Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Thank you for registering!</h4>
+      </div>
+      <div class="modal-body" id="incomplete-profile">
+        <p>Some of your profile information has not yet been completed. Please take the time to complete your profile so we can offer you a better merchant experience.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  
+if(gon.current_user.newly_registered) {
+  $("#myModal").modal();
+}
+
+</script>
