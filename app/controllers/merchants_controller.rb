@@ -1,6 +1,6 @@
 class MerchantsController < ApplicationController
   def index
-    @merchants = Merchant.alphabetically.paginate(:page => params[:merchant_page], :per_page => 4)
+    @merchants = Merchant.alphabetically.paginate(:page => params[:merchant_page], :per_page => 10)
   end
 
   def show
