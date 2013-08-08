@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   scope :alphabetically, order("name ASC")
+  scope :latest, order("created_at ASC")
   
   mount_uploader :avatar, AvatarUploader
   devise :database_authenticatable, :registerable,

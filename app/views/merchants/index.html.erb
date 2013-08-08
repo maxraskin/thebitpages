@@ -6,6 +6,7 @@
 <div class="offset1">
   
   <div class="span4 recent-merchants-dashboard" >
+    <%= will_paginate @merchants, :param_name => :merchant_page %>
     <%= render "dashboard/merchant_list.html.erb" %>
   </div>
 </div>

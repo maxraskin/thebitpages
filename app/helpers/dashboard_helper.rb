@@ -30,7 +30,7 @@ module DashboardHelper
   end
 
   def set_zip_code_and_industry 
-    if params[:zip_code].first == "0"
+    if params[:zip_code] && params[:zip_code].first == "0"
       gon.zip_code = Geocoder.coordinates(params[:zip_code])
     else
       gon.zip_code = params[:zip_code]

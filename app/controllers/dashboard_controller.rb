@@ -1,8 +1,8 @@
 class DashboardController < ApplicationController
   include DashboardHelper
   def index
-    @merchants = Merchant.last(4).reverse
-    @new_members = User.last(3).reverse
+    @merchants = Merchant.latest.paginate(:page => params[:merchant_page], :per_page => 5)
+    @new_members = User.latest.paginate(:page => params[:user_page], :per_page => 3)
 
     if current_merchant_profile.present?
       gon.current_user = current_merchant_profile

@@ -24,6 +24,7 @@
       </div>
 
       <div class="span4">
+
         <%= render "discover_users" %>
         
       </div>
@@ -33,13 +34,14 @@
     <div class="row">
       <div class="span4">
         <h4>Recent Bitcoin merchants</h4>
+        <%= will_paginate @merchants, :param_name => :merchant_page %>
         <%= render "merchant_list" %>
       </div>
 
       <div class="span4">
         <h4>New Bit Pages Members</h4>
+        <%= will_paginate @new_members, :param_name => :user_page %>
         <%= render "recent_members" %>
-        
       </div>
     </div>
     

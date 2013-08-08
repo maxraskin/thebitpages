@@ -1,5 +1,6 @@
 class Merchant < ActiveRecord::Base
   scope :alphabetically, order("bname ASC")
+  scope :latest, order("created_at ASC")
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

@@ -18,6 +18,7 @@ gem "meta_search",    '>= 1.1.0.pre'
 gem "simple_form"
 gem 'messaging', git: 'git://github.com/frodefi/rails-messaging.git'
 gem 'mailboxer', git: 'git://github.com/ging/mailboxer.git'
+gem 'will_paginate', '~> 3.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
