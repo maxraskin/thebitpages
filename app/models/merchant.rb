@@ -2,8 +2,9 @@ class Merchant < ActiveRecord::Base
   scope :alphabetically, order("bname ASC")
   scope :latest, order("created_at DESC")
   
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable,
+         :rememberable, :trackable,
+         :authentication_keys => [:bname]
 
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :bname, :avatar, :avatar_cache, :remove_avatar, :bio, :street_address, :city, :state, :zip_code, :online_business, :bitcoin_address, :company_website, :phone, :company_affiliation, :industry, :twitter
 
@@ -40,6 +41,4 @@ class Merchant < ActiveRecord::Base
     total = this_merchant_follow_other_merchants.count + other_merchants_follow_this_merchant.count + this_merchant_follow_other_users.count + other_users_follow_this_merchant.count
     return total
   end
-
-
 end

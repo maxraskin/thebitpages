@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130808194234) do
+ActiveRecord::Schema.define(:version => 20130809055159) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -124,7 +124,7 @@ ActiveRecord::Schema.define(:version => 20130808194234) do
   end
 
   create_table "merchants", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
+    t.string   "email",                  :default => ""
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -155,7 +155,6 @@ ActiveRecord::Schema.define(:version => 20130808194234) do
     t.float    "longitude"
   end
 
-  add_index "merchants", ["email"], :name => "index_merchants_on_email", :unique => true
   add_index "merchants", ["reset_password_token"], :name => "index_merchants_on_reset_password_token", :unique => true
 
   create_table "messaging_users", :force => true do |t|

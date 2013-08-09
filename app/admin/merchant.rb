@@ -25,6 +25,7 @@ ActiveAdmin.register Merchant do
     column :last_sign_in_at
     default_actions                   
   end 
+
     form do |f|
       f.inputs do
         f.input :name
@@ -42,10 +43,7 @@ ActiveAdmin.register Merchant do
         f.input :industry
         f.input :twitter
         f.input :zip_code
-        f.input :email, :as => :hidden, input_html: { :value => "admin@bitpages.com" }
-        f.input :password, :as => :hidden, input_html: { :value => "password" }
-        f.input :password_confirmation, :as => :hidden, input_html: { :value => "password" }
-      f.buttons :commit
+        f.actions
       end
     end
 

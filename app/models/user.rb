@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   
   mount_uploader :avatar, AvatarUploader
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+        :authentication_keys => [:email]
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :avatar, :avatar_cache, :remove_avatar, :bio, :zip_code, :bitcoin_address, :twitter, :phone, :company_affiliation, :industry, :job_title
