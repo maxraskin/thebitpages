@@ -8,7 +8,4 @@ class UsersController < ApplicationController
     @number_of_friendships = User.number_of_friendships(@user)
     gon.user = @user
   end
-
-  def update
-  end
 end

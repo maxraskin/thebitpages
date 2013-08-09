@@ -19,7 +19,7 @@ Bitpages::Application.routes.draw do
   root :to => "home#index"
 
   devise_for :merchants
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "user_registrations"}
   devise_for :merchant_profiles, :controllers => { :registrations => "merchant_profiles" }
   # devise_for :merchant_profiles
 
