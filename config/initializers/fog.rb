@@ -1,8 +1,8 @@
 CarrierWave.configure do |config|
   config.fog_credentials = {
     :provider               => 'AWS',                        # required
-    :aws_access_key_id      => 'AKIAIW4HU5GWGL7HY6WQ',                        # required
-    :aws_secret_access_key  => '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',                        # required
+    :aws_access_key_id      => 'AKIAJSKFHN3NBUO7VSBA',                        # required
+    :aws_secret_access_key  => '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',                        # required
     :region                 => 'us-east-1'                  # optional, defaults to 'us-east-1'
   }
   config.fog_directory  = 'bitpages'                     # required
