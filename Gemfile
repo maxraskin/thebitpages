@@ -19,6 +19,7 @@ gem "simple_form"
 gem 'messaging', git: 'git://github.com/frodefi/rails-messaging.git'
 gem 'mailboxer', git: 'git://github.com/ging/mailboxer.git'
 gem 'will_paginate', '~> 3.0'
+gem "recaptcha", :require => "recaptcha/rails"
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'

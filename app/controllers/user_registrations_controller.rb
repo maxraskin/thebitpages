@@ -4,4 +4,12 @@ class UserRegistrationsController < Devise::RegistrationsController
     current_user.save
     super
   end
+
+  def create
+    if verify_recaptcha
+      super
+    else 
+      redirect_to new_user_registration_path
+    end
+  end
 end
