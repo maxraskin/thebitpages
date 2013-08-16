@@ -9,6 +9,7 @@ class UserRegistrationsController < Devise::RegistrationsController
     if verify_recaptcha
       super
     else 
+      flash[:alert] = "Please try again. You have entered the wrong ReCaptcha verification words."
       redirect_to new_user_registration_path
     end
   end

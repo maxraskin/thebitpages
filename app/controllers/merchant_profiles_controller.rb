@@ -38,6 +38,7 @@ class MerchantProfilesController < Devise::RegistrationsController
       end
       redirect_to merchant_path(@merchant)
     else 
+      flash[:alert] = "Please try again. You have entered the wrong ReCaptcha verification words."
       redirect_to new_merchant_profile_registration_path
     end
   end
