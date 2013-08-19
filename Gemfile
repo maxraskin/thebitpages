@@ -20,6 +20,8 @@ gem 'messaging', git: 'git://github.com/frodefi/rails-messaging.git'
 gem 'mailboxer', git: 'git://github.com/ging/mailboxer.git'
 gem 'will_paginate', '~> 3.0'
 gem "recaptcha", :require => "recaptcha/rails"
+gem "sentry-raven"
+
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
