@@ -6,7 +6,6 @@ class MerchantProfilesController < Devise::RegistrationsController
   end
 
   def create
-
     if verify_recaptcha
       if params[:merchant_profile][:merchant_id].present?
         @merchant = Merchant.find(params[:merchant_profile][:merchant_id])
