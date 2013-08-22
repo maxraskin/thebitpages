@@ -4,7 +4,7 @@ class MerchantsController < ApplicationController
   end
 
   def show
-    unless params[:id].is_a? Integer
+    unless params[:id].to_i != 0
       flash[:alert] = "That page doesn't exist!"
       redirect_to root_url
     else
