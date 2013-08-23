@@ -4,16 +4,14 @@ class MerchantsController < ApplicationController
   end
 
   def show
-    unless params[:id].to_i != 0
+    begin
+      @merchant = Merchant.find(params[:id])
+      @number_of_friendships = Merchant.number_of_friendships(@merchant)
+      gon.merchants = @merchants = [@merchant]
+      gon.merchant = @merchant
+    rescue ActiveRecord::RecordNotFound
       flash[:alert] = "That page doesn't exist!"
       redirect_to root_url
-    else
-      @merchants = Merchant.where(:id => params[:id])
-      @merchant = @merchants.first
-      @number_of_friendships = Merchant.number_of_friendships(@merchant)
-
-      gon.merchants = @merchants
-      gon.merchant = @merchant = @merchants.first
     end
   end
 
