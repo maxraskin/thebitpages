@@ -14,6 +14,10 @@ class DashboardController < ApplicationController
   end
 
   def map
+    if params[:category].blank?
+      redirect_to root_url and return
+    end
+
     set_current_user
     if current_merchant_profile.present?
       gon.current_user = current_merchant_profile
