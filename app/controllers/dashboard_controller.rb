@@ -30,26 +30,26 @@ class DashboardController < ApplicationController
     if params[:user_search_link]
       @merchants = Merchant.last(4).reverse
       @new_members = User.alphabetically
-      render "search"
+      render "search" and return
     elsif params[:user_search_button]
       @merchants = Merchant.last(4).reverse
       @new_members = User.alphabetically.where("name ILIKE?", "%"+"#{params[:user_name]}"+"%")
-      render "search"
+      render "search" and return
     elsif !params[:zip_code].present? && params[:category].present? && params[:submit_search]
       @merchants = Merchant.alphabetically.where("industry ILIKE?", "%"+"#{params[:category]}"+"%")
       gon.merchants = @merchants
       @new_members = User.last(3).reverse
-      render "search"
+      render "search" and return
     elsif !params[:zip_code].present? && !params[:category].present? && params[:submit_search]
       @merchants = Merchant.alphabetically
       @new_members = User.last(3).reverse
-      render "search"
+      render "search" and return
     elsif !valid_zipcode?(params[:zip_code])
       flash.alert = "Invalid Zip Code."
-      redirect_to root_url
+      redirect_to root_url and return
     else
       set_zip_code_and_industry
-      begin 
+      begin
         if gon.industry.present?
           merchant_industry_array = Merchant.alphabetically.where("industry ILIKE?", "%"+"#{gon.industry}"+"%")
           @merchants = merchant_industry_array.within(10, :origin => gon.zip_code)
@@ -59,7 +59,7 @@ class DashboardController < ApplicationController
         end
       rescue Geokit::Geocoders::GeocodeError
         flash.alert = "Invalid Zip Code."
-        redirect_to root_url
+        redirect_to root_url and return
       end
 
       if @merchants.present? && !@merchants.empty?
@@ -68,19 +68,19 @@ class DashboardController < ApplicationController
         elsif params[:submit_search]
           @new_members = User.last(3).reverse
           gon.merchants = @merchants
-          
+
           if current_merchant_profile.present? == false && current_user.present? == false
             gon.center = Geocoder::Calculations.geographic_center(@merchants)
-            render "unregistered_search"
+            render "unregistered_search" and return
           else
-            render "search"
+            render "search" and return
           end
         end
       else
         flash.alert = "No matches found."
-        redirect_to root_url
+        redirect_to root_url and return
       end
-      gon.merchants = @merchants 
+      gon.merchants = @merchants
     end
 
   end
