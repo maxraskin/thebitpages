@@ -3,4 +3,5 @@ class UserMerchantFriendship < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :merchant
+  validates_uniqueness_of :merchant_id
 end
