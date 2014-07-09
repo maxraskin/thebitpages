@@ -3,13 +3,16 @@
   <div class="row">
     <div class="span12 follows">
       <h4>Accounts you are following: </h4>
-    </div>   
+    </div>
     <div class="span5">
       <h4>Merchants</h4>
       <% @user.user_merchant_friendships.each do |user_merchant_friendship| %>
+        <% next if user_merchant_friendship.blank? || user_merchant_friendship.merchant.blank? %>
         <div class="row">
           <div class="span5 recent-merchants-dashboard">
-            <p style="margin-left:30px; margin-bottom: 0;"><%= user_merchant_friendship.merchant.bname %> (<%= link_to "remove friend", user_merchant_friendship, :method => :delete %>)</p>
+            <p style="margin-left:30px; margin-bottom: 0;">
+              <%= user_merchant_friendship.merchant.bname %> (<%= link_to "remove friend", user_merchant_friendship, :method => :delete %>)
+            </p>
 
             <div class="each-merchant" style="margin-left:30px;">
               <div class="row">
@@ -43,6 +46,7 @@
     <div class="span3 recent-users-dashboard">
       <h4>People</h4>
       <% @user.user_friendships.each do |user_friendship| %>
+        <% next if user_friendship.blank? || user_friendship.user_friend.blank? %>
          <%= user_friendship.user_friend.name %>
         (<%= link_to "remove friend", user_friendship, :method => :delete %>)
         <div class="each-member">
@@ -67,7 +71,7 @@
       <h4>Accounts following you: </h4>
     </div>
     <div class="span5">
-      
+
       <h4>Merchants</h4>
       <% @merchant_followers.each do |merchant_user_friendship| %>
         <div class="row">
@@ -120,8 +124,7 @@
           </div>
         </div>
       <% end %>
-    </div>    
+    </div>
   </div>
 </div>
 
-  
