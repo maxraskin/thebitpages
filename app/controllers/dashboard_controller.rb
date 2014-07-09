@@ -14,9 +14,9 @@ class DashboardController < ApplicationController
   end
 
   def map
-    if params[:category].blank?
-      redirect_to root_url and return
-    end
+    # if params[:category].blank?
+    #   redirect_to root_url and return
+    # end
 
     set_current_user
     if current_merchant_profile.present?
